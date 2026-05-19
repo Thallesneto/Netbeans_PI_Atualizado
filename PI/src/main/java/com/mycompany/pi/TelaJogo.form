@@ -67,6 +67,8 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="botãoVoltar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="botãoSom" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="botãoDica" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -115,6 +117,7 @@
                               <Component id="botãoVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="botãoDica" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="botãoPular" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botãoSom" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -358,6 +361,11 @@
         <Component class="javax.swing.JButton" name="bot&#xe3;oPular">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pular"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="bot&#xe3;oSom">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Som"/>
           </Properties>
         </Component>
       </SubComponents>

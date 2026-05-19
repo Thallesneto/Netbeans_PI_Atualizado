@@ -49,6 +49,7 @@ public class TelaJogo extends javax.swing.JFrame {
         botãoVoltar = new javax.swing.JButton();
         botãoDica = new javax.swing.JButton();
         botãoPular = new javax.swing.JButton();
+        botãoSom = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -156,6 +157,8 @@ public class TelaJogo extends javax.swing.JFrame {
 
         botãoPular.setText("Pular");
 
+        botãoSom.setText("Som");
+
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
         cinzaPaneLayout.setHorizontalGroup(
@@ -177,6 +180,8 @@ public class TelaJogo extends javax.swing.JFrame {
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(cinzaPaneLayout.createSequentialGroup()
                                 .addComponent(botãoVoltar)
+                                .addGap(18, 18, 18)
+                                .addComponent(botãoSom)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botãoDica)
                                 .addGap(18, 18, 18)
@@ -214,7 +219,8 @@ public class TelaJogo extends javax.swing.JFrame {
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(botãoVoltar)
                             .addComponent(botãoDica)
-                            .addComponent(botãoPular)))
+                            .addComponent(botãoPular)
+                            .addComponent(botãoSom)))
                     .addGroup(cinzaPaneLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,6 +313,7 @@ public class TelaJogo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botãoDica;
     private javax.swing.JButton botãoPular;
+    private javax.swing.JButton botãoSom;
     private javax.swing.JButton botãoVoltar;
     private javax.swing.JPanel cinzaEscuroPane;
     private javax.swing.JPanel cinzaEscuroPane2;
