@@ -34,7 +34,6 @@ public class TelaJogo extends javax.swing.JFrame {
         vermelhoPane2 = new javax.swing.JPanel();
         cinzaEscuroPane2 = new javax.swing.JPanel();
         resposta3 = new javax.swing.JButton();
-        pergunta = new javax.swing.JButton();
         resposta2 = new javax.swing.JButton();
         resposta4 = new javax.swing.JButton();
         resposta1 = new javax.swing.JButton();
@@ -50,6 +49,7 @@ public class TelaJogo extends javax.swing.JFrame {
         botãoDica = new javax.swing.JButton();
         botãoPular = new javax.swing.JButton();
         botãoSom = new javax.swing.JButton();
+        perguntaJogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -118,10 +118,6 @@ public class TelaJogo extends javax.swing.JFrame {
         resposta3.setText("Alternativa 3");
         resposta3.addActionListener(this::resposta3ActionPerformed);
 
-        pergunta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        pergunta.setText("Pergunta");
-        pergunta.addActionListener(this::perguntaActionPerformed);
-
         resposta2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         resposta2.setText("Alternativa 2");
         resposta2.addActionListener(this::resposta2ActionPerformed);
@@ -159,6 +155,8 @@ public class TelaJogo extends javax.swing.JFrame {
 
         botãoSom.setText("Som");
 
+        perguntaJogo.setText("PERGUNTA");
+
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
         cinzaPaneLayout.setHorizontalGroup(
@@ -167,7 +165,7 @@ public class TelaJogo extends javax.swing.JFrame {
                 .addComponent(vermelhoPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                    .addGroup(cinzaPaneLayout.createSequentialGroup()
                         .addComponent(numeroPergunta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,13 +174,13 @@ public class TelaJogo extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(variavelPontos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(84, 84, 84))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                    .addGroup(cinzaPaneLayout.createSequentialGroup()
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(cinzaPaneLayout.createSequentialGroup()
                                 .addComponent(botãoVoltar)
                                 .addGap(18, 18, 18)
                                 .addComponent(botãoSom)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 447, Short.MAX_VALUE)
                                 .addComponent(botãoDica)
                                 .addGap(18, 18, 18)
                                 .addComponent(botãoPular))
@@ -192,8 +190,8 @@ public class TelaJogo extends javax.swing.JFrame {
                                     .addComponent(resposta1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                                     .addComponent(imagemResposta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(imagemResposta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(pergunta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                                    .addComponent(perguntaJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(imagemPergunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(resposta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -205,28 +203,21 @@ public class TelaJogo extends javax.swing.JFrame {
         );
         cinzaPaneLayout.setVerticalGroup(
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(vermelhoPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
-            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+            .addComponent(vermelhoPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 811, Short.MAX_VALUE)
+            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 811, Short.MAX_VALUE)
             .addGroup(cinzaPaneLayout.createSequentialGroup()
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomePontos)
                     .addComponent(numeroPergunta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(variavelPontos)
+                .addGap(18, 18, 18)
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
-                        .addGap(645, 645, 645)
-                        .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(botãoVoltar)
-                            .addComponent(botãoDica)
-                            .addComponent(botãoPular)
-                            .addComponent(botãoSom)))
+                    .addComponent(perguntaJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(imagemPergunta, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cinzaPaneLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pergunta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(imagemPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(imagemResposta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(imagemResposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -242,7 +233,14 @@ public class TelaJogo extends javax.swing.JFrame {
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(resposta3, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(resposta4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addContainerGap(180, Short.MAX_VALUE))
+                    .addGroup(cinzaPaneLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botãoVoltar)
+                            .addComponent(botãoDica)
+                            .addComponent(botãoPular)
+                            .addComponent(botãoSom)))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -264,10 +262,6 @@ public class TelaJogo extends javax.swing.JFrame {
     private void resposta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resposta3ActionPerformed
-
-    private void perguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perguntaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_perguntaActionPerformed
 
     private void resposta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta2ActionPerformed
         // TODO add your handling code here:
@@ -325,7 +319,7 @@ public class TelaJogo extends javax.swing.JFrame {
     private javax.swing.JLabel imagemResposta4;
     private javax.swing.JLabel nomePontos;
     private javax.swing.JLabel numeroPergunta;
-    private javax.swing.JButton pergunta;
+    private javax.swing.JLabel perguntaJogo;
     private javax.swing.JButton resposta1;
     private javax.swing.JButton resposta2;
     private javax.swing.JButton resposta3;
