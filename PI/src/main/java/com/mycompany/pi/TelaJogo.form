@@ -80,7 +80,7 @@
                                       <Component id="resposta1" alignment="1" pref="373" max="32767" attributes="0"/>
                                       <Component id="imagemResposta1" max="32767" attributes="0"/>
                                       <Component id="imagemResposta3" max="32767" attributes="0"/>
-                                      <Component id="perguntaJogo" max="32767" attributes="0"/>
+                                      <Component id="títuloPergunta" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -112,7 +112,7 @@
                   <Component id="variavelPontos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="perguntaJogo" max="32767" attributes="0"/>
+                      <Component id="títuloPergunta" max="32767" attributes="0"/>
                       <Component id="imagemPergunta" pref="88" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -357,7 +357,7 @@
             <Property name="text" type="java.lang.String" value="Som"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="perguntaJogo">
+        <Component class="javax.swing.JLabel" name="t&#xed;tuloPergunta">
           <Properties>
             <Property name="text" type="java.lang.String" value="PERGUNTA"/>
           </Properties>
