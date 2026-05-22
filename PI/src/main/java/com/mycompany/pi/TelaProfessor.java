@@ -102,11 +102,11 @@ public class TelaProfessor extends javax.swing.JFrame {
         );
 
         cadastrarPerguntaButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        cadastrarPerguntaButton.setText("Cadastrar Pergunta");
+        cadastrarPerguntaButton.setText("Gerenciar Perguntas");
         cadastrarPerguntaButton.addActionListener(this::cadastrarPerguntaButtonActionPerformed);
 
         cadastrarAlunoButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        cadastrarAlunoButton.setText("Cadastrar Aluno");
+        cadastrarAlunoButton.setText("Gerenciar Alunos");
         cadastrarAlunoButton.addActionListener(this::cadastrarAlunoButtonActionPerformed);
 
         classificacaoButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -168,14 +168,23 @@ public class TelaProfessor extends javax.swing.JFrame {
 
     private void cadastrarPerguntaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPerguntaButtonActionPerformed
         // TODO add your handling code here:
+        TelaEscolhaPerguntas tela = new TelaEscolhaPerguntas();
+        tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_cadastrarPerguntaButtonActionPerformed
 
     private void cadastrarAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarAlunoButtonActionPerformed
         // TODO add your handling code here:
+        CadastroAlunos tela = new CadastroAlunos();
+        tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_cadastrarAlunoButtonActionPerformed
 
     private void classificacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classificacaoButtonActionPerformed
         // TODO add your handling code here:
+        TelaRanking tela = new TelaRanking();
+        tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_classificacaoButtonActionPerformed
 
     private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed

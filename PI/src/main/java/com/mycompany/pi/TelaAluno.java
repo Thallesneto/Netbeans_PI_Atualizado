@@ -152,6 +152,7 @@ public class TelaAluno extends javax.swing.JFrame {
 
         nomeUsuário.setText("Usuário:");
 
+        Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/R (1).png"))); // NOI18N
         Icone.setText("Icone");
 
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
@@ -191,11 +192,11 @@ public class TelaAluno extends javax.swing.JFrame {
                     .addGroup(cinzaPaneLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(Icone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
-            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
-            .addComponent(vermelhoPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
+            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+            .addComponent(vermelhoPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -228,6 +229,9 @@ public class TelaAluno extends javax.swing.JFrame {
 
     private void botãoJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoJogarActionPerformed
         // TODO add your handling code here:
+        TelaDificuldade tela = new TelaDificuldade();
+        tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botãoJogarActionPerformed
 
     private void botãoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSairActionPerformed

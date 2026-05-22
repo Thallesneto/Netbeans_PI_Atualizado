@@ -98,12 +98,12 @@
                           <Component id="Icone" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               </Group>
-              <Component id="vermelhoPane2" pref="511" max="32767" attributes="0"/>
-              <Component id="vermelhoPane1" alignment="1" pref="511" max="32767" attributes="0"/>
+              <Component id="vermelhoPane2" pref="526" max="32767" attributes="0"/>
+              <Component id="vermelhoPane1" alignment="1" pref="526" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -294,6 +294,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Icone">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/R (1).png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Icone"/>
           </Properties>
         </Component>

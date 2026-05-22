@@ -8,14 +8,14 @@ package com.mycompany.pi;
  *
  * @author danda
  */
-public class TelaCadastro extends javax.swing.JFrame {
+public class TelaEdiçãoPergunta extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaCadastro.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaEdiçãoPergunta.class.getName());
 
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaCadastro() {
+    public TelaEdiçãoPergunta() {
         initComponents();
     }
 
@@ -33,7 +33,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         cinzaEscuroPane = new javax.swing.JPanel();
         vermelhoPane2 = new javax.swing.JPanel();
         cinzaEscuroPane2 = new javax.swing.JPanel();
-        botãoCadastrar = new javax.swing.JButton();
+        botãoAtualizar = new javax.swing.JButton();
         botãoSair = new javax.swing.JButton();
         cadastrarDica = new javax.swing.JTextField();
         dica = new javax.swing.JLabel();
@@ -55,6 +55,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         nomePágina = new javax.swing.JLabel();
         botãoSom = new javax.swing.JButton();
         botãoDificuldade = new javax.swing.JComboBox<>();
+        botãoExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -119,8 +120,8 @@ public class TelaCadastro extends javax.swing.JFrame {
                 .addComponent(cinzaEscuroPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        botãoCadastrar.setText("Cadastrar");
-        botãoCadastrar.addActionListener(this::botãoCadastrarActionPerformed);
+        botãoAtualizar.setText("Atualizar");
+        botãoAtualizar.addActionListener(this::botãoAtualizarActionPerformed);
 
         botãoSair.setText("Voltar");
         botãoSair.addActionListener(this::botãoSairActionPerformed);
@@ -154,11 +155,13 @@ public class TelaCadastro extends javax.swing.JFrame {
         identificadorPergunta.setText("Pergunta");
 
         nomePágina.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        nomePágina.setText("Cadastro de Perguntas");
+        nomePágina.setText("Edição de Perguntas");
 
         botãoSom.setText("Som");
 
         botãoDificuldade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        botãoExcluir.setText("Excluir");
 
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
@@ -167,14 +170,6 @@ public class TelaCadastro extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                 .addComponent(vermelhoPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cinzaPaneLayout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(botãoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118)
-                        .addComponent(botãoDificuldade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(121, 121, 121)
-                        .addComponent(botãoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -203,8 +198,21 @@ public class TelaCadastro extends javax.swing.JFrame {
                                     .addGroup(cinzaPaneLayout.createSequentialGroup()
                                         .addComponent(identificadorPergunta)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(botãoSom)))))
-                        .addGap(18, 18, 18)))
+                                        .addComponent(botãoSom))))))
+                    .addGroup(cinzaPaneLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(cinzaPaneLayout.createSequentialGroup()
+                                .addComponent(botãoDificuldade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(122, 122, 122))
+                            .addGroup(cinzaPaneLayout.createSequentialGroup()
+                                .addComponent(botãoAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(64, 64, 64)
+                                .addComponent(botãoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(67, 67, 67)))
+                        .addComponent(botãoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 87, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
                 .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
@@ -250,11 +258,13 @@ public class TelaCadastro extends javax.swing.JFrame {
                 .addComponent(dica)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cadastrarDica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(18, 18, 18)
+                .addComponent(botãoDificuldade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botãoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botãoAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botãoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botãoDificuldade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botãoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -277,9 +287,9 @@ public class TelaCadastro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botãoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoCadastrarActionPerformed
+    private void botãoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoAtualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botãoCadastrarActionPerformed
+    }//GEN-LAST:event_botãoAtualizarActionPerformed
 
     private void botãoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSairActionPerformed
         // TODO add your handling code here:
@@ -322,12 +332,13 @@ public class TelaCadastro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaCadastro().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaEdiçãoPergunta().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botãoCadastrar;
+    private javax.swing.JButton botãoAtualizar;
     private javax.swing.JComboBox<String> botãoDificuldade;
+    private javax.swing.JButton botãoExcluir;
     private javax.swing.JButton botãoSair;
     private javax.swing.JButton botãoSom;
     private javax.swing.JTextField cadastrarDica;

@@ -52,21 +52,27 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Component id="etecVermelhoPane" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="emailField" pref="280" max="32767" attributes="0"/>
-                          <Component id="senhaPasswordField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="senhaLabel" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
-                          <Component id="emailLabel" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="emailField" pref="280" max="32767" attributes="0"/>
+                                  <Component id="senhaPasswordField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="senhaLabel" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Component id="emailLabel" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="mostrarSenhaBox" min="-2" max="-2" attributes="0"/>
+                              <Component id="botãoTermosDeUso" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="mostrarSenhaBox" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                           <Component id="entrarButton" min="-2" pref="100" max="-2" attributes="0"/>
+                          <EmptySpace pref="145" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="85" max="32767" attributes="0"/>
                   <Component id="mauaVermelhoPane" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -86,7 +92,9 @@
                   <Component id="senhaPasswordField" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="mostrarSenhaBox" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="botãoTermosDeUso" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="entrarButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace pref="99" max="32767" attributes="0"/>
               </Group>
@@ -130,7 +138,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="mauaLabel" pref="169" max="32767" attributes="0"/>
+                          <Component id="mauaLabel" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -193,7 +201,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="etecLabel" min="-2" pref="171" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="27" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -264,6 +272,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrarSenhaBoxActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="bot&#xe3;oTermosDeUso">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Aceitar os Termos de Uso"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

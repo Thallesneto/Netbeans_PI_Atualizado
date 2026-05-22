@@ -66,6 +66,15 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
+                                  <Component id="botãoVoltar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="botãoSom" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="447" max="32767" attributes="0"/>
+                                  <Component id="botãoDica" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="botãoPular" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="resposta3" alignment="0" max="32767" attributes="0"/>
                                       <Component id="resposta1" alignment="1" pref="373" max="32767" attributes="0"/>
@@ -73,7 +82,7 @@
                                       <Component id="imagemResposta3" max="32767" attributes="0"/>
                                       <Component id="títuloPergunta" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="64" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="imagemPergunta" alignment="0" max="32767" attributes="0"/>
                                       <Component id="resposta2" alignment="0" max="32767" attributes="0"/>
@@ -81,15 +90,6 @@
                                       <Component id="imagemResposta2" max="32767" attributes="0"/>
                                       <Component id="imagemResposta4" max="32767" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="botãoVoltar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="botãoSom" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="botãoDica" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="botãoPular" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -116,33 +116,39 @@
                       <Component id="imagemPergunta" pref="88" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="imagemResposta1" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
-                      <Component id="imagemResposta2" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="imagemResposta1" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="imagemResposta2" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="resposta1" pref="100" max="32767" attributes="0"/>
+                              <Component id="resposta2" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="imagemResposta3" pref="100" max="32767" attributes="0"/>
+                              <Component id="imagemResposta4" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="resposta3" pref="100" max="32767" attributes="0"/>
+                              <Component id="resposta4" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="180" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="botãoVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botãoDica" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botãoPular" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botãoSom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="resposta1" pref="100" max="32767" attributes="0"/>
-                      <Component id="resposta2" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="imagemResposta3" pref="100" max="32767" attributes="0"/>
-                      <Component id="imagemResposta4" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="resposta3" pref="100" max="32767" attributes="0"/>
-                      <Component id="resposta4" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="151" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="botãoVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botãoSom" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botãoPular" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botãoDica" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

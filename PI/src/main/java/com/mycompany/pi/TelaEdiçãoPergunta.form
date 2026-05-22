@@ -54,15 +54,6 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="vermelhoPane2" min="-2" pref="100" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                          <Component id="botãoCadastrar" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                          <Component id="botãoDificuldade" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
-                          <Component id="botãoSair" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace pref="105" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -98,9 +89,26 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="botãoDificuldade" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="botãoAtualizar" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Component id="botãoExcluir" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="botãoSair" min="-2" pref="180" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="87" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="vermelhoPane1" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -157,11 +165,13 @@
                   <Component id="dica" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="cadastrarDica" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="botãoDificuldade" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="botãoCadastrar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="botãoAtualizar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="botãoSair" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="botãoDificuldade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botãoExcluir" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -265,12 +275,12 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="bot&#xe3;oCadastrar">
+        <Component class="javax.swing.JButton" name="bot&#xe3;oAtualizar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar"/>
+            <Property name="text" type="java.lang.String" value="Atualizar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oCadastrarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oAtualizarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bot&#xe3;oSair">
@@ -362,7 +372,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cadastro de Perguntas"/>
+            <Property name="text" type="java.lang.String" value="Edi&#xe7;&#xe3;o de Perguntas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="bot&#xe3;oSom">
@@ -384,6 +394,11 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="bot&#xe3;oExcluir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Excluir"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

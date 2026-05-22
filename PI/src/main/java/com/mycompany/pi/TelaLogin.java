@@ -50,6 +50,7 @@ public class TelaLogin extends javax.swing.JFrame {
         entrarButton = new javax.swing.JButton();
         senhaPasswordField = new javax.swing.JPasswordField();
         mostrarSenhaBox = new javax.swing.JCheckBox();
+        botãoTermosDeUso = new javax.swing.JCheckBox();
 
         jLabel1.setText("jLabel1");
 
@@ -70,7 +71,7 @@ public class TelaLogin extends javax.swing.JFrame {
             mauaCinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mauaCinzaPaneLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(mauaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addComponent(mauaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
         mauaCinzaPaneLayout.setVerticalGroup(
@@ -108,7 +109,7 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(etecCinzaPaneLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(etecLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         etecCinzaPaneLayout.setVerticalGroup(
             etecCinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,24 +149,30 @@ public class TelaLogin extends javax.swing.JFrame {
         mostrarSenhaBox.setText("Mostrar Senha");
         mostrarSenhaBox.addActionListener(this::mostrarSenhaBoxActionPerformed);
 
+        botãoTermosDeUso.setText("Aceitar os Termos de Uso");
+
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
         cinzaPaneLayout.setHorizontalGroup(
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                 .addComponent(etecVermelhoPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                        .addComponent(senhaPasswordField)
-                        .addComponent(senhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(mostrarSenhaBox)
                     .addGroup(cinzaPaneLayout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(entrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                                .addComponent(senhaPasswordField)
+                                .addComponent(senhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(mostrarSenhaBox)
+                            .addComponent(botãoTermosDeUso))
+                        .addGap(59, 59, 59))
+                    .addGroup(cinzaPaneLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(entrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)))
                 .addComponent(mauaVermelhoPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
@@ -183,7 +190,9 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(senhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mostrarSenhaBox)
-                .addGap(55, 55, 55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botãoTermosDeUso)
+                .addGap(29, 29, 29)
                 .addComponent(entrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(99, Short.MAX_VALUE))
         );
@@ -246,7 +255,7 @@ public class TelaLogin extends javax.swing.JFrame {
             if(rs.next()){
                 String hashSalvo = rs.getString("senha_hash");
                 
-                if (senhaDigitada.equals(hashSalvo)){
+                if (SegurancaSenha.verificarSenha(senhaDigitada,hashSalvo)){
                     String nome = rs.getString("nome");
                     String tipoUsuario = rs.getString("tipo_usuario");
                     
@@ -256,7 +265,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         this.dispose();
                         
                     }else if(tipoUsuario.equals("Aluno")){
-                        TelaDificuldade tela = new TelaDificuldade();
+                        TelaAluno tela = new TelaAluno();
                         tela.setVisible(true);
                         this.dispose();
                 }
@@ -297,6 +306,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox botãoTermosDeUso;
     private javax.swing.JPanel cinzaPane;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;
