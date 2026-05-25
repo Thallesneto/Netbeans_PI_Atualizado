@@ -225,13 +225,16 @@ public class TelaPerguntas extends javax.swing.JFrame {
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
-        TelaCadastro tela = new TelaCadastro();
+        TelaEscolhaPerguntas tela = new TelaEscolhaPerguntas();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed
 
     private void botãoAvançarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoAvançarActionPerformed
         // TODO add your handling code here:
+        TelaEdiçãoPergunta tela = new TelaEdiçãoPergunta();
+        tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botãoAvançarActionPerformed
 
     /**

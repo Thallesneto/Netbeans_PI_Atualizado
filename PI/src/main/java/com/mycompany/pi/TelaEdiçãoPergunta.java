@@ -293,7 +293,7 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
 
     private void botãoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSairActionPerformed
         // TODO add your handling code here:
-        TelaEscolhaPerguntas tela = new TelaEscolhaPerguntas();
+        TelaPerguntas tela = new TelaPerguntas();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoSairActionPerformed
