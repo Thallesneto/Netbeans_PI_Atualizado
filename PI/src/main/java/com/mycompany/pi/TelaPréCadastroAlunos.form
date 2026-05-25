@@ -194,9 +194,9 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="botãoCadastrarPergunta" min="-2" max="-2" attributes="0"/>
-                                  <Component id="botãoEditarPergunta" min="-2" pref="251" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="botãoCadastrarAluno" pref="251" max="32767" attributes="0"/>
+                                  <Component id="botãoEditarAluno" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -208,9 +208,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace pref="101" max="32767" attributes="0"/>
-                      <Component id="botãoEditarPergunta" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="botãoCadastrarAluno" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="botãoCadastrarPergunta" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="botãoEditarAluno" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                       <Component id="botãoVoltar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -230,26 +230,26 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oVoltarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="bot&#xe3;oCadastrarPergunta">
+            <Component class="javax.swing.JButton" name="bot&#xe3;oEditarAluno">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cadastrar Pergunta"/>
+                <Property name="text" type="java.lang.String" value="Editar Aluno"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oCadastrarPerguntaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oEditarAlunoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="bot&#xe3;oEditarPergunta">
+            <Component class="javax.swing.JButton" name="bot&#xe3;oCadastrarAluno">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Editar Pergunta"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar Aluno"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oEditarPerguntaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oCadastrarAlunoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -8,14 +8,14 @@ package com.mycompany.pi;
  *
  * @author danda
  */
-public class TelaEscolhaPerguntas extends javax.swing.JFrame {
+public class TelaPréCadastroAlunos extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaEscolhaPerguntas.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaPréCadastroAlunos.class.getName());
 
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaEscolhaPerguntas() {
+    public TelaPréCadastroAlunos() {
         initComponents();
     }
 
@@ -35,8 +35,8 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
         cinzaEscuroPane2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         botãoVoltar = new javax.swing.JButton();
-        botãoCadastrarPergunta = new javax.swing.JButton();
-        botãoEditarPergunta = new javax.swing.JButton();
+        botãoEditarAluno = new javax.swing.JButton();
+        botãoCadastrarAluno = new javax.swing.JButton();
         botãoSom = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,13 +106,13 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
         botãoVoltar.setText("Voltar");
         botãoVoltar.addActionListener(this::botãoVoltarActionPerformed);
 
-        botãoCadastrarPergunta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        botãoCadastrarPergunta.setText("Cadastrar Pergunta");
-        botãoCadastrarPergunta.addActionListener(this::botãoCadastrarPerguntaActionPerformed);
+        botãoEditarAluno.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        botãoEditarAluno.setText("Editar Aluno");
+        botãoEditarAluno.addActionListener(this::botãoEditarAlunoActionPerformed);
 
-        botãoEditarPergunta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        botãoEditarPergunta.setText("Editar Pergunta");
-        botãoEditarPergunta.addActionListener(this::botãoEditarPerguntaActionPerformed);
+        botãoCadastrarAluno.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        botãoCadastrarAluno.setText("Cadastrar Aluno");
+        botãoCadastrarAluno.addActionListener(this::botãoCadastrarAlunoActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,18 +125,18 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
                         .addComponent(botãoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(83, 83, 83)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botãoCadastrarPergunta)
-                            .addComponent(botãoEditarPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botãoCadastrarAluno, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                            .addComponent(botãoEditarAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(101, Short.MAX_VALUE)
-                .addComponent(botãoEditarPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botãoCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(botãoCadastrarPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botãoEditarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(94, 94, 94)
                 .addComponent(botãoVoltar)
                 .addGap(30, 30, 30))
@@ -200,20 +200,20 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed
 
-    private void botãoEditarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoEditarPerguntaActionPerformed
+    private void botãoCadastrarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoCadastrarAlunoActionPerformed
         // TODO add your handling code here:
         TelaPerguntas tela = new TelaPerguntas();
         tela.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_botãoEditarPerguntaActionPerformed
+    }//GEN-LAST:event_botãoCadastrarAlunoActionPerformed
 
-    private void botãoCadastrarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoCadastrarPerguntaActionPerformed
+    private void botãoEditarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoEditarAlunoActionPerformed
         // TODO add your handling code here:
         TelaCadastro tela = new TelaCadastro();
         tela.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_botãoCadastrarPerguntaActionPerformed
+    }//GEN-LAST:event_botãoEditarAlunoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,12 +237,12 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaEscolhaPerguntas().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaPréCadastroAlunos().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botãoCadastrarPergunta;
-    private javax.swing.JButton botãoEditarPergunta;
+    private javax.swing.JButton botãoCadastrarAluno;
+    private javax.swing.JButton botãoEditarAluno;
     private javax.swing.JButton botãoSom;
     private javax.swing.JButton botãoVoltar;
     private javax.swing.JPanel cinzaEscuroPane;

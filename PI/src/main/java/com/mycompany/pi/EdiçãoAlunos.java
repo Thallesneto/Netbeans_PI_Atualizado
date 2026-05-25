@@ -8,14 +8,14 @@ package com.mycompany.pi;
  *
  * @author danda
  */
-public class TelaEscolhaPerguntas extends javax.swing.JFrame {
+public class EdiçãoAlunos extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaEscolhaPerguntas.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EdiçãoAlunos.class.getName());
 
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaEscolhaPerguntas() {
+    public EdiçãoAlunos() {
         initComponents();
     }
 
@@ -34,10 +34,17 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
         vermelhoPane2 = new javax.swing.JPanel();
         cinzaEscuroPane2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        nomePágina = new javax.swing.JLabel();
+        nomeEmail = new javax.swing.JLabel();
+        colocarEmail = new javax.swing.JTextField();
+        nomeUsuário = new javax.swing.JLabel();
+        colocarUsuário = new javax.swing.JTextField();
+        colocarSenha = new javax.swing.JTextField();
+        nomeSenha = new javax.swing.JLabel();
+        botãoAtualizar = new javax.swing.JButton();
         botãoVoltar = new javax.swing.JButton();
-        botãoCadastrarPergunta = new javax.swing.JButton();
-        botãoEditarPergunta = new javax.swing.JButton();
         botãoSom = new javax.swing.JButton();
+        botãoExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -69,7 +76,7 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
         vermelhoPane1Layout.setVerticalGroup(
             vermelhoPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vermelhoPane1Layout.createSequentialGroup()
-                .addGap(0, 214, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(cinzaEscuroPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -102,17 +109,31 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
                 .addComponent(cinzaEscuroPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        botãoVoltar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        nomePágina.setText("Cadastro de Alunos");
+
+        nomeEmail.setText("Email Institucional");
+
+        colocarEmail.setText("email");
+        colocarEmail.addActionListener(this::colocarEmailActionPerformed);
+
+        nomeUsuário.setText("Usuário");
+
+        colocarUsuário.setText("nome");
+        colocarUsuário.addActionListener(this::colocarUsuárioActionPerformed);
+
+        colocarSenha.setText("senha");
+        colocarSenha.addActionListener(this::colocarSenhaActionPerformed);
+
+        nomeSenha.setText("Senha");
+
+        botãoAtualizar.setText("Atualizar");
+
         botãoVoltar.setText("Voltar");
         botãoVoltar.addActionListener(this::botãoVoltarActionPerformed);
 
-        botãoCadastrarPergunta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        botãoCadastrarPergunta.setText("Cadastrar Pergunta");
-        botãoCadastrarPergunta.addActionListener(this::botãoCadastrarPerguntaActionPerformed);
+        botãoSom.setText("Som");
 
-        botãoEditarPergunta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        botãoEditarPergunta.setText("Editar Pergunta");
-        botãoEditarPergunta.addActionListener(this::botãoEditarPerguntaActionPerformed);
+        botãoExcluir.setText("Excluir");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,28 +142,58 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(botãoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botãoCadastrarPergunta)
-                            .addComponent(botãoEditarPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(87, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(156, 156, 156)
+                                .addComponent(nomePágina))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nomeEmail)
+                                    .addComponent(colocarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nomeUsuário)
+                                    .addComponent(colocarUsuário, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(colocarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nomeSenha)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(92, 92, 92)
+                                .addComponent(botãoAtualizar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botãoExcluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botãoVoltar)))
+                        .addGap(0, 52, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botãoSom)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(101, Short.MAX_VALUE)
-                .addComponent(botãoEditarPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(botãoCadastrarPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94)
-                .addComponent(botãoVoltar)
-                .addGap(30, 30, 30))
+                .addGap(9, 9, 9)
+                .addComponent(botãoSom)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nomePágina)
+                .addGap(24, 24, 24)
+                .addComponent(nomeEmail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(colocarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(nomeUsuário)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(colocarUsuário, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(nomeSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(colocarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botãoAtualizar)
+                    .addComponent(botãoVoltar)
+                    .addComponent(botãoExcluir))
+                .addGap(31, 31, 31))
         );
-
-        botãoSom.setText("Som");
 
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
@@ -150,27 +201,19 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                 .addComponent(vermelhoPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cinzaPaneLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 571, Short.MAX_VALUE)
-                        .addComponent(botãoSom)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(cinzaPaneLayout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(75, 75, 75)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(vermelhoPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
-            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+            .addComponent(vermelhoPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(botãoSom)
-                .addGap(7, 7, 7)
+                .addGap(0, 29, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -193,6 +236,14 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void colocarEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colocarEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_colocarEmailActionPerformed
+
+    private void colocarUsuárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colocarUsuárioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_colocarUsuárioActionPerformed
+
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
         TelaProfessor tela = new TelaProfessor();
@@ -200,20 +251,9 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed
 
-    private void botãoEditarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoEditarPerguntaActionPerformed
+    private void colocarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colocarSenhaActionPerformed
         // TODO add your handling code here:
-        TelaPerguntas tela = new TelaPerguntas();
-        tela.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_botãoEditarPerguntaActionPerformed
-
-    private void botãoCadastrarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoCadastrarPerguntaActionPerformed
-        // TODO add your handling code here:
-        TelaCadastro tela = new TelaCadastro();
-        tela.setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_botãoCadastrarPerguntaActionPerformed
+    }//GEN-LAST:event_colocarSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,18 +277,25 @@ public class TelaEscolhaPerguntas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaEscolhaPerguntas().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new EdiçãoAlunos().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botãoCadastrarPergunta;
-    private javax.swing.JButton botãoEditarPergunta;
+    private javax.swing.JButton botãoAtualizar;
+    private javax.swing.JButton botãoExcluir;
     private javax.swing.JButton botãoSom;
     private javax.swing.JButton botãoVoltar;
     private javax.swing.JPanel cinzaEscuroPane;
     private javax.swing.JPanel cinzaEscuroPane2;
     private javax.swing.JPanel cinzaPane;
+    private javax.swing.JTextField colocarEmail;
+    private javax.swing.JTextField colocarSenha;
+    private javax.swing.JTextField colocarUsuário;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel nomeEmail;
+    private javax.swing.JLabel nomePágina;
+    private javax.swing.JLabel nomeSenha;
+    private javax.swing.JLabel nomeUsuário;
     private javax.swing.JPanel vermelhoPane1;
     private javax.swing.JPanel vermelhoPane2;
     // End of variables declaration//GEN-END:variables
