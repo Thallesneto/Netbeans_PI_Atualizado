@@ -4,6 +4,12 @@
  */
 package com.mycompany.pi;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author danda
@@ -17,6 +23,48 @@ public class TelaRanking extends javax.swing.JFrame {
      */
     public TelaRanking() {
         initComponents();
+        carregarRanking();
+    }
+    
+    private void carregarRanking(){
+        try {
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if (conexao == null){
+                JOptionPane.showMessageDialog(null,"Falha na conexão com o banco");
+                return;
+            }
+            
+            String sql = "SELECT "
+                    + "u.email,u.nome,r.melhor_pontuacao "
+                    + "FROM ranking r "
+                    + "INNER JOIN usuarios u "
+                    + "ON u.id_usuario = r.id_aluno "
+                    + "WHERE u.tipo_usuario = 'Aluno' "
+                    + "ORDER BY r.melhor_pontuacao DESC";
+            
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("Email");
+            modelo.addColumn("Nome");
+            modelo.addColumn("Pontos");
+            
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("email"),
+                    rs.getString("nome"),
+                    rs.getInt("melhor_pontuacao")
+                });
+            }
+            
+            tabelaPontuação.setModel(modelo);
+            conexao.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao carregar o ranking: " + e.getMessage());
+        }
     }
 
     /**
@@ -119,11 +167,11 @@ public class TelaRanking extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "RM", "Nome", "Pontos"
+                "Email", "Nome", "Pontos"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Float.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
