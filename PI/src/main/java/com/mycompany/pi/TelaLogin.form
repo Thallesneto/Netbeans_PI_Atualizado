@@ -63,7 +63,7 @@
                                   <Component id="emailLabel" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
                               </Group>
                               <Component id="mostrarSenhaBox" min="-2" max="-2" attributes="0"/>
-                              <Component id="botãoTermosDeUso" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       </Group>
@@ -92,9 +92,9 @@
                   <Component id="senhaPasswordField" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="mostrarSenhaBox" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="botãoTermosDeUso" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="entrarButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace pref="99" max="32767" attributes="0"/>
               </Group>
@@ -273,10 +273,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrarSenhaBoxActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="bot&#xe3;oTermosDeUso">
+        <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Aceitar os Termos de Uso"/>
+            <Property name="text" type="java.lang.String" value="Termos de Uso"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

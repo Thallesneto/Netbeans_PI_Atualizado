@@ -50,7 +50,7 @@ public class TelaLogin extends javax.swing.JFrame {
         entrarButton = new javax.swing.JButton();
         senhaPasswordField = new javax.swing.JPasswordField();
         mostrarSenhaBox = new javax.swing.JCheckBox();
-        botãoTermosDeUso = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -149,7 +149,8 @@ public class TelaLogin extends javax.swing.JFrame {
         mostrarSenhaBox.setText("Mostrar Senha");
         mostrarSenhaBox.addActionListener(this::mostrarSenhaBoxActionPerformed);
 
-        botãoTermosDeUso.setText("Aceitar os Termos de Uso");
+        jButton1.setText("Termos de Uso");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
@@ -167,7 +168,7 @@ public class TelaLogin extends javax.swing.JFrame {
                                 .addComponent(senhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(mostrarSenhaBox)
-                            .addComponent(botãoTermosDeUso))
+                            .addComponent(jButton1))
                         .addGap(59, 59, 59))
                     .addGroup(cinzaPaneLayout.createSequentialGroup()
                         .addGap(141, 141, 141)
@@ -190,9 +191,9 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(senhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mostrarSenhaBox)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botãoTermosDeUso)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(20, 20, 20)
                 .addComponent(entrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(99, Short.MAX_VALUE))
         );
@@ -280,6 +281,31 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_entrarButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+          String mensagem =  "1. Objeto\n" +
+    "A presente plataforma consiste em um jogo educacional voltado ao ensino de Química no nível médio, com a finalidade de...\n\n" +
+    "2. Público-alvo\n" +
+    "A plataforma é destinada prioritariamente a estudantes do ensino médio, podendo igualmente ser utilizada por docentes...\n" +
+    "Nos casos em que o usuário for menor de idade, recomenda-se a utilização com ciência e acompanhamento de seus responsáveis.\n\n" +
+    "3. Condições de utilização\n" +
+    "Ao utilizar a plataforma, o usuário compromete-se a:\n" +
+    "- fazer uso do sistema de maneira ética e exclusivamente para fins educacionais;\n" +
+    "- respeitar as normas e instruções de funcionamento disponibilizadas;\n" +
+    "- fornecer informações corretas e atualizadas, quando aplicável;\n" +
+    "- preservar a integridade da plataforma e de seus recursos;\n" +
+    "- manter conduta respeitosa durante toda a utilização do ambiente digital.\n\n" +
+    "O uso da plataforma pressupõe a observância integral destes Termos.";
+    javax.swing.JOptionPane.showMessageDialog(this, mensagem, "Termos de Uso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+}
+        
+          
+            
+                
+
+            
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -306,7 +332,6 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox botãoTermosDeUso;
     private javax.swing.JPanel cinzaPane;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;
@@ -314,6 +339,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel etecCinzaPane;
     private javax.swing.JLabel etecLabel;
     private javax.swing.JPanel etecVermelhoPane;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel mauaCinzaPane;
     private javax.swing.JLabel mauaLabel;
