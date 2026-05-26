@@ -175,7 +175,7 @@ public class TelaProfessor extends javax.swing.JFrame {
 
     private void cadastrarAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarAlunoButtonActionPerformed
         // TODO add your handling code here:
-        CadastroAlunos tela = new CadastroAlunos();
+        TelaPréCadastroAlunos tela = new TelaPréCadastroAlunos();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cadastrarAlunoButtonActionPerformed

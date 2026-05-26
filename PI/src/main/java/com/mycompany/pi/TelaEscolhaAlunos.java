@@ -38,6 +38,7 @@ public class TelaEscolhaAlunos extends javax.swing.JFrame {
         tabelaAlunos = new javax.swing.JTable();
         botãoVoltar = new javax.swing.JButton();
         seleçãodeNumero = new javax.swing.JComboBox<>();
+        botãoAvancar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -138,6 +139,9 @@ public class TelaEscolhaAlunos extends javax.swing.JFrame {
 
         seleçãodeNumero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        botãoAvancar.setText("Avançar");
+        botãoAvancar.addActionListener(this::botãoAvancarrActionPerformed);
+
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
         cinzaPaneLayout.setHorizontalGroup(
@@ -146,6 +150,10 @@ public class TelaEscolhaAlunos extends javax.swing.JFrame {
                 .addComponent(vermelhoPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cinzaPaneLayout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(seleçãodeNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
@@ -153,13 +161,12 @@ public class TelaEscolhaAlunos extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(88, 88, 88))))
-                    .addGroup(cinzaPaneLayout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seleçãodeNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botãoVoltar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(88, 88, 88))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                                .addComponent(botãoAvancar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botãoVoltar)
+                                .addGap(228, 228, 228)))))
                 .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
@@ -173,7 +180,9 @@ public class TelaEscolhaAlunos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(seleçãodeNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(botãoVoltar)
+                .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botãoVoltar)
+                    .addComponent(botãoAvancar))
                 .addContainerGap())
             .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
             .addComponent(vermelhoPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
@@ -205,7 +214,17 @@ public class TelaEscolhaAlunos extends javax.swing.JFrame {
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
+        TelaPréCadastroAlunos tela = new TelaPréCadastroAlunos();
+        tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed
+
+    private void botãoAvancarrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoAvancarrActionPerformed
+        // TODO add your handling code here:
+        EdiçãoAlunos tela = new EdiçãoAlunos();
+        tela.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botãoAvancarrActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,6 +252,14 @@ public class TelaEscolhaAlunos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botãoAvancar;
+    private javax.swing.JButton botãoAvançar;
+    private javax.swing.JButton botãoAvançar1;
+    private javax.swing.JButton botãoAvançar2;
+    private javax.swing.JButton botãoAvançar3;
+    private javax.swing.JButton botãoAvançar4;
+    private javax.swing.JButton botãoAvançar5;
+    private javax.swing.JButton botãoAvançar6;
     private javax.swing.JButton botãoSom;
     private javax.swing.JButton botãoVoltar;
     private javax.swing.JPanel cinzaEscuroPane;

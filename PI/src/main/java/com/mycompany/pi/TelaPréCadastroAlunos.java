@@ -202,14 +202,14 @@ public class TelaPréCadastroAlunos extends javax.swing.JFrame {
 
     private void botãoCadastrarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoCadastrarAlunoActionPerformed
         // TODO add your handling code here:
-        TelaPerguntas tela = new TelaPerguntas();
+        CadastroAlunos tela = new CadastroAlunos();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoCadastrarAlunoActionPerformed
 
     private void botãoEditarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoEditarAlunoActionPerformed
         // TODO add your handling code here:
-        TelaCadastro tela = new TelaCadastro();
+        TelaEscolhaAlunos tela = new TelaEscolhaAlunos();
         tela.setVisible(true);
         this.dispose();
         

@@ -11,6 +11,15 @@ package com.mycompany.pi;
 public class TelaCadastro extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaCadastro.class.getName());
+    
+    private String imagemPerguntaPath = null;
+    private String imagemResposta1Path = null;
+    private String imagemResposta2Path = null;
+    private String imagemResposta3Path = null;
+    private String imagemResposta4Path = null;
+
+
+
 
     /**
      * Creates new form TelaDificuldade
