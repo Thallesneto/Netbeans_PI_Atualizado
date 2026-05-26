@@ -296,8 +296,7 @@ public class TelaLogin extends javax.swing.JFrame {
     "- manter conduta respeitosa durante toda a utilização do ambiente digital.\n\n" +
     "O uso da plataforma pressupõe a observância integral destes Termos.";
     javax.swing.JOptionPane.showMessageDialog(this, mensagem, "Termos de Uso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-}
-        
+    
           
             
                 
@@ -329,7 +328,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new TelaLogin().setVisible(true));
-    }
+    };
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cinzaPane;
