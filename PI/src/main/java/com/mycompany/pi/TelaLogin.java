@@ -294,7 +294,32 @@ public class TelaLogin extends javax.swing.JFrame {
     "- fornecer informações corretas e atualizadas, quando aplicável;\n" +
     "- preservar a integridade da plataforma e de seus recursos;\n" +
     "- manter conduta respeitosa durante toda a utilização do ambiente digital.\n\n" +
-    "O uso da plataforma pressupõe a observância integral destes Termos.";
+    "O uso da plataforma pressupõe a observância integral destes Termos." +
+    "4. Restrições de uso\n" +
+    "É expressamente vedado ao usuário:\n" +
+    "copiar, reproduzir, distribuir ou divulgar qualquer conteúdo da plataforma sem autorização prévia;\n" +
+    "alterar, modificar ou tentar comprometer o funcionamento do sistema;\n" +
+    "acessar áreas restritas sem permissão;\n" +
+    "utilizar a plataforma para fins ilícitos, indevidos ou incompatíveis com sua finalidade educacional;\n" +
+    "praticar condutas que prejudiquem outros usuários ou comprometam a segurança do ambiente digital.\n" +
+    "O descumprimento destas disposições poderá acarretar a suspensão temporária ou definitiva do acesso à plataforma.\n" +
+    "5. Conteúdo educacional e responsabilidade\n" +
+    "Os conteúdos disponibilizados foram desenvolvidos com base em princípios científicos e pedagógicos aplicáveis ao ensino médio.\n" +
+    "Embora haja compromisso com a qualidade e a atualização das informações apresentadas, a plataforma poderá passar por revisões, atualizações e ajustes sempre que necessário.\n" +
+    "O jogo possui caráter complementar e não substitui aulas, materiais didáticos oficiais ou a orientação pedagógica fornecida por profissionais da educação.\n" +
+    "6. Propriedade intelectual\n" +
+    "Todos os direitos relacionados à plataforma, incluindo textos, imagens, ilustrações, atividades, recursos visuais, interface e demais conteúdos disponibilizados, são de titularidade de seus desenvolvedores e encontram-se protegidos pela legislação vigente relativa à propriedade intelectual e aos direitos autorais.\n" +
+    "É vedada qualquer reprodução parcial ou integral sem autorização expressa.\n" +
+    "7. Privacidade e proteção de dados\n" +
+    "Caso a plataforma realize coleta de informações necessárias ao funcionamento do sistema, tais dados serão utilizados exclusivamente para fins pedagógicos, administrativos ou de melhoria da experiência do usuário.\n" +
+    "As informações eventualmente fornecidas serão tratadas com responsabilidade e confidencialidade, não sendo compartilhadas com terceiros, salvo em hipóteses previstas em lei.\n" +
+    "8. Alterações dos Termos de Uso\n" +
+    "A administração da plataforma reserva-se o direito de modificar, revisar ou atualizar estes Termos de Uso a qualquer momento, conforme necessidade técnica, pedagógica ou administrativa.\n" +
+    "As alterações entrarão em vigor a partir de sua publicação no ambiente digital.\n" +
+    "9. Disposições finais\n" +
+    "A utilização da plataforma implica ciência e concordância integral com todas as condições estabelecidas neste documento.\n" +
+    "Ao acessar e utilizar o jogo educacional de Química, o usuário reconhece estar de acordo com as normas previstas e compromete-se a respeitá-las integralmente.\n" +
+    "Equipe responsável pelo desenvolvimento do projeto";
     javax.swing.JOptionPane.showMessageDialog(this, mensagem, "Termos de Uso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
     
           
