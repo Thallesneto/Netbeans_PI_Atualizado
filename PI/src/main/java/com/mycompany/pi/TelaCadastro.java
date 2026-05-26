@@ -4,6 +4,12 @@
  */
 package com.mycompany.pi;
 
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author danda
@@ -26,6 +32,7 @@ public class TelaCadastro extends javax.swing.JFrame {
      */
     public TelaCadastro() {
         initComponents();
+        configurarSelecaoImagens();
     }
 
     /**
@@ -138,9 +145,11 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         cadastrarResposta4.addActionListener(this::cadastrarResposta4ActionPerformed);
 
-        cadastrarImagem4.setText("Imagem 4");
+        cadastrarImagem4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cadastrarImagem4.setText("Colocar Imagem da Resposta 4");
 
-        cadastrarImagem3.setText("Imagem 3");
+        cadastrarImagem3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cadastrarImagem3.setText("Colocar Imagem da Resposta 3");
 
         resposta4.setText("Resposta 4");
 
@@ -150,15 +159,18 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         cadastrarResposta1.addActionListener(this::cadastrarResposta1ActionPerformed);
 
-        cadastrarImagem2.setText("Imagem 2");
+        cadastrarImagem2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cadastrarImagem2.setText("Colocar Imagem da Resposta 2");
 
-        cadastrarImagem1.setText("Imagem 1");
+        cadastrarImagem1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cadastrarImagem1.setText("Colocar Imagem da Resposta 1");
 
         resposta2.setText("Resposta 2");
 
         reposta1.setText("Resposta 1");
 
-        cadastrarImagemPergunta.setText("Imagem");
+        cadastrarImagemPergunta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cadastrarImagemPergunta.setText("Colocar Imagem da Pergunta ");
 
         identificadorPergunta.setText("Pergunta");
 
@@ -333,6 +345,91 @@ public class TelaCadastro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new TelaCadastro().setVisible(true));
     }
+    private void configurarSelecaoImagens() {
+    cadastrarImagemPergunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    cadastrarImagem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    cadastrarImagem2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    cadastrarImagem3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    cadastrarImagem4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+    cadastrarImagemPergunta.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            imagemPerguntaPath = escolherImagem();
+            if (imagemPerguntaPath != null) {
+                mostrarImagemNoLabel(imagemPerguntaPath, cadastrarImagemPergunta);
+            }
+        }
+    });
+
+    cadastrarImagem1.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            imagemResposta1Path = escolherImagem();
+            if (imagemResposta1Path != null) {
+                mostrarImagemNoLabel(imagemResposta1Path, cadastrarImagem1);
+            }
+        }
+    });
+
+    cadastrarImagem2.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            imagemResposta2Path = escolherImagem();
+            if (imagemResposta2Path != null) {
+                mostrarImagemNoLabel(imagemResposta2Path, cadastrarImagem2);
+            }
+        }
+    });
+
+    cadastrarImagem3.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            imagemResposta3Path = escolherImagem();
+            if (imagemResposta3Path != null) {
+                mostrarImagemNoLabel(imagemResposta3Path, cadastrarImagem3);
+            }
+        }
+    });
+
+    cadastrarImagem4.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            imagemResposta4Path = escolherImagem();
+            if (imagemResposta4Path != null) {
+                mostrarImagemNoLabel(imagemResposta4Path, cadastrarImagem4);
+            }
+        }
+    });
+}
+    
+    private String escolherImagem(){
+        JFileChooser chooser = new JFileChooser();
+       chooser.setDialogTitle("Selecionar imagem");
+       
+       FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imagens (*.jpg, *.jpeg, *.png)","jpg","jpeg", "png");
+       chooser.setFileFilter(filtro);
+       int resultado = chooser.showOpenDialog(this);
+       if(resultado == JFileChooser.APPROVE_OPTION){
+           File arquivo = chooser.getSelectedFile();
+           return arquivo.getAbsolutePath();
+       }
+       return null;
+    }
+    
+    private void mostrarImagemNoLabel(String caminho,javax.swing.JLabel label){
+        ImageIcon icon = new ImageIcon(caminho);
+        Image img = icon.getImage();
+        
+        Image imgRedimensionada = img.getScaledInstance(
+        label.getWidth(),
+        label.getHeight(),
+        Image.SCALE_SMOOTH);
+        label.setText("");
+        label.setIcon(new ImageIcon(imgRedimensionada));
+    };
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botãoCadastrar;

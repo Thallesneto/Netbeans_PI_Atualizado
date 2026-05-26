@@ -297,12 +297,18 @@
         </Component>
         <Component class="javax.swing.JLabel" name="cadastrarImagem4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Imagem 4"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Colocar Imagem da Resposta 4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="cadastrarImagem3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Imagem 3"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Colocar Imagem da Resposta 3"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="resposta4">
@@ -327,12 +333,18 @@
         </Component>
         <Component class="javax.swing.JLabel" name="cadastrarImagem2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Imagem 2"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Colocar Imagem da Resposta 2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="cadastrarImagem1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Imagem 1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Colocar Imagem da Resposta 1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="resposta2">
@@ -347,7 +359,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="cadastrarImagemPergunta">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Imagem"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Colocar Imagem da Pergunta "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="cadastrarPergunta">
