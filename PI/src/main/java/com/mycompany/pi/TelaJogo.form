@@ -50,105 +50,106 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="vermelhoPane2" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="numeroPergunta" min="-2" max="-2" attributes="0"/>
+                          <Component id="botãoVoltar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="botãoSom" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="nomePontos" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="variavelPontos" min="-2" pref="20" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                          <Component id="botãoDica" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="botãoPular" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="botãoVoltar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="botãoSom" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="447" max="32767" attributes="0"/>
-                                  <Component id="botãoDica" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="botãoPular" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="resposta1" alignment="1" pref="373" max="32767" attributes="0"/>
+                                  <Component id="títuloPergunta" max="32767" attributes="0"/>
+                                  <Component id="resposta3" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="imagemResposta3" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Component id="numeroPergunta" min="-2" max="-2" attributes="0"/>
+                              <Component id="imagemResposta1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="resposta4" alignment="0" pref="386" max="32767" attributes="0"/>
+                              <Component id="resposta2" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="resposta3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="resposta1" alignment="1" pref="373" max="32767" attributes="0"/>
-                                      <Component id="imagemResposta1" max="32767" attributes="0"/>
-                                      <Component id="imagemResposta3" max="32767" attributes="0"/>
-                                      <Component id="títuloPergunta" max="32767" attributes="0"/>
+                                      <Component id="imagemPergunta" max="32767" attributes="0"/>
+                                      <Component id="imagemResposta2" alignment="1" pref="200" max="32767" attributes="0"/>
+                                      <Component id="imagemResposta4" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="imagemPergunta" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="resposta2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="resposta4" alignment="0" pref="373" max="32767" attributes="0"/>
-                                      <Component id="imagemResposta2" max="32767" attributes="0"/>
-                                      <Component id="imagemResposta4" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="nomePontos" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <Component id="variavelPontos" min="-2" pref="20" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Component id="vermelhoPane1" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="vermelhoPane1" pref="811" max="32767" attributes="0"/>
-              <Component id="vermelhoPane2" pref="811" max="32767" attributes="0"/>
+              <Component id="vermelhoPane1" pref="856" max="32767" attributes="0"/>
+              <Component id="vermelhoPane2" pref="856" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="nomePontos" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="numeroPergunta" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="variavelPontos" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="títuloPergunta" max="32767" attributes="0"/>
-                      <Component id="imagemPergunta" pref="88" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="imagemResposta1" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
-                              <Component id="imagemResposta2" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="resposta1" pref="100" max="32767" attributes="0"/>
-                              <Component id="resposta2" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="imagemResposta3" pref="100" max="32767" attributes="0"/>
-                              <Component id="imagemResposta4" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="resposta3" pref="100" max="32767" attributes="0"/>
-                              <Component id="resposta4" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="180" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="nomePontos" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="variavelPontos" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="botãoVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="botãoDica" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="botãoPular" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="botãoSom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="numeroPergunta" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="72" max="32767" attributes="0"/>
+                                  <Component id="títuloPergunta" min="-2" pref="68" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="imagemPergunta" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="imagemResposta2" min="-2" pref="163" max="-2" attributes="0"/>
+                      <Component id="imagemResposta1" min="-2" pref="163" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="resposta1" pref="64" max="32767" attributes="0"/>
+                      <Component id="resposta2" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="imagemResposta4" pref="163" max="32767" attributes="0"/>
+                      <Component id="imagemResposta3" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="resposta4" pref="64" max="32767" attributes="0"/>
+                      <Component id="resposta3" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="botãoVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botãoSom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botãoDica" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botãoPular" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -296,27 +297,27 @@
         </Component>
         <Component class="javax.swing.JLabel" name="imagemPergunta">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel1"/>
+            <Property name="text" type="java.lang.String" value="IMAGEM PERGUNTA"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="imagemResposta2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
+            <Property name="text" type="java.lang.String" value="IMAGEM 2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="imagemResposta1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel3"/>
+            <Property name="text" type="java.lang.String" value="IMAGEM 1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="imagemResposta3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel4"/>
+            <Property name="text" type="java.lang.String" value="IMAGEM 3"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="imagemResposta4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
+            <Property name="text" type="java.lang.String" value="IMAGEM 4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="numeroPergunta">

@@ -167,11 +167,11 @@ public class TelaRanking extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nome", "Pontos", "Acertos", "Erros"
+                "Nome", "Acertos", "Erros", "Porcentagem(%)"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Float.class
             };
 
             public Class getColumnClass(int columnIndex) {
