@@ -19,12 +19,14 @@ import javax.swing.JOptionPane;
 public class TelaLogin extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaLogin.class.getName());
+    int numTela = 0; 
 
     /**
      * Creates new form telaLogin
      */
     public TelaLogin() {
         initComponents();
+        
     }
 
     /**
@@ -231,6 +233,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void entrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarButtonActionPerformed
         // TODO add yo  ur handling code here:
+        if (numTela == 1){
         String email = emailField.getText().trim();
         String senhaDigitada = new String(senhaPasswordField.getPassword());
         
@@ -279,10 +282,14 @@ public class TelaLogin extends javax.swing.JFrame {
         conexao.close();
         }catch(Exception e){ JOptionPane.showMessageDialog(null, "Erro no login: " + e.getMessage());
         }
+        }else{
+            JOptionPane.showMessageDialog(null, "Ler os termos de uso primeiro");
+        }
     }//GEN-LAST:event_entrarButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-          String mensagem =  "1. Objeto\n" +
+
+        String mensagem =  "1. Objeto\n" +
     "A presente plataforma consiste em um jogo educacional voltado ao ensino de Química no nível médio, com a finalidade de...\n\n" +
     "2. Público-alvo\n" +
     "A plataforma é destinada prioritariamente a estudantes do ensino médio, podendo igualmente ser utilizada por docentes...\n" +
@@ -321,7 +328,7 @@ public class TelaLogin extends javax.swing.JFrame {
     "Ao acessar e utilizar o jogo educacional de Química, o usuário reconhece estar de acordo com as normas previstas e compromete-se a respeitá-las integralmente.\n" +
     "Equipe responsável pelo desenvolvimento do projeto";
     javax.swing.JOptionPane.showMessageDialog(this, mensagem, "Termos de Uso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    
+    numTela = 1;
           
             
                 
