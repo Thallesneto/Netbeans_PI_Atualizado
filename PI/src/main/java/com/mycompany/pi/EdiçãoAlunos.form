@@ -256,9 +256,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="colocarEmail">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="email"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colocarEmailActionPerformed"/>
               </Events>
@@ -269,17 +266,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="colocarUsu&#xe1;rio">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="nome"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colocarUsu&#xe1;rioActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="colocarSenha">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="senha"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colocarSenhaActionPerformed"/>
               </Events>
@@ -293,6 +284,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Atualizar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oAtualizarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="bot&#xe3;oVoltar">
               <Properties>
@@ -311,6 +305,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Excluir"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oExcluirActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

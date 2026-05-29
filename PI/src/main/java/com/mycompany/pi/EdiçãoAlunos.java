@@ -4,6 +4,11 @@
  */
 package com.mycompany.pi;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author danda
@@ -11,12 +16,15 @@ package com.mycompany.pi;
 public class EdiçãoAlunos extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EdiçãoAlunos.class.getName());
+    private int idAluno;
 
     /**
      * Creates new form TelaDificuldade
      */
-    public EdiçãoAlunos() {
+    public EdiçãoAlunos(int idAluno) {
         initComponents();
+        this.idAluno = idAluno;
+        carregarDadosAlunos();
     }
 
     /**
@@ -113,20 +121,18 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
 
         nomeEmail.setText("Email Institucional");
 
-        colocarEmail.setText("email");
         colocarEmail.addActionListener(this::colocarEmailActionPerformed);
 
         nomeUsuário.setText("Usuário");
 
-        colocarUsuário.setText("nome");
         colocarUsuário.addActionListener(this::colocarUsuárioActionPerformed);
 
-        colocarSenha.setText("senha");
         colocarSenha.addActionListener(this::colocarSenhaActionPerformed);
 
         nomeSenha.setText("Senha");
 
         botãoAtualizar.setText("Atualizar");
+        botãoAtualizar.addActionListener(this::botãoAtualizarActionPerformed);
 
         botãoVoltar.setText("Voltar");
         botãoVoltar.addActionListener(this::botãoVoltarActionPerformed);
@@ -134,6 +140,7 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
         botãoSom.setText("Som");
 
         botãoExcluir.setText("Excluir");
+        botãoExcluir.addActionListener(this::botãoExcluirActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -255,6 +262,120 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_colocarSenhaActionPerformed
 
+    private void botãoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoAtualizarActionPerformed
+        // TODO add your handling code here:
+        String email = colocarEmail.getText().trim();
+        String nome = colocarUsuário.getText().trim();
+        String senha = colocarSenha.getText().trim();
+        
+        if(nome.isEmpty() || email.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha usuário e senha");
+            return;
+        }
+        
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+                return;
+            }
+            
+            PreparedStatement ps;
+            
+            if(senha.isEmpty()){
+                String sql = "UPDATE usuarios SET nome = ?, email = ? WHERE id_usuario = ? AND tipo_usuario = 'Aluno'"; 
+                ps = conexao.prepareStatement(sql);
+                ps.setString(1, nome);
+                ps.setString(2,email);
+                ps.setInt(3, idAluno);
+            }else{
+                String senhaHash = SegurancaSenha.gerarHash(senha);
+                String sql = "UPDATE usuarios SET nome = ?, email = ?, senha_hash = ? WHERE id_usuario = ? AND tipo_usuario = 'Aluno'";
+                ps = conexao.prepareStatement(sql);
+                ps.setString(1,nome);
+                ps.setString(2,email);
+                ps.setString(3,senhaHash);
+                ps.setInt(4,idAluno);  
+            }
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Aluno atualizado com sucesso!");
+            
+            conexao.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar aluno: " + e.getMessage());
+        }
+    }//GEN-LAST:event_botãoAtualizarActionPerformed
+
+    private void botãoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoExcluirActionPerformed
+        // TODO add your handling code here:
+        int resposta = JOptionPane.showConfirmDialog(
+             null,
+             "Tem certeza que deseja excluit o aluno?",
+             "Confirmar exclusão",
+             JOptionPane.YES_NO_OPTION
+        );
+        if (resposta != JOptionPane.YES_OPTION){
+            return;
+        }
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+                return;
+            }
+            
+            String sql = "DELETE FROM usuarios WHERE id_usuario = ? AND tipo_usuario = 'Aluno'";
+            
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ps.setInt(1, idAluno);
+            
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Aluno excluído com sucesso!");
+            
+            conexao.close();
+            
+            TelaEscolhaAlunos tela = new TelaEscolhaAlunos();
+            tela.setVisible(true);
+            this.dispose();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao excluir aluno: " + e.getMessage());
+        }
+    }//GEN-LAST:event_botãoExcluirActionPerformed
+    private void carregarDadosAlunos(){
+        try {
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+                return;
+            }
+            
+            String sql = "SELECT nome, email FROM usuarios WHERE id_usuario = ? and tipo_usuario = 'Aluno'";
+            
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ps.setInt(1, idAluno);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                colocarEmail.setText(rs.getString("email"));
+                colocarUsuário.setText(rs.getString("nome"));
+                colocarSenha.setText("");
+            }else{
+                JOptionPane.showMessageDialog(null, "Aluno não encontrado.");
+            }
+            conexao.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao carregar aluno: " + e.getMessage());
+
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -277,7 +398,7 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new EdiçãoAlunos().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new EdiçãoAlunos(2).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,6 +4,12 @@
  */
 package com.mycompany.pi;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author danda
@@ -17,6 +23,8 @@ public class TelaEscolhaAlunos extends javax.swing.JFrame {
      */
     public TelaEscolhaAlunos() {
         initComponents();
+        carregarTabelaAlunos();
+        carregarComboAlunos();
     }
 
     /**
@@ -221,11 +229,78 @@ public class TelaEscolhaAlunos extends javax.swing.JFrame {
 
     private void botãoAvancarrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoAvancarrActionPerformed
         // TODO add your handling code here:
-        EdiçãoAlunos tela = new EdiçãoAlunos();
+        if(seleçãodeNumero.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Selecione um aluno.");
+            return;
+        }
+        int idAluno = Integer.parseInt(seleçãodeNumero.getSelectedItem().toString());
+        EdiçãoAlunos tela = new EdiçãoAlunos(idAluno);
         tela.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_botãoAvancarrActionPerformed
-
+    private void carregarTabelaAlunos(){
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+                return;
+            }
+            String sql = "SELECT id_usuario, nome FROM usuarios WHERE tipo_usuario = 'Aluno' ORDER BY id_usuario";
+        
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ResultSet rs= ps.executeQuery();
+            
+            DefaultTableModel modelo = new DefaultTableModel();
+            
+            modelo.addColumn("Número_Aluno");
+            modelo.addColumn("Nome");
+            
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                rs.getInt("id_usuario"),
+                rs.getString("nome")
+            });
+            }
+            tabelaAlunos.setModel(modelo);
+            
+            conexao.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao carregar alunos: " + e.getMessage());
+        }
+        
+    }
+    
+    private void carregarComboAlunos(){
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao(); 
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+                return;
+            }
+            String sql = "SELECT id_usuario FROM usuarios WHERE tipo_usuario = 'Aluno' ORDER BY id_usuario";
+            
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            seleçãodeNumero.removeAllItems();
+            
+            while (rs.next()){
+                seleçãodeNumero.addItem(String.valueOf(rs.getInt("id_usuario")));
+            }
+            conexao.close();
+            
+            
+        }catch(Exception e ){
+            JOptionPane.showMessageDialog(null, "Erro ao carregar números dos alunos: " + e.getMessage());
+        }
+    }
+        
     /**
      * @param args the command line arguments
      */

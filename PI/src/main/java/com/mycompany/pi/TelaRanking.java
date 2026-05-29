@@ -36,27 +36,31 @@ public class TelaRanking extends javax.swing.JFrame {
                 return;
             }
             
-            String sql = "SELECT "
-                    + "u.email,u.nome,r.melhor_pontuacao "
-                    + "FROM ranking r "
-                    + "INNER JOIN usuarios u "
-                    + "ON u.id_usuario = r.id_aluno "
-                    + "WHERE u.tipo_usuario = 'Aluno' "
-                    + "ORDER BY r.melhor_pontuacao DESC";
+            String sql =  """
+            SELECT 
+                nome,
+                acertos,
+                erros,
+                porcentagem_acerto
+            FROM vw_ranking_geral
+            ORDER BY porcentagem_acerto DESC, acertos DESC
+        """;
             
             PreparedStatement ps = conexao.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Email");
             modelo.addColumn("Nome");
-            modelo.addColumn("Pontos");
+            modelo.addColumn("Acertos");
+            modelo.addColumn("Erros");
+            modelo.addColumn("Porcentagem (%)");
             
             while(rs.next()){
                 modelo.addRow(new Object[]{
-                    rs.getString("email"),
                     rs.getString("nome"),
-                    rs.getInt("melhor_pontuacao")
+                    rs.getInt("acertos"),
+                    rs.getInt("erros"),
+                    rs.getDouble("porcentagem_acertos") + "%"
                 });
             }
             

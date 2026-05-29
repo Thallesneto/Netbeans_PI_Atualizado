@@ -4,6 +4,10 @@
  */
 package com.mycompany.pi;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author danda
@@ -112,20 +116,18 @@ public class CadastroAlunos extends javax.swing.JFrame {
 
         nomeEmail.setText("Email Institucional");
 
-        colocarEmail.setText("email");
         colocarEmail.addActionListener(this::colocarEmailActionPerformed);
 
         nomeUsuário.setText("Usuário");
 
-        colocarUsuário.setText("nome");
         colocarUsuário.addActionListener(this::colocarUsuárioActionPerformed);
 
-        colocarSenha.setText("senha");
         colocarSenha.addActionListener(this::colocarSenhaActionPerformed);
 
         nomeSenha.setText("Senha");
 
         botãoCadastro.setText("Cadastrar");
+        botãoCadastro.addActionListener(this::botãoCadastroActionPerformed);
 
         botãoVoltar.setText("Voltar");
         botãoVoltar.addActionListener(this::botãoVoltarActionPerformed);
@@ -249,6 +251,54 @@ public class CadastroAlunos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_colocarSenhaActionPerformed
 
+    private void botãoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoCadastroActionPerformed
+            // TODO add your handling code here:
+            String nome = colocarUsuário.getText().trim();
+            String email = colocarEmail.getText().trim();
+            String senha = colocarSenha.getText().trim();
+            
+            if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+                return;
+            }
+            if (!email.contains("@")){
+                JOptionPane.showMessageDialog(null, "Coloque um email válido");
+                return;
+            }
+            
+            try {
+               ConnectionFactory c = new ConnectionFactory();
+               Connection conexao = c.obtemConexao();
+               
+               if (conexao == null){
+                   JOptionPane.showMessageDialog(null, "Falha na conexão com o banco");
+                   return;
+               }
+               String senhaHash = SegurancaSenha.gerarHash(senha);
+               
+               String sql = "INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario) VALUES (?,?,?,?)";
+               
+               PreparedStatement ps = conexao.prepareStatement(sql);
+               ps.setString(1,nome);
+               ps.setString(2,email);
+               ps.setString(3, senhaHash);
+               ps.setString(4,"Aluno");
+               
+               ps.executeUpdate();
+               
+               JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!");
+               
+               colocarUsuário.setText("");
+               colocarEmail.setText("");
+               colocarSenha.setText("");
+               
+               conexao.close();
+               
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar aluno: " + e.getMessage());
+            }
+    }//GEN-LAST:event_botãoCadastroActionPerformed
+    
     /**
      * @param args the command line arguments
      */
