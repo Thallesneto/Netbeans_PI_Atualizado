@@ -11,12 +11,15 @@ package com.mycompany.pi;
 public class TelaAluno extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaAluno.class.getName());
+    private String nomeAluno;
 
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaAluno() {
+    public TelaAluno(String nomeAluno) {
         initComponents();
+        this.nomeAluno = nomeAluno;
+        colocarUsuário.setText(nomeAluno);
     }
 
     /**
@@ -147,7 +150,6 @@ public class TelaAluno extends javax.swing.JFrame {
         botãoSom.setText("Som");
         botãoSom.addActionListener(this::botãoSomActionPerformed);
 
-        colocarUsuário.setText("Thalles Salles Meirelles");
         colocarUsuário.addActionListener(this::colocarUsuárioActionPerformed);
 
         nomeUsuário.setText("Usuário:");
@@ -260,7 +262,7 @@ public class TelaAluno extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaAluno().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaAluno("").setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

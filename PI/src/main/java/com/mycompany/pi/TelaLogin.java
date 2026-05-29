@@ -269,7 +269,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         this.dispose();
                         
                     }else if(tipoUsuario.equals("Aluno")){
-                        TelaAluno tela = new TelaAluno();
+                        TelaAluno tela = new TelaAluno(nome);
                         tela.setVisible(true);
                         this.dispose();
                 }

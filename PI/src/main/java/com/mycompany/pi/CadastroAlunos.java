@@ -242,7 +242,7 @@ public class CadastroAlunos extends javax.swing.JFrame {
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
-        TelaProfessor tela = new TelaProfessor();
+        TelaPréCadastroAlunos tela = new TelaPréCadastroAlunos();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed

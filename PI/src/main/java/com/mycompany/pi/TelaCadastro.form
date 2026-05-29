@@ -54,15 +54,6 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="vermelhoPane2" min="-2" pref="100" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                          <Component id="botãoCadastrar" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="botãoDificuldade" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
-                          <Component id="botãoSair" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace pref="105" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -77,10 +68,8 @@
                                           <Component id="resposta3" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="cadastrarResposta3" alignment="0" max="32767" attributes="0"/>
                                           <Component id="cadastrarImagem3" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="cadastrarImagemPergunta" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="cadastrarImagem1" alignment="0" pref="186" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="cadastrarImagemPergunta" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cadastrarImagem1" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -90,7 +79,7 @@
                                       <Component id="cadastrarResposta2" alignment="0" pref="392" max="32767" attributes="0"/>
                                       <Component id="cadastrarResposta4" alignment="0" max="32767" attributes="0"/>
                                       <Component id="resposta2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cadastrarImagem4" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="cadastrarImagem4" min="-2" pref="186" max="-2" attributes="0"/>
                                       <Component id="cadastrarPergunta" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="identificadorPergunta" min="-2" max="-2" attributes="0"/>
@@ -102,6 +91,26 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                          <Component id="botãoCadastrar" min="-2" pref="180" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="DificuldadeLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                  <Component id="DificuldadeLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="botãoDificuldade" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="CorretaBox" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="botãoSair" min="-2" pref="180" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="84" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <Component id="vermelhoPane1" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
@@ -109,8 +118,8 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="vermelhoPane1" pref="609" max="32767" attributes="0"/>
-              <Component id="vermelhoPane2" pref="609" max="32767" attributes="0"/>
+              <Component id="vermelhoPane1" pref="648" max="32767" attributes="0"/>
+              <Component id="vermelhoPane2" pref="648" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -126,7 +135,7 @@
                           <Component id="cadastrarPergunta" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="37" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="resposta2" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="reposta1" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -163,11 +172,23 @@
                   <Component id="dica" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="cadastrarDica" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="DificuldadeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DificuldadeLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="botãoSair" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="botãoDificuldade" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CorretaBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                       <Component id="botãoCadastrar" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="botãoSair" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="botãoDificuldade" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -307,6 +328,11 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Colocar Imagem da Resposta 4"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="cadastrarImagem3">
@@ -315,6 +341,11 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Colocar Imagem da Resposta 3"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="resposta4">
@@ -343,6 +374,11 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Colocar Imagem da Resposta 2"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="cadastrarImagem1">
@@ -351,6 +387,11 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Colocar Imagem da Resposta 1"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="resposta2">
@@ -405,6 +446,31 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="DificuldadeLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Dificuldade:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="CorretaBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="DificuldadeLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Resposta Correta:"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
