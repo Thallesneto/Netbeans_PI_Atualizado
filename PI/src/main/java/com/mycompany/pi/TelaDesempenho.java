@@ -4,22 +4,71 @@
  */
 package com.mycompany.pi;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author danda
  */
-public class TelaAluno extends javax.swing.JFrame {
+public class TelaDesempenho extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaAluno.class.getName());
-    private String nomeAluno;
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaDesempenho.class.getName());
 
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaAluno(String nomeAluno) {
+    public TelaDesempenho() {
         initComponents();
-        this.nomeAluno = nomeAluno;
-        colocarUsuário.setText(nomeAluno);
+        carregarRanking();
+    }
+    
+    private void carregarRanking(){
+        try {
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if (conexao == null){
+                JOptionPane.showMessageDialog(null,"Falha na conexão com o banco");
+                return;
+            }
+            
+            String sql =  """
+            SELECT 
+                nome,
+                acertos,
+                erros,
+                porcentagem_acerto
+            FROM vw_ranking_geral
+            ORDER BY porcentagem_acerto DESC, acertos DESC
+        """;
+            
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("Nome");
+            modelo.addColumn("Acertos");
+            modelo.addColumn("Erros");
+            modelo.addColumn("Porcentagem (%)");
+            
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("nome"),
+                    rs.getInt("acertos"),
+                    rs.getInt("erros"),
+                    rs.getDouble("porcentagem_acertos") + "%"
+                });
+            }
+            
+            tabelaPontuação.setModel(modelo);
+            conexao.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao carregar o ranking: " + e.getMessage());
+        }
     }
 
     /**
@@ -36,15 +85,10 @@ public class TelaAluno extends javax.swing.JFrame {
         cinzaEscuroPane = new javax.swing.JPanel();
         vermelhoPane2 = new javax.swing.JPanel();
         cinzaEscuroPane2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        nomePágina = new javax.swing.JLabel();
-        botãoJogar = new javax.swing.JButton();
-        botãoSair = new javax.swing.JButton();
-        botãoRanking = new javax.swing.JButton();
         botãoSom = new javax.swing.JButton();
-        colocarUsuário = new javax.swing.JTextField();
-        nomeUsuário = new javax.swing.JLabel();
-        Icone = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaPontuação = new javax.swing.JTable();
+        botãoVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -106,62 +150,42 @@ public class TelaAluno extends javax.swing.JFrame {
         vermelhoPane2Layout.setVerticalGroup(
             vermelhoPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vermelhoPane2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 113, Short.MAX_VALUE)
                 .addComponent(cinzaEscuroPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        nomePágina.setFont(new java.awt.Font("Eras Bold ITC", 0, 36)); // NOI18N
-        nomePágina.setText("BEM VINDO");
-
-        botãoJogar.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        botãoJogar.setText("Jogar");
-        botãoJogar.addActionListener(this::botãoJogarActionPerformed);
-
-        botãoSair.setText("Sair");
-        botãoSair.addActionListener(this::botãoSairActionPerformed);
-
-        botãoRanking.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        botãoRanking.setText("Ranking");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(208, Short.MAX_VALUE)
-                .addComponent(botãoSair)
-                .addGap(208, 208, 208))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botãoRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botãoJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomePágina))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(nomePágina)
-                .addGap(18, 18, 18)
-                .addComponent(botãoJogar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(botãoRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(botãoSair)
-                .addContainerGap())
         );
 
         botãoSom.setText("Som");
         botãoSom.addActionListener(this::botãoSomActionPerformed);
 
-        colocarUsuário.addActionListener(this::colocarUsuárioActionPerformed);
+        tabelaPontuação.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Partidas", "Melhor Pontuação", "Acertos", "Erros", "Porcentagem"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Float.class
+            };
 
-        nomeUsuário.setText("Usuário:");
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabelaPontuação);
 
-        Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/R (1).png"))); // NOI18N
-        Icone.setText("Icone");
+        botãoVoltar.setText("Voltar");
+        botãoVoltar.addActionListener(this::botãoVoltarActionPerformed);
 
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
@@ -169,42 +193,34 @@ public class TelaAluno extends javax.swing.JFrame {
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cinzaPaneLayout.createSequentialGroup()
                 .addComponent(vermelhoPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cinzaPaneLayout.createSequentialGroup()
-                        .addComponent(nomeUsuário)
+                        .addGap(272, 272, 272)
+                        .addComponent(botãoVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botãoSom))
-                    .addGroup(cinzaPaneLayout.createSequentialGroup()
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(colocarUsuário, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 73, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                                .addComponent(botãoSom)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)))))
+                .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cinzaPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(cinzaPaneLayout.createSequentialGroup()
-                        .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nomeUsuário)
-                            .addComponent(botãoSom))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(colocarUsuário, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(cinzaPaneLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(Icone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
-            .addComponent(vermelhoPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+                .addComponent(botãoSom)
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(botãoVoltar)
+                .addGap(17, 17, 17))
+            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+            .addComponent(vermelhoPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,39 +228,31 @@ public class TelaAluno extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(cinzaPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(cinzaPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1016, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cinzaPane, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(cinzaPane, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void colocarUsuárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colocarUsuárioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_colocarUsuárioActionPerformed
-
     private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botãoSomActionPerformed
 
-    private void botãoJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoJogarActionPerformed
+    private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
-        TelaDificuldade tela = new TelaDificuldade();
+        TelaProfessor tela = new TelaProfessor();
         tela.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_botãoJogarActionPerformed
-
-    private void botãoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSairActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botãoSairActionPerformed
+    }//GEN-LAST:event_botãoVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,22 +276,17 @@ public class TelaAluno extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaAluno("").setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaDesempenho().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Icone;
-    private javax.swing.JButton botãoJogar;
-    private javax.swing.JButton botãoRanking;
-    private javax.swing.JButton botãoSair;
     private javax.swing.JButton botãoSom;
+    private javax.swing.JButton botãoVoltar;
     private javax.swing.JPanel cinzaEscuroPane;
     private javax.swing.JPanel cinzaEscuroPane2;
     private javax.swing.JPanel cinzaPane;
-    private javax.swing.JTextField colocarUsuário;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel nomePágina;
-    private javax.swing.JLabel nomeUsuário;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabelaPontuação;
     private javax.swing.JPanel vermelhoPane1;
     private javax.swing.JPanel vermelhoPane2;
     // End of variables declaration//GEN-END:variables
