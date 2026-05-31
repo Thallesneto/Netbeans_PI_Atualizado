@@ -6,8 +6,12 @@ package com.mycompany.pi;
 
 import java.awt.Image;
 import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -33,9 +37,9 @@ public class TelaCadastro extends javax.swing.JFrame {
     public TelaCadastro() {
         initComponents();
         botãoDificuldade.removeAllItems();
-        botãoDificuldade.addItem("Facil");
-        botãoDificuldade.addItem("Médio");
-        botãoDificuldade.addItem("Difícil");
+        botãoDificuldade.addItem("facil");
+        botãoDificuldade.addItem("medio");
+        botãoDificuldade.addItem("dificil");
         
         CorretaBox.removeAllItems();
         CorretaBox.addItem("Resposta 1");
@@ -160,11 +164,11 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         cadastrarImagem4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cadastrarImagem4.setText("Colocar Imagem da Resposta 4");
-        cadastrarImagem4.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        cadastrarImagem4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cadastrarImagem3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cadastrarImagem3.setText("Colocar Imagem da Resposta 3");
-        cadastrarImagem3.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        cadastrarImagem3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         resposta4.setText("Resposta 4");
 
@@ -176,11 +180,11 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         cadastrarImagem2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cadastrarImagem2.setText("Colocar Imagem da Resposta 2");
-        cadastrarImagem2.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        cadastrarImagem2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cadastrarImagem1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cadastrarImagem1.setText("Colocar Imagem da Resposta 1");
-        cadastrarImagem1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        cadastrarImagem1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         resposta2.setText("Resposta 2");
 
@@ -188,6 +192,7 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         cadastrarImagemPergunta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cadastrarImagemPergunta.setText("Colocar Imagem da Pergunta ");
+        cadastrarImagemPergunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         identificadorPergunta.setText("Pergunta");
 
@@ -341,9 +346,127 @@ public class TelaCadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botãoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoCadastrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botãoCadastrarActionPerformed
+        // TODO add your handling code here:]
+        String pergunta = cadastrarPergunta.getText().trim();
+        String resposta1 = cadastrarResposta1.getText().trim();
+        String resposta2 = cadastrarResposta2.getText().trim();
+        String resposta3 = cadastrarResposta3.getText().trim();
+        String resposta4 = cadastrarResposta4.getText().trim();
+        String dicaTexto = cadastrarDica.getText().trim();
+        
+        String dificuldade = botãoDificuldade.getSelectedItem().toString();
+        int respostaCorreta = CorretaBox.getSelectedIndex() + 1;
+        
+        int pontos;
 
+        if (dificuldade.equals("facil")) {
+            pontos = 10;
+        } else if (dificuldade.equals("medio")) {
+            pontos = 20;
+        } else {
+            pontos = 30;
+        }
+        
+        if(pergunta.isEmpty() || resposta1.isEmpty() || resposta2.isEmpty() || resposta3.isEmpty() || resposta4.isEmpty() || dicaTexto.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todas as respostas e as dicas");
+            return;
+        }
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+                return;
+            }
+            
+            String sql = "INSERT INTO perguntas (enunciado,dificuldade,dica,pontos,imagem_path) VALUES (?,?,?,?,?)";
+            
+            PreparedStatement ps = conexao.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
+            
+            ps.setString(1, pergunta);
+            ps.setString(2, dificuldade);
+            ps.setString(3, dicaTexto);
+            ps.setInt(4, pontos);
+            ps.setString(5, imagemPerguntaPath);
+            
+            ps.executeUpdate();
+            
+            ResultSet rs = ps.getGeneratedKeys();
+            
+            int idPergunta;
+            
+            if(rs.next()){
+                idPergunta = rs.getInt(1);
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro ao obter ID da pergunta.");
+                conexao.close();
+                return;
+            }
+            
+            inserirAlternativa(conexao, idPergunta, resposta1, imagemResposta1Path, respostaCorreta == 1,1);
+            inserirAlternativa(conexao, idPergunta, resposta2, imagemResposta2Path, respostaCorreta == 2,2);
+            inserirAlternativa(conexao, idPergunta, resposta3, imagemResposta3Path, respostaCorreta == 3,3);
+            inserirAlternativa(conexao, idPergunta, resposta4, imagemResposta4Path, respostaCorreta == 4,4);
+            
+            JOptionPane.showMessageDialog(null, "Pergunta cadastrada com sucesso!");
+            
+            limparCampos();
+            
+            conexao.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar pergunta: " + e.getMessage());
+        }
+        
+    }//GEN-LAST:event_botãoCadastrarActionPerformed
+    
+    private void inserirAlternativa(
+        Connection conexao, int idPergunta, String Texto, String imagemPath, boolean correta, int ordem)throws Exception{
+        String sql = "INSERT INTO alternativas (id_pergunta, texto, imagem_path, correta, ordem) VALUES (?,?,?,?,?)";
+        
+        PreparedStatement ps = conexao.prepareStatement(sql);
+        ps.setInt(1,idPergunta);
+        ps.setString(2,Texto);
+        ps.setString(3,imagemPath);
+        ps.setBoolean(4, correta);
+        ps.setInt(5, ordem);
+        
+        ps.executeUpdate();
+    }
+    
+    private void limparCampos() {
+    cadastrarPergunta.setText("");
+    cadastrarResposta1.setText("");
+    cadastrarResposta2.setText("");
+    cadastrarResposta3.setText("");
+    cadastrarResposta4.setText("");
+    cadastrarDica.setText("");
+
+    imagemPerguntaPath = null;
+    imagemResposta1Path = null;
+    imagemResposta2Path = null;
+    imagemResposta3Path = null;
+    imagemResposta4Path = null;
+
+    cadastrarImagemPergunta.setIcon(null);
+    cadastrarImagemPergunta.setText("Colocar Imagem da Pergunta");
+
+    cadastrarImagem1.setIcon(null);
+    cadastrarImagem1.setText("Colocar Imagem da Resposta 1");
+
+    cadastrarImagem2.setIcon(null);
+    cadastrarImagem2.setText("Colocar Imagem da Resposta 2");
+
+    cadastrarImagem3.setIcon(null);
+    cadastrarImagem3.setText("Colocar Imagem da Resposta 3");
+
+    cadastrarImagem4.setIcon(null);
+    cadastrarImagem4.setText("Colocar Imagem da Resposta 4");
+
+    botãoDificuldade.setSelectedIndex(0);
+    CorretaBox.setSelectedIndex(0);
+}
     private void botãoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSairActionPerformed
         // TODO add your handling code here:
         TelaEscolhaPerguntas tela = new TelaEscolhaPerguntas();

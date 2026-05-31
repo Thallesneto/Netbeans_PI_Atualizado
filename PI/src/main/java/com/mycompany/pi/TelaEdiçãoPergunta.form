@@ -314,6 +314,11 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Colocar Imagem da Pergunta 4"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="cadastrarImagem3">
@@ -322,6 +327,11 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Colocar Imagem da Pergunta 3"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="resposta4">
@@ -350,6 +360,11 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Colocar Imagem da Pergunta 2"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="cadastrarImagem1">
@@ -358,6 +373,11 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Colocar Imagem da Pergunta 1"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="resposta2">

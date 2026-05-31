@@ -145,9 +145,11 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
 
         cadastrarImagem4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cadastrarImagem4.setText("Colocar Imagem da Pergunta 4");
+        cadastrarImagem4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cadastrarImagem3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cadastrarImagem3.setText("Colocar Imagem da Pergunta 3");
+        cadastrarImagem3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         resposta4.setText("Resposta 4");
 
@@ -159,9 +161,11 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
 
         cadastrarImagem2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cadastrarImagem2.setText("Colocar Imagem da Pergunta 2");
+        cadastrarImagem2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cadastrarImagem1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cadastrarImagem1.setText("Colocar Imagem da Pergunta 1");
+        cadastrarImagem1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         resposta2.setText("Resposta 2");
 
