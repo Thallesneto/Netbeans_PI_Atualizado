@@ -59,18 +59,19 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="cadastrarDica" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="nomePágina" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="cadastrarResposta1" alignment="0" pref="380" max="32767" attributes="0"/>
-                                          <Component id="reposta1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="dica" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="resposta3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cadastrarResposta3" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cadastrarImagem3" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                                          <Component id="cadastrarImagemPergunta" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cadastrarImagem1" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="nomePágina" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="cadastrarImagemPergunta" min="-2" pref="177" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="cadastrarResposta1" alignment="0" pref="380" max="32767" attributes="0"/>
+                                      <Component id="reposta1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dica" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="resposta3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cadastrarResposta3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cadastrarImagem3" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                                      <Component id="cadastrarImagem1" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -122,18 +123,18 @@
               <Component id="vermelhoPane2" pref="648" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="nomePágina" min="-2" max="-2" attributes="0"/>
-                      <Component id="botãoSom" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="cadastrarImagemPergunta" min="-2" pref="90" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="nomePágina" min="-2" max="-2" attributes="0"/>
+                              <Component id="botãoSom" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="identificadorPergunta" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cadastrarPergunta" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="cadastrarImagemPergunta" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="48" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
