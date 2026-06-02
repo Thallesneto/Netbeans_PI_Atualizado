@@ -6,8 +6,12 @@ package com.mycompany.pi;
 
 import java.awt.Image;
 import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -17,6 +21,13 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class TelaEdiçãoPergunta extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaEdiçãoPergunta.class.getName());
+    
+    private int idPergunta;
+    
+    private int idAlternativa1;
+    private int idAlternativa2;
+    private int idAlternativa3;
+    private int idAlternativa4;
     
     private String imagemPerguntaPath = null;
     private String imagemResposta1Path = null;
@@ -29,7 +40,21 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
      */
     public TelaEdiçãoPergunta() {
         initComponents();
+        
+        this.idPergunta = idPergunta;
+        
+        botãoDificuldade.removeAllItems();
+        botãoDificuldade.addItem("facil");
+        botãoDificuldade.addItem("medio");
+        botãoDificuldade.addItem("dificil");
+        
+        botãoAlternaticaCorreta.addItem("Resposta 1");
+        botãoAlternaticaCorreta.addItem("Resposta 2");
+        botãoAlternaticaCorreta.addItem("Resposta 3");
+        botãoAlternaticaCorreta.addItem("Resposta 4");
+        
         configurarSelecaoImagens();
+        carregarDadosPergunta();
     }
 
     /**
@@ -190,6 +215,7 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
         botãoExcluir.setText("Excluir");
 
         botãoAlternaticaCorreta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        botãoAlternaticaCorreta.addActionListener(this::botãoAlternaticaCorretaActionPerformed);
 
         DificuldadeLabel.setText("Dificuldades:");
 
@@ -333,6 +359,7 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
 
     private void botãoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoAtualizarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_botãoAtualizarActionPerformed
 
     private void botãoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSairActionPerformed
@@ -353,6 +380,10 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
     private void cadastrarResposta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarResposta4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarResposta4ActionPerformed
+
+    private void botãoAlternaticaCorretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoAlternaticaCorretaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botãoAlternaticaCorretaActionPerformed
     private void configurarSelecaoImagens() {
     cadastrarImagemPergunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     cadastrarImagem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -436,6 +467,94 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
         label.setText("");
         label.setIcon(new ImageIcon(imgRedimensionada));
     };
+    private void carregarDadosPergunta(){
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null,"Falha na conexão com o branco");
+                return;
+            }
+            
+            String sqlPergunta = "SELECT enunciado, dificuldade, dica, imagem_path FROM perguntas WHERE id_pergunta = ?";
+            
+            PreparedStatement psPergunta = conexao.prepareStatement(sqlPergunta);
+            psPergunta.setInt(1, idPergunta);
+            
+            ResultSet rsPergunta = psPergunta.executeQuery();
+            
+            if (rsPergunta.next()){
+                cadastrarPergunta.setText(rsPergunta.getString("enunciado"));
+                cadastrarDica.setText(rsPergunta.getString("dica"));
+                
+                String dificuldade = rsPergunta.getString("dificuldade");
+                botãoDificuldade.setSelectedItem(dificuldade);
+                
+                imagemPerguntaPath = rsPergunta.getString("imagem_path");
+                
+                if(imagemPerguntaPath != null && !imagemPerguntaPath.isEmpty()){
+                    mostrarImagemNoLabel(imagemPerguntaPath, cadastrarImagemPergunta);
+                }
+            }
+            
+            String sqlAlternativa = "SELECT id_alternativa, texto, imagem_path, correta, ordem FROM alternativas WHERE id_pergunta = ? ORDER BY ordem";
+            
+            PreparedStatement psAlt = conexao.prepareStatement(sqlAlternativa);
+            psAlt.setInt(1, idPergunta);
+            
+            ResultSet rsAlt = psAlt.executeQuery();
+            
+            while(rsAlt.next()){
+                int ordem = rsAlt.getInt("ordem");
+                int idAlternativa = rsAlt.getInt("id_alternativa");
+                String texto = rsAlt.getString("texto");
+                String imagem = rsAlt.getString("imagem_path");
+                boolean correta = rsAlt.getBoolean("correta");
+                        
+            
+            
+            if(ordem == 1){
+                idAlternativa1 = idAlternativa;
+                cadastrarResposta1.setText(texto);
+                imagemResposta1Path = imagem;
+                if(imagem != null && !imagem.isEmpty()){
+                    mostrarImagemNoLabel(imagem,cadastrarImagem1);
+                }
+                else if(ordem == 2){
+                    idAlternativa2 = idAlternativa;
+                    cadastrarResposta2.setText(texto);
+                    imagemResposta2Path = imagem;
+                    if(imagem != null && !imagem.isEmpty()){
+                        mostrarImagemNoLabel(imagem,cadastrarImagem2);
+                }
+                }else if(ordem == 3){
+                    idAlternativa3 = idAlternativa;
+                    cadastrarResposta3.setText(texto);
+                    imagemResposta3Path = imagem;
+                    if(imagem != null && !imagem.isEmpty()){
+                        mostrarImagemNoLabel(imagem,cadastrarImagem3);
+                }
+                }else if(ordem == 4){
+                    idAlternativa4 = idAlternativa;
+                    cadastrarResposta4.setText(texto);
+                    imagemResposta4Path = imagem;
+                    if(imagem != null && !imagem.isEmpty()){
+                        mostrarImagemNoLabel(imagem,cadastrarImagem4);
+                }
+                }
+                if(correta){
+                    botãoAlternaticaCorreta.setSelectedIndex(ordem -1);
+                }
+                
+                
+            }
+            conexao.close();
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao carregar pergunta " +e.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
