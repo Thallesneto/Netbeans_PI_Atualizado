@@ -359,6 +359,64 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
 
     private void botãoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoAtualizarActionPerformed
         // TODO add your handling code here:
+        String pergunta = cadastrarPergunta.getText().trim();
+        String resposta1 = cadastrarResposta1.getText().trim();
+        String resposta2 = cadastrarResposta2.getText().trim();
+        String resposta3 = cadastrarResposta3.getText().trim();
+        String resposta4 = cadastrarResposta4.getText().trim();
+        String dicaTexto = cadastrarDica.getText().trim();
+        
+        String dificuldade = botãoDificuldade.getSelectedItem().toString();
+        String respostaCorreta = botãoAlternaticaCorreta.getSelectedIndex() +1;
+        
+        if(pergunta.isEmpty() || resposta1.isEmpty() || resposta2.isEmpty() || resposta3.isEmpty() || resposta4.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Preencha todos os campos");
+            return;
+        }
+        
+        int pontos;
+        if(dificuldade.equals("facil")){
+            pontos = 10;
+        }else if(dificuldade.equals("medio")){
+            pontos = 20;
+        }else{
+            pontos = 30;
+        }
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha ao conectar no banco");
+                return;
+            }
+            
+            String sqlPergunta = "UPDATE perguntas SET enunciado = ?, dificuldade = ?, dica = ?, pontos = ?, imagem_path = ? WHERE id_pergunta = ?";
+            
+            PreparedStatement psPergunta = conexao.prepareStatement(sqlPergunta);
+            psPergunta.setString(1, pergunta);
+            psPergunta.setString(2, dificuldade);
+            psPergunta.setString(3, dicaTexto);
+            psPergunta.setInt(4, pontos);
+            psPergunta.setString(5, imagemPerguntaPath);
+            psPergunta.setInt(6, idPergunta);
+            
+            psPergunta.executeUpdate();
+            
+            atualizarAlternativa(conexao, idAlternativa1, resposta1, imagemResposta1Path, respostaCorreta == 1);
+            atualizarAlternativa(conexao, idAlternativa2, resposta2, imagemResposta2Path, respostaCorreta == 2);
+            atualizarAlternativa(conexao, idAlternativa3, resposta3, imagemResposta3Path, respostaCorreta == 3);
+            atualizarAlternativa(conexao, idAlternativa4, resposta4, imagemResposta4Path, respostaCorreta == 4);
+            
+            JOptionPane.showMessageDialog(null, "Respostas atualizadas com sucesso");
+            
+            conexao.close();
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao carregar pergunta " +e.getMessage());
+        }
+        
         
     }//GEN-LAST:event_botãoAtualizarActionPerformed
 
