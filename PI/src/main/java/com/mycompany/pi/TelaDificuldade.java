@@ -13,12 +13,13 @@ package com.mycompany.pi;
 public class TelaDificuldade extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaDificuldade.class.getName());
-
+    private String nome;
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaDificuldade() {
+    public TelaDificuldade(String nome) {
         initComponents();
+        this.nome = nome;
     }
 
     /**
@@ -207,7 +208,7 @@ public class TelaDificuldade extends javax.swing.JFrame {
 
     private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
         // TODO add your handling code here:
-        TelaLogin tela = new TelaLogin();
+        TelaAluno tela = new TelaAluno(nome);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_sairButtonActionPerformed
@@ -234,7 +235,7 @@ public class TelaDificuldade extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaDificuldade().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaDificuldade("").setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
