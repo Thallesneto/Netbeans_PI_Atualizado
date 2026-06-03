@@ -23,10 +23,10 @@ public class TelaDesempenho extends javax.swing.JFrame {
      */
     public TelaDesempenho() {
         initComponents();
-        carregarRanking();
+        carregarDesempenho();
     }
     
-    private void carregarRanking(){
+    private void carregarDesempenho(){
         try {
             ConnectionFactory c = new ConnectionFactory();
             Connection conexao = c.obtemConexao();
@@ -36,30 +36,26 @@ public class TelaDesempenho extends javax.swing.JFrame {
                 return;
             }
             
-            String sql =  """
-            SELECT 
-                nome,
-                acertos,
-                erros,
-                porcentagem_acerto
-            FROM vw_ranking_geral
-            ORDER BY porcentagem_acerto DESC, acertos DESC
-        """;
+            String sql = "SELECT aluno, total_partidas, melhor_pontuação, total_acertos, total_erros, porcentual_acertos FROM vw_desempenho_alunos ORDER BY melhor_pontuação DESC, percentual_acertos DESC";
             
             PreparedStatement ps = conexao.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
             DefaultTableModel modelo = new DefaultTableModel();
             modelo.addColumn("Nome");
+            modelo.addColumn("Partidas");
+            modelo.addColumn("Melhor Pontuação");
             modelo.addColumn("Acertos");
             modelo.addColumn("Erros");
             modelo.addColumn("Porcentagem (%)");
             
             while(rs.next()){
                 modelo.addRow(new Object[]{
-                    rs.getString("nome"),
-                    rs.getInt("acertos"),
-                    rs.getInt("erros"),
+                    rs.getString("aluno"),
+                    rs.getInt("total_partidas"),
+                    rs.getInt("melhor_pontuação"),
+                    rs.getInt("total_acertos"),
+                    rs.getInt("total_erros"),
                     rs.getDouble("porcentagem_acertos") + "%"
                 });
             }
@@ -249,7 +245,7 @@ public class TelaDesempenho extends javax.swing.JFrame {
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
-        TelaProfessor tela = new TelaProfessor();
+        TelaPréClassificações tela = new TelaPréClassificações();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed

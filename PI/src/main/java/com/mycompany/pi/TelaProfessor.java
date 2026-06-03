@@ -182,7 +182,7 @@ public class TelaProfessor extends javax.swing.JFrame {
 
     private void classificacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classificacaoButtonActionPerformed
         // TODO add your handling code here:
-        TelaRanking tela = new TelaRanking();
+        TelaPréClassificações tela = new TelaPréClassificações();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_classificacaoButtonActionPerformed

@@ -43,7 +43,7 @@ public class TelaRanking extends javax.swing.JFrame {
                 erros,
                 porcentagem_acerto
             FROM vw_ranking_geral
-            ORDER BY porcentagem_acerto DESC, acertos DESC
+            ORDER BY porcentagem_acerto DESC, acertos DESC LIMIT 10
         """;
             
             PreparedStatement ps = conexao.prepareStatement(sql);
@@ -249,7 +249,7 @@ public class TelaRanking extends javax.swing.JFrame {
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
-        TelaProfessor tela = new TelaProfessor();
+        TelaPréClassificações tela = new TelaPréClassificações();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed

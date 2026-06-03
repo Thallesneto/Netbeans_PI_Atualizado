@@ -202,14 +202,14 @@ public class TelaPréClassificações extends javax.swing.JFrame {
 
     private void botãoRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoRankingActionPerformed
         // TODO add your handling code here:
-        CadastroAlunos tela = new CadastroAlunos();
+        TelaRanking tela = new TelaRanking();
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoRankingActionPerformed
 
     private void botãoDesempenhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoDesempenhoActionPerformed
         // TODO add your handling code here:
-        TelaEscolhaAlunos tela = new TelaEscolhaAlunos();
+        TelaDesempenho tela = new TelaDesempenho();
         tela.setVisible(true);
         this.dispose();
         
