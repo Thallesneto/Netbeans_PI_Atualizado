@@ -455,6 +455,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Excluir"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oExcluirActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="bot&#xe3;oAlternaticaCorreta">
           <Properties>

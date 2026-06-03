@@ -48,6 +48,7 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
         botãoDificuldade.addItem("medio");
         botãoDificuldade.addItem("dificil");
         
+        botãoAlternaticaCorreta.removeAllItems();
         botãoAlternaticaCorreta.addItem("Resposta 1");
         botãoAlternaticaCorreta.addItem("Resposta 2");
         botãoAlternaticaCorreta.addItem("Resposta 3");
@@ -213,6 +214,7 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
         botãoDificuldade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         botãoExcluir.setText("Excluir");
+        botãoExcluir.addActionListener(this::botãoExcluirActionPerformed);
 
         botãoAlternaticaCorreta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         botãoAlternaticaCorreta.addActionListener(this::botãoAlternaticaCorretaActionPerformed);
@@ -367,7 +369,7 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
         String dicaTexto = cadastrarDica.getText().trim();
         
         String dificuldade = botãoDificuldade.getSelectedItem().toString();
-        String respostaCorreta = botãoAlternaticaCorreta.getSelectedIndex() +1;
+        int respostaCorreta = botãoAlternaticaCorreta.getSelectedIndex() +1;
         
         if(pergunta.isEmpty() || resposta1.isEmpty() || resposta2.isEmpty() || resposta3.isEmpty() || resposta4.isEmpty()){
             JOptionPane.showMessageDialog(null,"Preencha todos os campos");
@@ -442,6 +444,39 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
     private void botãoAlternaticaCorretaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoAlternaticaCorretaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botãoAlternaticaCorretaActionPerformed
+
+    private void botãoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoExcluirActionPerformed
+        // TODO add your handling code here:
+        int resposta = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir essa pergunta?","Confirmando exclusão",JOptionPane.YES_NO_OPTION);
+        if (resposta != JOptionPane.YES_OPTION){
+            return;
+        }
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco");
+            }
+            String sql = "DELETE FROM perguntas WHERE id_pergunta = ?";
+            
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ps.setInt(1,idPergunta);
+            
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Pergunta excluída com sucesso!");
+            
+            conexao.close();
+            
+            TelaPerguntas tela = new TelaPerguntas();
+            tela.setVisible(true);
+            this.dispose();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao carregar pergunta " +e.getMessage());
+        }
+    }//GEN-LAST:event_botãoExcluirActionPerformed
     private void configurarSelecaoImagens() {
     cadastrarImagemPergunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     cadastrarImagem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -613,6 +648,18 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao carregar pergunta " +e.getMessage());
         }
     }
+    
+    private void atualizarAlternativa( Connection conexao, int idAlternativa, String texto, String imagemPath, boolean correta)throws Exception{
+        String sql = "UPDATE alternativas SET texto = ?, imagem_path = ?, correta = ? WHERE id_alternativa = ?";
+        PreparedStatement ps = conexao.prepareStatement(sql);
+        ps.setString(1, texto);
+        ps.setString(2,imagemPath);
+        ps.setBoolean(3, correta);
+        ps.setInt(4, idAlternativa);
+        
+        ps.executeUpdate();
+    }
+    
     /**
      * @param args the command line arguments
      */
