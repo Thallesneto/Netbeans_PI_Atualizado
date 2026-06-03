@@ -38,7 +38,7 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaEdiçãoPergunta() {
+    public TelaEdiçãoPergunta(int idPergunta) {
         initComponents();
         
         this.idPergunta = idPergunta;
@@ -598,52 +598,62 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
             
             ResultSet rsAlt = psAlt.executeQuery();
             
-            while(rsAlt.next()){
+            while (rsAlt.next()) {
                 int ordem = rsAlt.getInt("ordem");
                 int idAlternativa = rsAlt.getInt("id_alternativa");
                 String texto = rsAlt.getString("texto");
                 String imagem = rsAlt.getString("imagem_path");
                 boolean correta = rsAlt.getBoolean("correta");
-                        
-            
-            
-            if(ordem == 1){
-                idAlternativa1 = idAlternativa;
-                cadastrarResposta1.setText(texto);
-                imagemResposta1Path = imagem;
-                if(imagem != null && !imagem.isEmpty()){
-                    mostrarImagemNoLabel(imagem,cadastrarImagem1);
-                }
-                else if(ordem == 2){
-                    idAlternativa2 = idAlternativa;
-                    cadastrarResposta2.setText(texto);
-                    imagemResposta2Path = imagem;
-                    if(imagem != null && !imagem.isEmpty()){
-                        mostrarImagemNoLabel(imagem,cadastrarImagem2);
-                }
-                }else if(ordem == 3){
-                    idAlternativa3 = idAlternativa;
-                    cadastrarResposta3.setText(texto);
-                    imagemResposta3Path = imagem;
-                    if(imagem != null && !imagem.isEmpty()){
-                        mostrarImagemNoLabel(imagem,cadastrarImagem3);
-                }
-                }else if(ordem == 4){
-                    idAlternativa4 = idAlternativa;
-                    cadastrarResposta4.setText(texto);
-                    imagemResposta4Path = imagem;
-                    if(imagem != null && !imagem.isEmpty()){
-                        mostrarImagemNoLabel(imagem,cadastrarImagem4);
-                }
-                }
-                if(correta){
-                    botãoAlternaticaCorreta.setSelectedIndex(ordem -1);
-                }
-                
-                
-            }
+
+                switch (ordem) {
+                    case 1:
+                        idAlternativa1 = idAlternativa;
+                        cadastrarResposta1.setText(texto);
+                        imagemResposta1Path = imagem;
+
+                        if (imagem != null && !imagem.isEmpty()) {
+                            mostrarImagemNoLabel(imagem, cadastrarImagem1);
+                        }
+                        break;
+
+                    case 2:
+                        idAlternativa2 = idAlternativa;
+                        cadastrarResposta2.setText(texto);
+                        imagemResposta2Path = imagem;
+
+                        if (imagem != null && !imagem.isEmpty()) {
+                        mostrarImagemNoLabel(imagem, cadastrarImagem2);
+                        }
+                        break;
+
+                    case 3:
+                        idAlternativa3 = idAlternativa;
+                        cadastrarResposta3.setText(texto);
+                        imagemResposta3Path = imagem;
+
+                        if (imagem != null && !imagem.isEmpty()) {
+                            mostrarImagemNoLabel(imagem, cadastrarImagem3);
+                        }
+                        break;
+
+                    case 4:
+                        idAlternativa4 = idAlternativa;
+                        cadastrarResposta4.setText(texto);
+                        imagemResposta4Path = imagem;
+
+                        if (imagem != null && !imagem.isEmpty()) {
+                        mostrarImagemNoLabel(imagem, cadastrarImagem4);
+                        }
+                        break;
+                    }
+
+                    if (correta) {
+                        botãoAlternaticaCorreta.setSelectedIndex(ordem - 1);
+                    }
+}
+            rsAlt.close();
+            psAlt.close();
             conexao.close();
-            }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Erro ao carregar pergunta " +e.getMessage());
         }
@@ -682,7 +692,7 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaEdiçãoPergunta().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaEdiçãoPergunta(1).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

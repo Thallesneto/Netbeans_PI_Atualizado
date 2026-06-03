@@ -4,6 +4,12 @@
  */
 package com.mycompany.pi;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author danda
@@ -17,6 +23,8 @@ public class TelaPerguntas extends javax.swing.JFrame {
      */
     public TelaPerguntas() {
         initComponents();
+        carregarTabelaPerguntas();
+        carregarBoxPerguntas();
     }
 
     /**
@@ -232,11 +240,80 @@ public class TelaPerguntas extends javax.swing.JFrame {
 
     private void botãoAvançarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoAvançarActionPerformed
         // TODO add your handling code here:
-        TelaEdiçãoPergunta tela = new TelaEdiçãoPergunta();
+        if(numero_Pergunta.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Selecione uma pergunta");
+            return;
+        }
+        
+        int idPergunta = Integer.parseInt(numero_Pergunta.getSelectedItem().toString());
+        
+        TelaEdiçãoPergunta tela = new TelaEdiçãoPergunta(idPergunta);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoAvançarActionPerformed
-
+    private void carregarTabelaPerguntas(){
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null,"Falha na conexão com o banco");
+                return;
+            }
+            
+            String sql = "SELECT id_pergunta, enunciado FROM perguntas ORDER BY id_pergunta";
+            
+            PreparedStatement ps =conexao.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            DefaultTableModel modelo = new DefaultTableModel();
+            
+            modelo.addColumn("Numero_Pergunta");
+            modelo.addColumn("Nome_Pergunta");
+            
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getInt("id_pergunta"),
+                    rs.getString("enunciado")
+                });
+            }
+            
+            tabelaAlunos.setModel(modelo);
+            
+            conexao.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro ao carregar perguntas: " + e.getMessage());
+        }
+    }
+    
+    private void carregarBoxPerguntas(){
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null,"Falha na conexão com o banco");
+                return;
+            }
+            
+            String sql = "SELECT id_pergunta FROM perguntas ORDER BY id_pergunta";
+            
+            PreparedStatement ps= conexao.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            numero_Pergunta.removeAllItems();
+            
+            while(rs.next()){
+                numero_Pergunta.addItem(String.valueOf(rs.getInt("id_pergunta")));
+            }
+            
+            conexao.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro ao carregar perguntas: " + e.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
