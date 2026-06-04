@@ -245,6 +245,9 @@ public class TelaAluno extends javax.swing.JFrame {
 
     private void botãoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSairActionPerformed
         // TODO add your handling code here:
+        TelaLogin tela = new TelaLogin();
+        tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botãoSairActionPerformed
 
     private void botãoRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoRankingActionPerformed

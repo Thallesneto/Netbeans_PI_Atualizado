@@ -4,6 +4,15 @@
  */
 package com.mycompany.pi;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author danda
@@ -11,12 +20,23 @@ package com.mycompany.pi;
 public class TelaJogo extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaJogo.class.getName());
+    private String modoJogo;
+    private ArrayList< PerguntaJogo > perguntas = new ArrayList<>();
+    private int indicePerguntaAtual = 0;
+    private int pontuacao = 0;
+    private PerguntaJogo perguntaAtual;
+    private String nome;
 
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaJogo() {
+    public TelaJogo(String modoJogo, String nome) {
         initComponents();
+        this.modoJogo = modoJogo;
+        this.nome = nome;
+        
+        carregarPerguntas();
+        mostrarPerguntaAtual();
     }
 
     /**
@@ -50,6 +70,7 @@ public class TelaJogo extends javax.swing.JFrame {
         botãoPular = new javax.swing.JButton();
         botãoSom = new javax.swing.JButton();
         títuloPergunta = new javax.swing.JLabel();
+        avancarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -150,12 +171,17 @@ public class TelaJogo extends javax.swing.JFrame {
         botãoVoltar.addActionListener(this::botãoVoltarActionPerformed);
 
         botãoDica.setText("Ajuda");
+        botãoDica.addActionListener(this::botãoDicaActionPerformed);
 
         botãoPular.setText("Pular");
+        botãoPular.addActionListener(this::botãoPularActionPerformed);
 
         botãoSom.setText("Som");
 
         títuloPergunta.setText("PERGUNTA");
+
+        avancarButton.setText("Avançar");
+        avancarButton.addActionListener(this::avancarButtonActionPerformed);
 
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
@@ -169,7 +195,9 @@ public class TelaJogo extends javax.swing.JFrame {
                         .addComponent(botãoVoltar)
                         .addGap(18, 18, 18)
                         .addComponent(botãoSom)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
+                        .addComponent(avancarButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botãoDica)
                         .addGap(28, 28, 28)
                         .addComponent(botãoPular))
@@ -240,7 +268,8 @@ public class TelaJogo extends javax.swing.JFrame {
                     .addComponent(botãoVoltar)
                     .addComponent(botãoSom)
                     .addComponent(botãoDica)
-                    .addComponent(botãoPular))
+                    .addComponent(botãoPular)
+                    .addComponent(avancarButton))
                 .addGap(47, 47, 47))
         );
 
@@ -262,24 +291,268 @@ public class TelaJogo extends javax.swing.JFrame {
 
     private void resposta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta3ActionPerformed
         // TODO add your handling code here:
+        responder(2);
     }//GEN-LAST:event_resposta3ActionPerformed
 
     private void resposta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta2ActionPerformed
         // TODO add your handling code here:
+        responder(1);
     }//GEN-LAST:event_resposta2ActionPerformed
 
     private void resposta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta4ActionPerformed
         // TODO add your handling code here:
+        responder(3);
     }//GEN-LAST:event_resposta4ActionPerformed
 
     private void resposta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta1ActionPerformed
         // TODO add your handling code here:
+        responder(0);
     }//GEN-LAST:event_resposta1ActionPerformed
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
+            TelaAluno tela = new TelaAluno(nome);
+            tela.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed
 
+    private void avancarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avancarButtonActionPerformed
+        // TODO add your handling code here:
+        indicePerguntaAtual++;
+        mostrarPerguntaAtual();
+    }//GEN-LAST:event_avancarButtonActionPerformed
+
+    private void botãoDicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoDicaActionPerformed
+        // TODO add your handling code here:
+        if(perguntaAtual != null){
+            JOptionPane.showMessageDialog(null, perguntaAtual.dica);    
+        }
+    }//GEN-LAST:event_botãoDicaActionPerformed
+
+    private void botãoPularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoPularActionPerformed
+        // TODO add your handling code here:
+            indicePerguntaAtual++;
+            mostrarPerguntaAtual();
+    }//GEN-LAST:event_botãoPularActionPerformed
+    private void carregarPerguntas(){
+        perguntas.clear();
+        
+        if(modoJogo.equals("shuffle")){
+            carregarPerguntaPorDificuldade("facil", 3);
+            carregarPerguntaPorDificuldade("medio", 3);
+            carregarPerguntaPorDificuldade("dificil", 4);
+        }else{
+            carregarPerguntaPorDificuldade(modoJogo, 10);
+        }
+    }
+    private void carregarPerguntaPorDificuldade(String modoJogo, int limite){
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco");
+                return;
+            }
+            String sql = "SELECT id_pergunta, enunciado, dificuldade, dica, pontos, imagem_path FROM perguntas WHERE dificuldade = ? ORDER BY RAND() LIMIT ?";
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ps.setString(1, modoJogo);
+            ps.setInt(2, limite);
+            
+            ResultSet rs = ps.executeQuery();
+            
+
+            while (rs.next()) {
+                PerguntaJogo pergunta = new PerguntaJogo();
+
+                pergunta.idPergunta = rs.getInt("id_pergunta");
+                pergunta.enunciado = rs.getString("enunciado");
+                pergunta.dificuldade = rs.getString("dificuldade");
+                pergunta.dica = rs.getString("dica");
+                pergunta.pontos = rs.getInt("pontos");
+                pergunta.imagemPath = rs.getString("imagem_path");
+
+                carregarAlternativas(pergunta, conexao);
+
+                perguntas.add(pergunta);
+            }
+            conexao.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco" + e.getMessage());
+        }
+    }
+    
+    private void carregarAlternativas(PerguntaJogo pergunta, Connection conexao)throws Exception{
+        String sql = "SELECT id_alternativa, texto, imagem_path, correta, ordem FROM alternativas WHERE id_pergunta = ? ORDER BY ordem";
+        
+        PreparedStatement ps = conexao.prepareStatement(sql);
+        ps.setInt(1, pergunta.idPergunta);
+        
+        ResultSet rs = ps.executeQuery();
+        
+        while(rs.next()){
+            AlternativaJogo alt = new AlternativaJogo();
+            
+            alt.idAlternativa = rs.getInt("id_alternativa");
+            alt.texto = rs.getString("texto");
+            alt.imagemPath = rs.getString("imagem_path");
+            alt.correta = rs.getBoolean("correta");
+            alt.ordem = rs.getInt("ordem");
+            
+            pergunta.alternativas.add(alt);
+        }
+    }
+    
+    private void mostrarPerguntaAtual() {
+        if (perguntas.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Não existem perguntas cadastradas para este modo.");
+        return;
+        }
+
+        if (indicePerguntaAtual >= perguntas.size()) {
+        JOptionPane.showMessageDialog(null, "Fim do jogo! Pontuação final: " + pontuacao);
+
+        TelaAluno tela = new TelaAluno(nome);
+        tela.setVisible(true);
+        this.dispose();
+        return;
+        }
+
+        perguntaAtual = perguntas.get(indicePerguntaAtual);
+
+        numeroPergunta.setText("Pergunta " + (indicePerguntaAtual + 1));
+
+        títuloPergunta.setText(perguntaAtual.enunciado);
+
+        variavelPontos.setText(String.valueOf(pontuacao));
+
+        limparCoresBotoes();
+        habilitarBotoes(true);
+        limparImagensAlternativas();
+
+        if (perguntaAtual.imagemPath != null && !perguntaAtual.imagemPath.isEmpty()) {
+            mostrarImagemNoLabel(perguntaAtual.imagemPath, imagemPergunta);
+        } else {
+            imagemPergunta.setIcon(null);
+            imagemPergunta.setText("IMAGEM PERGUNTA");
+        }
+
+        if (perguntaAtual.alternativas.size() < 4) {
+            JOptionPane.showMessageDialog(null, "Essa pergunta não tem 4 alternativas cadastradas.");
+            return;
+        }
+
+        resposta1.setText(perguntaAtual.alternativas.get(0).texto);
+        resposta2.setText(perguntaAtual.alternativas.get(1).texto);
+        resposta3.setText(perguntaAtual.alternativas.get(2).texto);
+        resposta4.setText(perguntaAtual.alternativas.get(3).texto);
+
+        carregarImagemAlternativa(0, imagemResposta1);
+        carregarImagemAlternativa(1, imagemResposta2);
+        carregarImagemAlternativa(2, imagemResposta3);
+        carregarImagemAlternativa(3, imagemResposta4);
+
+        repaint();
+        revalidate();
+    }
+    private void limparImagensAlternativas() {
+        imagemResposta1.setIcon(null);
+        imagemResposta1.setText("IMAGEM1");
+
+        imagemResposta2.setIcon(null);
+        imagemResposta2.setText("IMAGEM2");
+
+        imagemResposta3.setIcon(null);
+        imagemResposta3.setText("IMAGEM3");
+
+        imagemResposta4.setIcon(null);
+        imagemResposta4.setText("IMAGEM4");
+    }
+    
+    private void carregarImagemAlternativa(int indice, javax.swing.JLabel label){
+        String caminho = perguntaAtual.alternativas.get(indice).imagemPath;
+        
+        if(caminho != null && !caminho.isEmpty()){
+            mostrarImagemNoLabel(caminho, label);
+        }else{
+            label.setIcon(null);
+            label.setText("IMAGEM" + (indice + 1));
+        }
+    }
+    
+    private void mostrarImagemNoLabel(String caminho, javax.swing.JLabel label){
+        ImageIcon icon = new ImageIcon(caminho);
+        Image img = icon.getImage();
+        
+        Image imgRedimensionada = img.getScaledInstance(
+                label.getWidth(),
+                label.getHeight(),
+                Image.SCALE_SMOOTH
+        );
+        
+        label.setText("");
+        label.setIcon(new ImageIcon(imgRedimensionada));
+    }
+    
+    private void responder(int indiceEscolhido){
+        AlternativaJogo escolhida = perguntaAtual.alternativas.get(indiceEscolhido);
+        
+        if(escolhida.correta){
+            pontuacao += perguntaAtual.pontos;
+        }
+        
+        pintarAlternativas(indiceEscolhido);
+        variavelPontos.setText(String.valueOf(pontuacao));
+        
+        habilitarBotoes(false);
+    }
+    
+    private void limparCoresBotoes(){
+        javax.swing.JButton[] botoes = {
+            resposta1,
+            resposta2,
+            resposta3,
+            resposta4,
+        };
+        
+        for (javax.swing.JButton botao : botoes){
+            botao.setBackground(null);
+            botao.setForeground(Color.BLACK);
+            botao.setOpaque(true);
+            botao.setContentAreaFilled(true);
+        }
+    }
+    
+    private void habilitarBotoes(boolean habilitar){
+        resposta1.setEnabled(habilitar);
+        resposta2.setEnabled(habilitar);
+        resposta3.setEnabled(habilitar);
+        resposta4.setEnabled(habilitar);
+    }
+    
+    private void pintarAlternativas(int indiceEscolhido){
+         javax.swing.JButton[] botoes = {
+             resposta1,
+             resposta2,
+             resposta3,
+             resposta4
+         };
+         
+         for(int i=0; i < perguntaAtual.alternativas.size(); i++){
+             AlternativaJogo alt = perguntaAtual.alternativas.get(i);
+             
+             if(alt.correta){
+                 botoes[i].setBackground(Color.GREEN);
+             }else{
+                 botoes[i].setBackground(Color.RED);
+             }
+             
+             botoes[i].setOpaque(true);
+             botoes[i].setContentAreaFilled(true);
+             botoes[i].setForeground(Color.WHITE);
+         }
+    }
     /**
      * @param args the command line arguments
      */
@@ -302,10 +575,11 @@ public class TelaJogo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaJogo().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaJogo("","").setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton avancarButton;
     private javax.swing.JButton botãoDica;
     private javax.swing.JButton botãoPular;
     private javax.swing.JButton botãoSom;

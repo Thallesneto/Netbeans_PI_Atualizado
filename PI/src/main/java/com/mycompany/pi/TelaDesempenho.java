@@ -36,7 +36,7 @@ public class TelaDesempenho extends javax.swing.JFrame {
                 return;
             }
             
-            String sql = "SELECT aluno, total_partidas, melhor_pontuação, total_acertos, total_erros, porcentual_acertos FROM vw_desempenho_alunos ORDER BY melhor_pontuação DESC, percentual_acertos DESC";
+            String sql = "SELECT aluno, total_partidas, melhor_pontuacao, total_acertos, total_erros, percentual_acerto FROM vw_desempenho_alunos ORDER BY melhor_pontuacao DESC, percentual_acerto DESC";
             
             PreparedStatement ps = conexao.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -53,10 +53,10 @@ public class TelaDesempenho extends javax.swing.JFrame {
                 modelo.addRow(new Object[]{
                     rs.getString("aluno"),
                     rs.getInt("total_partidas"),
-                    rs.getInt("melhor_pontuação"),
+                    rs.getInt("melhor_pontuacao"),
                     rs.getInt("total_acertos"),
                     rs.getInt("total_erros"),
-                    rs.getDouble("porcentagem_acertos") + "%"
+                    rs.getDouble("percentual_acerto") + "%"
                 });
             }
             

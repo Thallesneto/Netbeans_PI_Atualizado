@@ -20,6 +20,7 @@ public class TelaDificuldade extends javax.swing.JFrame {
     public TelaDificuldade(String nome) {
         initComponents();
         this.nome = nome;
+        
     }
 
     /**
@@ -179,28 +180,28 @@ public class TelaDificuldade extends javax.swing.JFrame {
 
     private void medioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medioButtonActionPerformed
         // TODO add your handling code here:
-        TelaJogo tela = new TelaJogo();
+        TelaJogo tela = new TelaJogo("medio",nome);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_medioButtonActionPerformed
 
     private void shuffleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shuffleButtonActionPerformed
         // TODO add your handling code here:
-        TelaJogo tela = new TelaJogo();
+        TelaJogo tela = new TelaJogo("shuffle",nome);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_shuffleButtonActionPerformed
 
     private void facilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilButtonActionPerformed
         // TODO add your handling code here:
-        TelaJogo tela = new TelaJogo();
+        TelaJogo tela = new TelaJogo("facil",nome);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_facilButtonActionPerformed
 
     private void dificilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dificilButtonActionPerformed
         // TODO add your handling code here:
-        TelaJogo tela = new TelaJogo();
+        TelaJogo tela = new TelaJogo("dificil",nome);
         tela.setVisible(true);
         this.dispose();
         

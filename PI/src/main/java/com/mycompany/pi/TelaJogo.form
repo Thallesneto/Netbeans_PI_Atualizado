@@ -55,7 +55,9 @@
                           <Component id="botãoVoltar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="botãoSom" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="323" max="32767" attributes="0"/>
+                          <Component id="avancarButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="botãoDica" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="botãoPular" min="-2" max="-2" attributes="0"/>
@@ -148,6 +150,7 @@
                       <Component id="botãoSom" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="botãoDica" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="botãoPular" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="avancarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
@@ -347,11 +350,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ajuda"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oDicaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bot&#xe3;oPular">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pular"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oPularActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bot&#xe3;oSom">
           <Properties>
@@ -362,6 +371,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="PERGUNTA"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="avancarButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Avan&#xe7;ar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="avancarButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

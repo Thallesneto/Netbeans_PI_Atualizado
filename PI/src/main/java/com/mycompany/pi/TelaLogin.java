@@ -285,6 +285,8 @@ public class TelaLogin extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Ler os termos de uso primeiro");
         }
+        
+        
     }//GEN-LAST:event_entrarButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
