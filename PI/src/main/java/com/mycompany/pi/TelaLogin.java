@@ -262,6 +262,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 if (SegurancaSenha.verificarSenha(senhaDigitada,hashSalvo)){
                     String nome = rs.getString("nome");
                     String tipoUsuario = rs.getString("tipo_usuario");
+                    String idAluno = rs.getString("id_usuario");
                     
                     if(tipoUsuario.equals("Professor")){
                         TelaProfessor tela = new TelaProfessor();
@@ -269,7 +270,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         this.dispose();
                         
                     }else if(tipoUsuario.equals("Aluno")){
-                        TelaAluno tela = new TelaAluno(nome);
+                        TelaAluno tela = new TelaAluno(nome, idAluno);
                         tela.setVisible(true);
                         this.dispose();
                 }

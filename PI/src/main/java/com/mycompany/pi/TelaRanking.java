@@ -38,6 +38,7 @@ public class TelaRanking extends javax.swing.JFrame {
             
             String sql =  """
             SELECT 
+                posicao,
                 nome,
                 acertos,
                 erros,
@@ -50,6 +51,7 @@ public class TelaRanking extends javax.swing.JFrame {
             ResultSet rs = ps.executeQuery();
             
             DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("Posição");
             modelo.addColumn("Nome");
             modelo.addColumn("Acertos");
             modelo.addColumn("Erros");
@@ -57,6 +59,7 @@ public class TelaRanking extends javax.swing.JFrame {
             
             while(rs.next()){
                 modelo.addRow(new Object[]{
+                    rs.getInt("posicao"),
                     rs.getString("nome"),
                     rs.getInt("acertos"),
                     rs.getInt("erros"),

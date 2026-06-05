@@ -26,14 +26,20 @@ public class TelaJogo extends javax.swing.JFrame {
     private int pontuacao = 0;
     private PerguntaJogo perguntaAtual;
     private String nome;
+    private int idAluno;
+    
+    private int idPartida;
+    
+    private boolean usouDicaNaPergunta = false;
 
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaJogo(String modoJogo, String nome) {
+    public TelaJogo(String modoJogo, String nome, int idAluno) {
         initComponents();
         this.modoJogo = modoJogo;
         this.nome = nome;
+        this.idAluno = idAluno;
         
         carregarPerguntas();
         mostrarPerguntaAtual();
@@ -319,12 +325,14 @@ public class TelaJogo extends javax.swing.JFrame {
     private void avancarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avancarButtonActionPerformed
         // TODO add your handling code here:
         indicePerguntaAtual++;
+        usouDicaNaPergunta = false;
         mostrarPerguntaAtual();
     }//GEN-LAST:event_avancarButtonActionPerformed
 
     private void botãoDicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoDicaActionPerformed
         // TODO add your handling code here:
         if(perguntaAtual != null){
+            usouDicaNaPergunta = true;
             JOptionPane.showMessageDialog(null, perguntaAtual.dica);    
         }
     }//GEN-LAST:event_botãoDicaActionPerformed
@@ -411,12 +419,13 @@ public class TelaJogo extends javax.swing.JFrame {
         }
 
         if (indicePerguntaAtual >= perguntas.size()) {
-        JOptionPane.showMessageDialog(null, "Fim do jogo! Pontuação final: " + pontuacao);
+            finalizarPartida();
+            JOptionPane.showMessageDialog(null, "Fim do jogo! Pontuação final: " + pontuacao);
 
-        TelaAluno tela = new TelaAluno(nome);
-        tela.setVisible(true);
-        this.dispose();
-        return;
+            TelaAluno tela = new TelaAluno(nome);
+            tela.setVisible(true);
+            this.dispose();
+            return;
         }
 
         perguntaAtual = perguntas.get(indicePerguntaAtual);
@@ -502,6 +511,8 @@ public class TelaJogo extends javax.swing.JFrame {
             pontuacao += perguntaAtual.pontos;
         }
         
+        salvarResposta(escolhida);
+        
         pintarAlternativas(indiceEscolhido);
         variavelPontos.setText(String.valueOf(pontuacao));
         
@@ -553,6 +564,105 @@ public class TelaJogo extends javax.swing.JFrame {
              botoes[i].setForeground(Color.WHITE);
          }
     }
+    
+    private void criarPartida(){
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+                return;
+            }
+            
+            String nivelAlcancado;
+            
+            if(modoJogo.equals("facil")){
+                nivelAlcancado = "FACIL";
+            }else if(modoJogo.equals("medio")){
+                nivelAlcancado = "MEDIO";
+            }else{
+                nivelAlcancado = "DIFICIL";
+            }
+            
+            String sql = "INSERT INTO partidas (id_aluno, modo_jogo, status_partida, nivel_alcancado)";
+            
+            PreparedStatement ps = conexao.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, idAluno);
+            ps.setString(2, modoJogo);
+            ps.setString(3, "EM_ANDAMENTO");
+            ps.setString(4, nivelAlcancado);
+            
+            ps.executeUpdate();
+            
+            conexao.close();
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao criar partida: " + e.getMessage());
+        }
+    }
+    
+    private void salvarResposta(AlternativaJogo alternativaEscolhida){
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+                return;
+            }
+            
+            int pontosObtidos = 0;
+            
+            if(alternativaEscolhida.correta){
+                pontosObtidos = perguntaAtual.pontos;
+            }
+            
+            String sql = "INSERT INTO respostas_partidas (id_partida, id_pergunta, id_alternativa, acertou, usou_dica, pontos_obtidos)";
+            
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            
+            ps.setInt(1,idPartida);
+            ps.setInt(2,perguntaAtual.idPergunta);
+            ps.setInt(3,alternativaEscolhida.idAlternativa);
+            ps.setBoolean(4, alternativaEscolhida.correta);
+            ps.setBoolean(5, usouDicaNaPergunta);
+            ps.setInt(6, pontosObtidos);
+            
+            ps.executeUpdate();
+            
+            conexao.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao salvar resposta: " + e.getMessage());
+        }
+    }
+    
+    private void finalizarPartida(){
+        try{
+            ConnectionFactory c = new ConnectionFactory();
+            Connection conexao = c.obtemConexao();
+            
+            if(conexao == null){
+                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+                return;
+            }
+            
+            String sql = "UPDATE partidas SET status_partida = ? WHERE id_partida = ?";
+            
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            
+            ps.setString(1, "FINALIZADA");
+            ps.setInt(2, idPartida);
+            
+            ps.executeUpdate();
+            
+            conexao.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao finalizar partida: " + e.getMessage());
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -575,7 +685,7 @@ public class TelaJogo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaJogo("","").setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaJogo("","",1).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

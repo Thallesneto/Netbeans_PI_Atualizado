@@ -12,14 +12,16 @@ public class TelaAluno extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaAluno.class.getName());
     private String nomeAluno;
+    private int idAluno;
 
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaAluno(String nomeAluno) {
+    public TelaAluno(String nomeAluno, int IdAluno) {
         initComponents();
         this.nomeAluno = nomeAluno;
         colocarUsuário.setText(nomeAluno);
+        this.idAluno = idAluno;
     }
 
     /**
@@ -279,7 +281,7 @@ public class TelaAluno extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaAluno("").setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaAluno("",1).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
