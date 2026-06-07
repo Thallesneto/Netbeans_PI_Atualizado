@@ -293,18 +293,21 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String mensagem =  "1. Objeto\n" +
-    "A presente plataforma consiste em um jogo educacional voltado ao ensino de Química no nível médio, com a finalidade de...\n\n" +
+    "A presente plataforma consiste em um jogo educacional voltado ao ensino de Química no nível médio, com a finalidade de de auxiliar o processo\n" +
+    "de aprendizagem dos estudantes por meio de atividades interativas, desafios, avaliações e recursos didáticos digitais que promovam\n " +
+    "o desenvolvimento do conhecimento científico de forma dinâmica e acessível.\n" +
     "2. Público-alvo\n" +
-    "A plataforma é destinada prioritariamente a estudantes do ensino médio, podendo igualmente ser utilizada por docentes...\n" +
-    "Nos casos em que o usuário for menor de idade, recomenda-se a utilização com ciência e acompanhamento de seus responsáveis.\n\n" +
+    "A plataforma é destinada prioritariamente a estudantes do ensino médio, podendo igualmente ser utilizada por docentes , instituições de ensino e \n" +
+    "demais interessados em conteúdos relacionados à Química e às Ciências da Natureza.\n" +
+    "Nos casos em que o usuário for menor de idade, recomenda-se a utilização com ciência e acompanhamento de seus responsáveis.\n" +
     "3. Condições de utilização\n" +
     "Ao utilizar a plataforma, o usuário compromete-se a:\n" +
     "- fazer uso do sistema de maneira ética e exclusivamente para fins educacionais;\n" +
     "- respeitar as normas e instruções de funcionamento disponibilizadas;\n" +
     "- fornecer informações corretas e atualizadas, quando aplicável;\n" +
     "- preservar a integridade da plataforma e de seus recursos;\n" +
-    "- manter conduta respeitosa durante toda a utilização do ambiente digital.\n\n" +
-    "O uso da plataforma pressupõe a observância integral destes Termos." +
+    "- manter conduta respeitosa durante toda a utilização do ambiente digital.\n" +
+    "O uso da plataforma pressupõe a observância integral destes Termos.\n" +
     "4. Restrições de uso\n" +
     "É expressamente vedado ao usuário:\n" +
     "copiar, reproduzir, distribuir ou divulgar qualquer conteúdo da plataforma sem autorização prévia;\n" +
