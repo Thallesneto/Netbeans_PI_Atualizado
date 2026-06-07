@@ -138,6 +138,7 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
         botãoVoltar.addActionListener(this::botãoVoltarActionPerformed);
 
         botãoSom.setText("Som");
+        botãoSom.addActionListener(this::botãoSomActionPerformed);
 
         botãoExcluir.setText("Excluir");
         botãoExcluir.addActionListener(this::botãoExcluirActionPerformed);
@@ -346,6 +347,12 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao excluir aluno: " + e.getMessage());
         }
     }//GEN-LAST:event_botãoExcluirActionPerformed
+
+    private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
+        // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
+    }//GEN-LAST:event_botãoSomActionPerformed
     private void carregarDadosAlunos(){
         try {
             ConnectionFactory c = new ConnectionFactory();

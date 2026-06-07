@@ -44,6 +44,7 @@ public class TelaDificuldade extends javax.swing.JFrame {
         facilButton = new javax.swing.JButton();
         dificilButton = new javax.swing.JButton();
         sairButton = new javax.swing.JButton();
+        SomButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -128,6 +129,9 @@ public class TelaDificuldade extends javax.swing.JFrame {
         sairButton.setText("Sair");
         sairButton.addActionListener(this::sairButtonActionPerformed);
 
+        SomButton.setText("Som");
+        SomButton.addActionListener(this::SomButtonActionPerformed);
+
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
         cinzaPaneLayout.setHorizontalGroup(
@@ -145,7 +149,10 @@ public class TelaDificuldade extends javax.swing.JFrame {
                         .addGap(111, 111, 111))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                         .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(147, 147, 147)))
+                        .addGap(147, 147, 147))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                        .addComponent(SomButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
@@ -153,7 +160,9 @@ public class TelaDificuldade extends javax.swing.JFrame {
             .addComponent(vermelhoPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
             .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
             .addGroup(cinzaPaneLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addContainerGap()
+                .addComponent(SomButton)
+                .addGap(7, 7, 7)
                 .addComponent(facilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(medioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,6 +225,12 @@ public class TelaDificuldade extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_sairButtonActionPerformed
 
+    private void SomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SomButtonActionPerformed
+        // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
+    }//GEN-LAST:event_SomButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -242,6 +257,7 @@ public class TelaDificuldade extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SomButton;
     private javax.swing.JPanel cinzaEscuroPane;
     private javax.swing.JPanel cinzaEscuroPane2;
     private javax.swing.JPanel cinzaPane;

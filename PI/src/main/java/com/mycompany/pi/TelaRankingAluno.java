@@ -52,7 +52,12 @@ public class TelaRankingAluno extends javax.swing.JFrame {
             PreparedStatement ps = conexao.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
-            DefaultTableModel modelo = new DefaultTableModel();
+            DefaultTableModel modelo = new DefaultTableModel(){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
             modelo.addColumn("Nome");
             modelo.addColumn("Acertos");
             modelo.addColumn("Erros");
@@ -248,6 +253,8 @@ public class TelaRankingAluno extends javax.swing.JFrame {
 
     private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
         // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
     }//GEN-LAST:event_botãoSomActionPerformed
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed

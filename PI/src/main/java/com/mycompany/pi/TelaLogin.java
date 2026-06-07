@@ -26,6 +26,7 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
+        MusicaFundo.tocarMusica();
         
     }
 
@@ -53,6 +54,8 @@ public class TelaLogin extends javax.swing.JFrame {
         senhaPasswordField = new javax.swing.JPasswordField();
         mostrarSenhaBox = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
+        TermosBox = new javax.swing.JCheckBox();
+        SomButton = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -93,7 +96,7 @@ public class TelaLogin extends javax.swing.JFrame {
         mauaVermelhoPaneLayout.setVerticalGroup(
             mauaVermelhoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mauaVermelhoPaneLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 147, Short.MAX_VALUE)
                 .addComponent(mauaCinzaPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -154,6 +157,12 @@ public class TelaLogin extends javax.swing.JFrame {
         jButton1.setText("Termos de Uso");
         jButton1.addActionListener(this::jButton1ActionPerformed);
 
+        TermosBox.setText("Li os termos de uso");
+        TermosBox.addActionListener(this::TermosBoxActionPerformed);
+
+        SomButton.setText("Som");
+        SomButton.addActionListener(this::SomButtonActionPerformed);
+
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
         cinzaPaneLayout.setHorizontalGroup(
@@ -162,20 +171,26 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(etecVermelhoPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cinzaPaneLayout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(entrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                                .addComponent(senhaPasswordField)
-                                .addComponent(senhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(mostrarSenhaBox)
-                            .addComponent(jButton1))
-                        .addGap(59, 59, 59))
-                    .addGroup(cinzaPaneLayout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(entrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                                .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                                        .addComponent(senhaPasswordField)
+                                        .addComponent(senhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(mostrarSenhaBox)
+                                    .addComponent(jButton1)
+                                    .addComponent(TermosBox))
+                                .addGap(59, 59, 59))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                                .addComponent(SomButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
                 .addComponent(mauaVermelhoPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
@@ -183,7 +198,9 @@ public class TelaLogin extends javax.swing.JFrame {
             .addComponent(mauaVermelhoPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(etecVermelhoPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(cinzaPaneLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addContainerGap()
+                .addComponent(SomButton)
+                .addGap(32, 32, 32)
                 .addComponent(emailLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,10 +211,12 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mostrarSenhaBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TermosBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(entrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGap(51, 51, 51))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -292,56 +311,103 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        String mensagem =  "1. Objeto\n" +
-    "A presente plataforma consiste em um jogo educacional voltado ao ensino de Química no nível médio, com a finalidade de de auxiliar o processo\n" +
-    "de aprendizagem dos estudantes por meio de atividades interativas, desafios, avaliações e recursos didáticos digitais que promovam\n " +
-    "o desenvolvimento do conhecimento científico de forma dinâmica e acessível.\n" +
-    "2. Público-alvo\n" +
-    "A plataforma é destinada prioritariamente a estudantes do ensino médio, podendo igualmente ser utilizada por docentes , instituições de ensino e \n" +
-    "demais interessados em conteúdos relacionados à Química e às Ciências da Natureza.\n" +
-    "Nos casos em que o usuário for menor de idade, recomenda-se a utilização com ciência e acompanhamento de seus responsáveis.\n" +
-    "3. Condições de utilização\n" +
-    "Ao utilizar a plataforma, o usuário compromete-se a:\n" +
-    "- fazer uso do sistema de maneira ética e exclusivamente para fins educacionais;\n" +
-    "- respeitar as normas e instruções de funcionamento disponibilizadas;\n" +
-    "- fornecer informações corretas e atualizadas, quando aplicável;\n" +
-    "- preservar a integridade da plataforma e de seus recursos;\n" +
-    "- manter conduta respeitosa durante toda a utilização do ambiente digital.\n" +
-    "O uso da plataforma pressupõe a observância integral destes Termos.\n" +
-    "4. Restrições de uso\n" +
-    "É expressamente vedado ao usuário:\n" +
-    "copiar, reproduzir, distribuir ou divulgar qualquer conteúdo da plataforma sem autorização prévia;\n" +
-    "alterar, modificar ou tentar comprometer o funcionamento do sistema;\n" +
-    "acessar áreas restritas sem permissão;\n" +
-    "utilizar a plataforma para fins ilícitos, indevidos ou incompatíveis com sua finalidade educacional;\n" +
-    "praticar condutas que prejudiquem outros usuários ou comprometam a segurança do ambiente digital.\n" +
-    "O descumprimento destas disposições poderá acarretar a suspensão temporária ou definitiva do acesso à plataforma.\n" +
-    "5. Conteúdo educacional e responsabilidade\n" +
-    "Os conteúdos disponibilizados foram desenvolvidos com base em princípios científicos e pedagógicos aplicáveis ao ensino médio.\n" +
-    "Embora haja compromisso com a qualidade e a atualização das informações apresentadas, a plataforma poderá passar por revisões, atualizações e ajustes sempre que necessário.\n" +
-    "O jogo possui caráter complementar e não substitui aulas, materiais didáticos oficiais ou a orientação pedagógica fornecida por profissionais da educação.\n" +
-    "6. Propriedade intelectual\n" +
-    "Todos os direitos relacionados à plataforma, incluindo textos, imagens, ilustrações, atividades, recursos visuais, interface e demais conteúdos disponibilizados, são de titularidade de seus desenvolvedores e encontram-se protegidos pela legislação vigente relativa à propriedade intelectual e aos direitos autorais.\n" +
-    "É vedada qualquer reprodução parcial ou integral sem autorização expressa.\n" +
-    "7. Privacidade e proteção de dados\n" +
-    "Caso a plataforma realize coleta de informações necessárias ao funcionamento do sistema, tais dados serão utilizados exclusivamente para fins pedagógicos, administrativos ou de melhoria da experiência do usuário.\n" +
-    "As informações eventualmente fornecidas serão tratadas com responsabilidade e confidencialidade, não sendo compartilhadas com terceiros, salvo em hipóteses previstas em lei.\n" +
-    "8. Alterações dos Termos de Uso\n" +
-    "A administração da plataforma reserva-se o direito de modificar, revisar ou atualizar estes Termos de Uso a qualquer momento, conforme necessidade técnica, pedagógica ou administrativa.\n" +
-    "As alterações entrarão em vigor a partir de sua publicação no ambiente digital.\n" +
-    "9. Disposições finais\n" +
-    "A utilização da plataforma implica ciência e concordância integral com todas as condições estabelecidas neste documento.\n" +
-    "Ao acessar e utilizar o jogo educacional de Química, o usuário reconhece estar de acordo com as normas previstas e compromete-se a respeitá-las integralmente.\n" +
-    "Equipe responsável pelo desenvolvimento do projeto";
-    javax.swing.JOptionPane.showMessageDialog(this, mensagem, "Termos de Uso", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    numTela = 1;
-          
-            
-                
+    String mensagem = """
+1. Objeto
 
-            
-        
+A presente plataforma consiste em um jogo educacional voltado ao ensino de Química no nível médio, com a finalidade de auxiliar o processo de aprendizagem dos estudantes por meio de atividades interativas, desafios, avaliações e recursos didáticos digitais que promovam o desenvolvimento do conhecimento científico de forma dinâmica e acessível.
+
+2. Público-alvo
+
+A plataforma é destinada prioritariamente a estudantes do ensino médio, podendo igualmente ser utilizada por docentes, instituições de ensino e demais interessados em conteúdos relacionados à Química e às Ciências da Natureza.
+
+Nos casos em que o usuário for menor de idade, recomenda-se a utilização com ciência e acompanhamento de seus responsáveis.
+
+3. Condições de utilização
+
+Ao utilizar a plataforma, o usuário compromete-se a:
+- fazer uso do sistema de maneira ética e exclusivamente para fins educacionais;
+- respeitar as normas e instruções de funcionamento disponibilizadas;
+- fornecer informações corretas e atualizadas, quando aplicável;
+- preservar a integridade da plataforma e de seus recursos;
+- manter conduta respeitosa durante toda a utilização do ambiente digital.
+
+O uso da plataforma pressupõe a observância integral destes Termos.
+
+4. Restrições de uso
+
+É expressamente vedado ao usuário:
+- copiar, reproduzir, distribuir ou divulgar qualquer conteúdo da plataforma sem autorização prévia;
+- alterar, modificar ou tentar comprometer o funcionamento do sistema;
+- acessar áreas restritas sem permissão;
+- utilizar a plataforma para fins ilícitos, indevidos ou incompatíveis com sua finalidade educacional;
+- praticar condutas que prejudiquem outros usuários ou comprometam a segurança do ambiente digital.
+
+O descumprimento destas disposições poderá acarretar a suspensão temporária ou definitiva do acesso à plataforma.
+
+5. Conteúdo educacional e responsabilidade
+
+Os conteúdos disponibilizados foram desenvolvidos com base em princípios científicos e pedagógicos aplicáveis ao ensino médio.
+
+Embora haja compromisso com a qualidade e a atualização das informações apresentadas, a plataforma poderá passar por revisões, atualizações e ajustes sempre que necessário.
+
+O jogo possui caráter complementar e não substitui aulas, materiais didáticos oficiais ou a orientação pedagógica fornecida por profissionais da educação.
+
+6. Propriedade intelectual
+
+Todos os direitos relacionados à plataforma, incluindo textos, imagens, ilustrações, atividades, recursos visuais, interface e demais conteúdos disponibilizados, são de titularidade de seus desenvolvedores e encontram-se protegidos pela legislação vigente relativa à propriedade intelectual e aos direitos autorais.
+
+É vedada qualquer reprodução parcial ou integral sem autorização expressa.
+
+7. Privacidade e proteção de dados
+
+Caso a plataforma realize coleta de informações necessárias ao funcionamento do sistema, tais dados serão utilizados exclusivamente para fins pedagógicos, administrativos ou de melhoria da experiência do usuário.
+
+As informações eventualmente fornecidas serão tratadas com responsabilidade e confidencialidade, não sendo compartilhadas com terceiros, salvo em hipóteses previstas em lei.
+
+8. Alterações dos Termos de Uso
+
+A administração da plataforma reserva-se o direito de modificar, revisar ou atualizar estes Termos de Uso a qualquer momento, conforme necessidade técnica, pedagógica ou administrativa.
+
+As alterações entrarão em vigor a partir de sua publicação no ambiente digital.
+
+9. Disposições finais
+
+A utilização da plataforma implica ciência e concordância integral com todas as condições estabelecidas neste documento.
+
+Ao acessar e utilizar o jogo educacional de Química, o usuário reconhece estar de acordo com as normas previstas e compromete-se a respeitá-las integralmente.
+
+Equipe responsável pelo desenvolvimento do projeto.
+""";
+
+    javax.swing.JTextArea areaTexto = new javax.swing.JTextArea(mensagem);
+    areaTexto.setEditable(false);
+    areaTexto.setLineWrap(true);
+    areaTexto.setWrapStyleWord(true);
+    areaTexto.setCaretPosition(0);
+    areaTexto.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 14));
+
+    javax.swing.JScrollPane scroll = new javax.swing.JScrollPane(areaTexto);
+    scroll.setPreferredSize(new java.awt.Dimension(650, 420));
+
+    javax.swing.JOptionPane.showMessageDialog(
+            this,
+            scroll,
+            "Termos de Uso",
+            javax.swing.JOptionPane.INFORMATION_MESSAGE
+    );
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TermosBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TermosBoxActionPerformed
+        // TODO add your handling code here:
+        numTela = 1;
+    }//GEN-LAST:event_TermosBoxActionPerformed
+
+    private void SomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SomButtonActionPerformed
+        // TODO add your handling code here:
+            TelaSom telaSom = new TelaSom(this);
+            telaSom.setVisible(true);
+    }//GEN-LAST:event_SomButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -369,6 +435,8 @@ public class TelaLogin extends javax.swing.JFrame {
     };
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SomButton;
+    private javax.swing.JCheckBox TermosBox;
     private javax.swing.JPanel cinzaPane;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;

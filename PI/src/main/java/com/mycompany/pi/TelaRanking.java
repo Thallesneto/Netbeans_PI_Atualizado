@@ -50,7 +50,12 @@ public class TelaRanking extends javax.swing.JFrame {
             PreparedStatement ps = conexao.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
-            DefaultTableModel modelo = new DefaultTableModel();
+            DefaultTableModel modelo = new DefaultTableModel(){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
             modelo.addColumn("Posição");
             modelo.addColumn("Nome");
             modelo.addColumn("Acertos");
@@ -63,7 +68,7 @@ public class TelaRanking extends javax.swing.JFrame {
                     rs.getString("nome"),
                     rs.getInt("acertos"),
                     rs.getInt("erros"),
-                    rs.getDouble("porcentagem_acertos") + "%"
+                    rs.getDouble("porcentagem_acerto") + "%"
                 });
             }
             
@@ -248,6 +253,8 @@ public class TelaRanking extends javax.swing.JFrame {
 
     private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
         // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
     }//GEN-LAST:event_botãoSomActionPerformed
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed

@@ -37,6 +37,7 @@ public class TelaProfessor extends javax.swing.JFrame {
         cadastrarAlunoButton = new javax.swing.JButton();
         classificacaoButton = new javax.swing.JButton();
         sairButton = new javax.swing.JButton();
+        SomButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -117,6 +118,9 @@ public class TelaProfessor extends javax.swing.JFrame {
         sairButton.setText("Sair");
         sairButton.addActionListener(this::sairButtonActionPerformed);
 
+        SomButton.setText("Som");
+        SomButton.addActionListener(this::SomButtonActionPerformed);
+
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
         cinzaPaneLayout.setHorizontalGroup(
@@ -133,7 +137,10 @@ public class TelaProfessor extends javax.swing.JFrame {
                         .addGap(53, 53, 53))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                         .addComponent(sairButton)
-                        .addGap(154, 154, 154)))
+                        .addGap(154, 154, 154))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                        .addComponent(SomButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
@@ -141,7 +148,9 @@ public class TelaProfessor extends javax.swing.JFrame {
             .addComponent(vermelhoPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
             .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
             .addGroup(cinzaPaneLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addContainerGap()
+                .addComponent(SomButton)
+                .addGap(38, 38, 38)
                 .addComponent(cadastrarAlunoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(cadastrarPerguntaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,6 +204,12 @@ public class TelaProfessor extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_sairButtonActionPerformed
 
+    private void SomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SomButtonActionPerformed
+        // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
+    }//GEN-LAST:event_SomButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,6 +236,7 @@ public class TelaProfessor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SomButton;
     private javax.swing.JButton cadastrarAlunoButton;
     private javax.swing.JButton cadastrarPerguntaButton;
     private javax.swing.JPanel cinzaEscuroPane;

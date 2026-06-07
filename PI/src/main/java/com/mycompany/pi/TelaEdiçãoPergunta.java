@@ -210,6 +210,7 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
         nomePágina.setText("Edição de Perguntas");
 
         botãoSom.setText("Som");
+        botãoSom.addActionListener(this::botãoSomActionPerformed);
 
         botãoDificuldade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -477,6 +478,12 @@ public class TelaEdiçãoPergunta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao carregar pergunta " +e.getMessage());
         }
     }//GEN-LAST:event_botãoExcluirActionPerformed
+
+    private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
+        // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
+    }//GEN-LAST:event_botãoSomActionPerformed
     private void configurarSelecaoImagens() {
     cadastrarImagemPergunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     cadastrarImagem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

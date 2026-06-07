@@ -237,6 +237,8 @@ public class TelaAluno extends javax.swing.JFrame {
 
     private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
         // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
     }//GEN-LAST:event_botãoSomActionPerformed
 
     private void botãoJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoJogarActionPerformed

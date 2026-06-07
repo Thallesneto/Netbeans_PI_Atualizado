@@ -143,6 +143,7 @@ public class TelaPréCadastroAlunos extends javax.swing.JFrame {
         );
 
         botãoSom.setText("Som");
+        botãoSom.addActionListener(this::botãoSomActionPerformed);
 
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
@@ -214,6 +215,12 @@ public class TelaPréCadastroAlunos extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_botãoEditarAlunoActionPerformed
+
+    private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
+        // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
+    }//GEN-LAST:event_botãoSomActionPerformed
 
     /**
      * @param args the command line arguments

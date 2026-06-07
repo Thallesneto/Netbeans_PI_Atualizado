@@ -200,6 +200,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         nomePágina.setText("Cadastro de Perguntas");
 
         botãoSom.setText("Som");
+        botãoSom.addActionListener(this::botãoSomActionPerformed);
 
         botãoDificuldade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -486,6 +487,12 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void cadastrarResposta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarResposta4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrarResposta4ActionPerformed
+
+    private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
+        // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
+    }//GEN-LAST:event_botãoSomActionPerformed
 
     /**
      * @param args the command line arguments

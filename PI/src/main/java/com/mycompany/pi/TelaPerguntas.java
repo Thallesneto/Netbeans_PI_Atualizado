@@ -119,6 +119,7 @@ public class TelaPerguntas extends javax.swing.JFrame {
         botãoVoltar.addActionListener(this::botãoVoltarActionPerformed);
 
         botãoSom.setText("Som");
+        botãoSom.addActionListener(this::botãoSomActionPerformed);
 
         tabelaAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -251,6 +252,12 @@ public class TelaPerguntas extends javax.swing.JFrame {
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoAvançarActionPerformed
+
+    private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
+        // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
+    }//GEN-LAST:event_botãoSomActionPerformed
     private void carregarTabelaPerguntas(){
         try{
             ConnectionFactory c = new ConnectionFactory();
@@ -266,7 +273,12 @@ public class TelaPerguntas extends javax.swing.JFrame {
             PreparedStatement ps =conexao.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
-            DefaultTableModel modelo = new DefaultTableModel();
+            DefaultTableModel modelo = new DefaultTableModel(){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
             
             modelo.addColumn("Numero_Pergunta");
             modelo.addColumn("Nome_Pergunta");

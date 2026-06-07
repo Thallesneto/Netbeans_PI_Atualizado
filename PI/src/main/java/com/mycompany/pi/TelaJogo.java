@@ -27,6 +27,7 @@ public class TelaJogo extends javax.swing.JFrame {
     private PerguntaJogo perguntaAtual;
     private String nome;
     private int idAluno;
+    private boolean respondeuPergunta = false;
     
     private int idPartida;
     
@@ -184,6 +185,7 @@ public class TelaJogo extends javax.swing.JFrame {
         botãoPular.addActionListener(this::botãoPularActionPerformed);
 
         botãoSom.setText("Som");
+        botãoSom.addActionListener(this::botãoSomActionPerformed);
 
         títuloPergunta.setText("PERGUNTA");
 
@@ -318,20 +320,27 @@ public class TelaJogo extends javax.swing.JFrame {
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
-        
-        int op = JOptionPane.showConfirmDialog(
+    int opcao = JOptionPane.showConfirmDialog(
             this,
             "Deseja sair da partida? Ela será marcada como ABANDONADA.",
             "Confirmar saída",
             JOptionPane.YES_NO_OPTION
-        );
-            TelaAluno tela = new TelaAluno(nome,idAluno);
-            tela.setVisible(true);
-            this.dispose();
+    );
+
+    if (opcao == JOptionPane.YES_OPTION) {
+        TelaAluno tela = new TelaAluno(nome, idAluno);
+        tela.setVisible(true);
+        this.dispose();
+    }
     }//GEN-LAST:event_botãoVoltarActionPerformed
 
     private void avancarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avancarButtonActionPerformed
         // TODO add your handling code here:
+        
+        if (!respondeuPergunta) {
+        JOptionPane.showMessageDialog(null, "Responda a pergunta antes de avançar.");
+        return;
+    }
         indicePerguntaAtual++;
         usouDicaNaPergunta = false;
         mostrarPerguntaAtual();
@@ -351,6 +360,12 @@ public class TelaJogo extends javax.swing.JFrame {
             usouDicaNaPergunta = false;
             mostrarPerguntaAtual();
     }//GEN-LAST:event_botãoPularActionPerformed
+
+    private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
+        // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
+    }//GEN-LAST:event_botãoSomActionPerformed
     private void carregarPerguntas(){
         perguntas.clear();
         
@@ -473,6 +488,9 @@ public class TelaJogo extends javax.swing.JFrame {
 
         repaint();
         revalidate();
+        
+        respondeuPergunta = false;
+        avancarButton.setEnabled(false);
     }
     private void limparImagensAlternativas() {
         imagemResposta1.setIcon(null);
@@ -526,6 +544,9 @@ public class TelaJogo extends javax.swing.JFrame {
         variavelPontos.setText(String.valueOf(pontuacao));
         
         habilitarBotoes(false);
+        
+        respondeuPergunta = true;
+        avancarButton.setEnabled(true);
     }
     
     private void limparCoresBotoes(){

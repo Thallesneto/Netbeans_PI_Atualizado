@@ -60,6 +60,10 @@
                           <Component id="sairButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="SomButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Component id="vermelhoPane1" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -70,7 +74,9 @@
               <Component id="vermelhoPane1" pref="480" max="32767" attributes="0"/>
               <Component id="vermelhoPane2" pref="480" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="SomButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="cadastrarAlunoButton" min="-2" pref="61" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="cadastrarPerguntaButton" min="-2" pref="61" max="-2" attributes="0"/>
@@ -222,6 +228,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sairButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="SomButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Som"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SomButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -133,6 +133,7 @@ public class CadastroAlunos extends javax.swing.JFrame {
         botãoVoltar.addActionListener(this::botãoVoltarActionPerformed);
 
         botãoSom.setText("Som");
+        botãoSom.addActionListener(this::botãoSomActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -298,6 +299,12 @@ public class CadastroAlunos extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Erro ao cadastrar aluno: " + e.getMessage());
             }
     }//GEN-LAST:event_botãoCadastroActionPerformed
+
+    private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
+        // TODO add your handling code here:
+        TelaSom telaSom = new TelaSom(this);
+        telaSom.setVisible(true);
+    }//GEN-LAST:event_botãoSomActionPerformed
     
     /**
      * @param args the command line arguments
