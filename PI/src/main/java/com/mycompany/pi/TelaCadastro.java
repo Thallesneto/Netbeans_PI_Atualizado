@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -35,7 +36,9 @@ public class TelaCadastro extends javax.swing.JFrame {
      * Creates new form TelaDificuldade
      */
     public TelaCadastro() {
+        setUndecorated(true);
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         botãoDificuldade.removeAllItems();
         botãoDificuldade.addItem("facil");
         botãoDificuldade.addItem("medio");

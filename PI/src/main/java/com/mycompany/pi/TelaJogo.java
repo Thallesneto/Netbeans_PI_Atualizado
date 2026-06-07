@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,7 +38,9 @@ public class TelaJogo extends javax.swing.JFrame {
      * Creates new form TelaDificuldade
      */
     public TelaJogo(String modoJogo, String nome, int idAluno) {
+        setUndecorated(true);
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         this.modoJogo = modoJogo;
         this.nome = nome;
         this.idAluno = idAluno;
@@ -385,6 +388,7 @@ public class TelaJogo extends javax.swing.JFrame {
             indicePerguntaAtual++;
             usouDicaNaPergunta = false;
             mostrarPerguntaAtual();
+            
     }//GEN-LAST:event_botãoPularActionPerformed
 
     private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
@@ -480,7 +484,7 @@ public class TelaJogo extends javax.swing.JFrame {
 
         perguntaAtual = perguntas.get(indicePerguntaAtual);
 
-        numeroPergunta.setText("Pergunta " + (indicePerguntaAtual + 1));
+        numeroPergunta.setText("" + (indicePerguntaAtual + 1));
 
         títuloPergunta.setText(perguntaAtual.enunciado);
 
@@ -520,16 +524,16 @@ public class TelaJogo extends javax.swing.JFrame {
     }
     private void limparImagensAlternativas() {
         imagemResposta1.setIcon(null);
-        imagemResposta1.setText("IMAGEM1");
+        imagemResposta1.setText("");
 
         imagemResposta2.setIcon(null);
-        imagemResposta2.setText("IMAGEM2");
+        imagemResposta2.setText("");
 
         imagemResposta3.setIcon(null);
-        imagemResposta3.setText("IMAGEM3");
+        imagemResposta3.setText("");
 
         imagemResposta4.setIcon(null);
-        imagemResposta4.setText("IMAGEM4");
+        imagemResposta4.setText("");
     }
     
     private void carregarImagemAlternativa(int indice, javax.swing.JLabel label){
@@ -539,7 +543,7 @@ public class TelaJogo extends javax.swing.JFrame {
             mostrarImagemNoLabel(caminho, label);
         }else{
             label.setIcon(null);
-            label.setText("IMAGEM" + (indice + 1));
+            label.setText("");
         }
     }
     
@@ -728,6 +732,7 @@ public class TelaJogo extends javax.swing.JFrame {
         }
         
     }
+    
     /**
      * @param args the command line arguments
      */

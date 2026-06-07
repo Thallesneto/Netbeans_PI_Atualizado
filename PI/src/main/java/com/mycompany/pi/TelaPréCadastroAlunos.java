@@ -4,6 +4,8 @@
  */
 package com.mycompany.pi;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author danda
@@ -16,7 +18,9 @@ public class TelaPréCadastroAlunos extends javax.swing.JFrame {
      * Creates new form TelaDificuldade
      */
     public TelaPréCadastroAlunos() {
+        setUndecorated(true);
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
     }
 
     /**

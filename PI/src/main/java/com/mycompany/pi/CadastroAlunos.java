@@ -6,6 +6,7 @@ package com.mycompany.pi;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +21,9 @@ public class CadastroAlunos extends javax.swing.JFrame {
      * Creates new form TelaDificuldade
      */
     public CadastroAlunos() {
+        setUndecorated(true);
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
     }
 
     /**

@@ -7,6 +7,7 @@ package com.mycompany.pi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,7 +24,9 @@ public class TelaRankingAluno extends javax.swing.JFrame {
      * Creates new form TelaDificuldade
      */
     public TelaRankingAluno(String nome,int idAluno) {
+        setUndecorated(true);
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         carregarRanking();
         this.nome = nome;
         this.idAluno = idAluno;

@@ -10,6 +10,7 @@ import com.mycompany.pi.TelaDificuldade;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,7 +26,9 @@ public class TelaLogin extends javax.swing.JFrame {
      * Creates new form telaLogin
      */
     public TelaLogin() {
+        setUndecorated(true); 
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         MusicaFundo.tocarMusica();
         
     }
@@ -60,7 +63,6 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         cinzaPane.setBackground(new java.awt.Color(204, 204, 204));
         cinzaPane.setPreferredSize(new java.awt.Dimension(1920, 1080));
@@ -139,6 +141,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(etecCinzaPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        emailField.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         emailField.addActionListener(this::emailFieldActionPerformed);
 
         emailLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -151,6 +154,7 @@ public class TelaLogin extends javax.swing.JFrame {
         entrarButton.setText("Entrar");
         entrarButton.addActionListener(this::entrarButtonActionPerformed);
 
+        senhaPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         senhaPasswordField.addActionListener(this::senhaPasswordFieldActionPerformed);
 
         mostrarSenhaBox.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N

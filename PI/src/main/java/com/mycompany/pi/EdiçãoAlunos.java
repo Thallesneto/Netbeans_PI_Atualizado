@@ -7,6 +7,7 @@ package com.mycompany.pi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +23,9 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
      * Creates new form TelaDificuldade
      */
     public EdiçãoAlunos(int idAluno) {
+        setUndecorated(true);
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         this.idAluno = idAluno;
         carregarDadosAlunos();
     }

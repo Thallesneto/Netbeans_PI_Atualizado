@@ -4,6 +4,8 @@
  */
 package com.mycompany.pi;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author danda
@@ -18,7 +20,9 @@ public class TelaAluno extends javax.swing.JFrame {
      * Creates new form TelaDificuldade
      */
     public TelaAluno(String nomeAluno, int idAluno) {
+        setUndecorated(true);
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         this.nomeAluno = nomeAluno;
         colocarUsuário.setText(nomeAluno);
         colocarUsuário.setEditable(false);
