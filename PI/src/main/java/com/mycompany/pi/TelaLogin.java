@@ -262,7 +262,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 if (SegurancaSenha.verificarSenha(senhaDigitada,hashSalvo)){
                     String nome = rs.getString("nome");
                     String tipoUsuario = rs.getString("tipo_usuario");
-                    String idAluno = rs.getString("id_usuario");
+                    int idAluno = rs.getInt("id_usuario");
                     
                     if(tipoUsuario.equals("Professor")){
                         TelaProfessor tela = new TelaProfessor();

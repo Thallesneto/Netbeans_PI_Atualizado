@@ -41,6 +41,7 @@ public class TelaJogo extends javax.swing.JFrame {
         this.nome = nome;
         this.idAluno = idAluno;
         
+        criarPartida();
         carregarPerguntas();
         mostrarPerguntaAtual();
     }
@@ -317,7 +318,14 @@ public class TelaJogo extends javax.swing.JFrame {
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
-            TelaAluno tela = new TelaAluno(nome);
+        
+        int op = JOptionPane.showConfirmDialog(
+            this,
+            "Deseja sair da partida? Ela será marcada como ABANDONADA.",
+            "Confirmar saída",
+            JOptionPane.YES_NO_OPTION
+        );
+            TelaAluno tela = new TelaAluno(nome,idAluno);
             tela.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed
@@ -340,6 +348,7 @@ public class TelaJogo extends javax.swing.JFrame {
     private void botãoPularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoPularActionPerformed
         // TODO add your handling code here:
             indicePerguntaAtual++;
+            usouDicaNaPergunta = false;
             mostrarPerguntaAtual();
     }//GEN-LAST:event_botãoPularActionPerformed
     private void carregarPerguntas(){
@@ -422,7 +431,7 @@ public class TelaJogo extends javax.swing.JFrame {
             finalizarPartida();
             JOptionPane.showMessageDialog(null, "Fim do jogo! Pontuação final: " + pontuacao);
 
-            TelaAluno tela = new TelaAluno(nome);
+            TelaAluno tela = new TelaAluno(nome,idAluno);
             tela.setVisible(true);
             this.dispose();
             return;
@@ -566,41 +575,50 @@ public class TelaJogo extends javax.swing.JFrame {
     }
     
     private void criarPartida(){
-        try{
-            ConnectionFactory c = new ConnectionFactory();
-            Connection conexao = c.obtemConexao();
-            
-            if(conexao == null){
-                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
-                return;
-            }
-            
-            String nivelAlcancado;
-            
-            if(modoJogo.equals("facil")){
-                nivelAlcancado = "FACIL";
-            }else if(modoJogo.equals("medio")){
-                nivelAlcancado = "MEDIO";
-            }else{
-                nivelAlcancado = "DIFICIL";
-            }
-            
-            String sql = "INSERT INTO partidas (id_aluno, modo_jogo, status_partida, nivel_alcancado)";
-            
-            PreparedStatement ps = conexao.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, idAluno);
-            ps.setString(2, modoJogo);
-            ps.setString(3, "EM_ANDAMENTO");
-            ps.setString(4, nivelAlcancado);
-            
-            ps.executeUpdate();
-            
-            conexao.close();
-            
-            
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Erro ao criar partida: " + e.getMessage());
-        }
+        try {
+           ConnectionFactory c = new ConnectionFactory();
+           Connection conexao = c.obtemConexao();
+
+           if (conexao == null) {
+               JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+               return;
+           }
+
+           String nivelAlcancado;
+
+           if (modoJogo.equals("facil")) {
+               nivelAlcancado = "FACIL";
+           } else if (modoJogo.equals("medio")) {
+               nivelAlcancado = "MEDIO";
+           } else {
+               nivelAlcancado = "DIFICIL";
+           }
+
+           String sql = "INSERT INTO partidas (id_aluno, modo_jogo, status_partida, nivel_alcancado) VALUES (?, ?, ?, ?)";
+
+           PreparedStatement ps = conexao.prepareStatement(
+                   sql,
+                   java.sql.Statement.RETURN_GENERATED_KEYS
+           );
+
+           ps.setInt(1, idAluno);
+           ps.setString(2, modoJogo);
+           ps.setString(3, "ABANDONADA");
+           ps.setString(4, nivelAlcancado);
+
+           ps.executeUpdate();
+
+           ResultSet rs = ps.getGeneratedKeys();
+
+           if (rs.next()) {
+               idPartida = rs.getInt(1);
+           }
+
+           conexao.close();
+
+       } catch (Exception e) {
+           JOptionPane.showMessageDialog(null, "Erro ao criar partida: " + e.getMessage());
+       }
     }
     
     private void salvarResposta(AlternativaJogo alternativaEscolhida){
@@ -619,7 +637,7 @@ public class TelaJogo extends javax.swing.JFrame {
                 pontosObtidos = perguntaAtual.pontos;
             }
             
-            String sql = "INSERT INTO respostas_partidas (id_partida, id_pergunta, id_alternativa, acertou, usou_dica, pontos_obtidos)";
+            String sql = "INSERT INTO respostas_partida (id_partida, id_pergunta, id_alternativa, acertou, usou_dica, pontos_obtidos) VALUE (?,?,?,?,?,?)";
             
             PreparedStatement ps = conexao.prepareStatement(sql);
             

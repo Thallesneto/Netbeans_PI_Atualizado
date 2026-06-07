@@ -18,13 +18,15 @@ public class TelaRankingAluno extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaRankingAluno.class.getName());
     private String nome;
+    private int idAluno;
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaRankingAluno(String nome) {
+    public TelaRankingAluno(String nome,int idAluno) {
         initComponents();
         carregarRanking();
-        this.nome = nome; 
+        this.nome = nome;
+        this.idAluno = idAluno;
     }
     
     private void carregarRanking(){
@@ -61,7 +63,7 @@ public class TelaRankingAluno extends javax.swing.JFrame {
                     rs.getString("nome"),
                     rs.getInt("acertos"),
                     rs.getInt("erros"),
-                    rs.getDouble("porcentagem_acertos") + "%"
+                    rs.getDouble("porcentagem_acerto") + "%"
                 });
             }
             
@@ -250,7 +252,7 @@ public class TelaRankingAluno extends javax.swing.JFrame {
 
     private void botãoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoVoltarActionPerformed
         // TODO add your handling code here:
-        TelaAluno tela = new TelaAluno(nome);
+        TelaAluno tela = new TelaAluno(nome,idAluno);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed
@@ -277,7 +279,7 @@ public class TelaRankingAluno extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaRankingAluno("").setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaRankingAluno("",1).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -17,10 +17,11 @@ public class TelaAluno extends javax.swing.JFrame {
     /**
      * Creates new form TelaDificuldade
      */
-    public TelaAluno(String nomeAluno, int IdAluno) {
+    public TelaAluno(String nomeAluno, int idAluno) {
         initComponents();
         this.nomeAluno = nomeAluno;
         colocarUsuário.setText(nomeAluno);
+        colocarUsuário.setEditable(false);
         this.idAluno = idAluno;
     }
 
@@ -240,7 +241,7 @@ public class TelaAluno extends javax.swing.JFrame {
 
     private void botãoJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoJogarActionPerformed
         // TODO add your handling code here:
-        TelaDificuldade tela = new TelaDificuldade(nomeAluno);
+        TelaDificuldade tela = new TelaDificuldade(nomeAluno,idAluno);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoJogarActionPerformed
@@ -254,7 +255,7 @@ public class TelaAluno extends javax.swing.JFrame {
 
     private void botãoRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoRankingActionPerformed
         // TODO add your handling code here:
-        TelaRankingAluno tela = new TelaRankingAluno(nomeAluno);
+        TelaRankingAluno tela = new TelaRankingAluno(nomeAluno,idAluno);
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoRankingActionPerformed
