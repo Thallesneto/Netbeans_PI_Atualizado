@@ -79,15 +79,15 @@ public class TelaLogin extends javax.swing.JFrame {
         mauaCinzaPaneLayout.setHorizontalGroup(
             mauaCinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mauaCinzaPaneLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap()
                 .addComponent(mauaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
         mauaCinzaPaneLayout.setVerticalGroup(
             mauaCinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mauaCinzaPaneLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(mauaLabel)
+                .addContainerGap()
+                .addComponent(mauaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(145, Short.MAX_VALUE))
         );
 

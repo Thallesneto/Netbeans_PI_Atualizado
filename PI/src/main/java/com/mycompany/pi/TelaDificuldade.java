@@ -43,12 +43,13 @@ public class TelaDificuldade extends javax.swing.JFrame {
         cinzaEscuroPane = new javax.swing.JPanel();
         vermelhoPane2 = new javax.swing.JPanel();
         cinzaEscuroPane2 = new javax.swing.JPanel();
-        medioButton = new javax.swing.JButton();
-        shuffleButton = new javax.swing.JButton();
-        facilButton = new javax.swing.JButton();
-        dificilButton = new javax.swing.JButton();
-        sairButton = new javax.swing.JButton();
         SomButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        facilButton = new javax.swing.JButton();
+        medioButton = new javax.swing.JButton();
+        dificilButton = new javax.swing.JButton();
+        shuffleButton = new javax.swing.JButton();
+        sairButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,29 +113,63 @@ public class TelaDificuldade extends javax.swing.JFrame {
                 .addComponent(cinzaEscuroPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        medioButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        medioButton.setText("Médio");
-        medioButton.addActionListener(this::medioButtonActionPerformed);
-
-        shuffleButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        shuffleButton.setText("Shuffle");
-        shuffleButton.addActionListener(this::shuffleButtonActionPerformed);
-
-        facilButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        facilButton.setText("Fácil");
-        facilButton.addActionListener(this::facilButtonActionPerformed);
-
-        dificilButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        dificilButton.setText("Difícil");
-        dificilButton.addActionListener(this::dificilButtonActionPerformed);
-
-        sairButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        sairButton.setText("Sair");
-        sairButton.addActionListener(this::sairButtonActionPerformed);
-
         SomButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         SomButton.setText("Som");
         SomButton.addActionListener(this::SomButtonActionPerformed);
+
+        facilButton.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        facilButton.setText("Fácil");
+        facilButton.addActionListener(this::facilButtonActionPerformed);
+
+        medioButton.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        medioButton.setText("Médio");
+        medioButton.addActionListener(this::medioButtonActionPerformed);
+
+        dificilButton.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        dificilButton.setText("Difícil");
+        dificilButton.addActionListener(this::dificilButtonActionPerformed);
+
+        shuffleButton.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        shuffleButton.setText("Shuffle");
+        shuffleButton.addActionListener(this::shuffleButtonActionPerformed);
+
+        sairButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        sairButton.setText("Sair");
+        sairButton.addActionListener(this::sairButtonActionPerformed);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(shuffleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dificilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(medioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(238, 238, 238)
+                            .addComponent(facilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(285, 285, 285)
+                        .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(240, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(facilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(medioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(dificilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(shuffleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
+        );
 
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
@@ -142,58 +177,36 @@ public class TelaDificuldade extends javax.swing.JFrame {
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                 .addComponent(vermelhoPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 567, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 314, Short.MAX_VALUE)
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
-                            .addComponent(SomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
-                            .addComponent(facilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(554, 554, 554))
-                        .addGroup(cinzaPaneLayout.createSequentialGroup()
-                            .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(medioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(dificilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(shuffleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
-                        .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(610, 610, 610)))
+                        .addComponent(SomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(313, 313, 313)))
                 .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(vermelhoPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
-            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
             .addGroup(cinzaPaneLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(SomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(facilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(medioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(dificilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addComponent(shuffleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(165, 165, 165)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(185, Short.MAX_VALUE))
+            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cinzaPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(cinzaPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cinzaPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(cinzaPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -273,6 +286,7 @@ public class TelaDificuldade extends javax.swing.JFrame {
     private javax.swing.JPanel cinzaPane;
     private javax.swing.JButton dificilButton;
     private javax.swing.JButton facilButton;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton medioButton;
     private javax.swing.JButton sairButton;
     private javax.swing.JButton shuffleButton;
