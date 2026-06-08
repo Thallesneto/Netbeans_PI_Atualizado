@@ -51,7 +51,6 @@ public class TelaDificuldade extends javax.swing.JFrame {
         SomButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         cinzaPane.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -133,6 +132,7 @@ public class TelaDificuldade extends javax.swing.JFrame {
         sairButton.setText("Sair");
         sairButton.addActionListener(this::sairButtonActionPerformed);
 
+        SomButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         SomButton.setText("Som");
         SomButton.addActionListener(this::SomButtonActionPerformed);
 

@@ -85,7 +85,6 @@ public class TelaJogo extends javax.swing.JFrame {
         nomePERGUNTA = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         cinzaPane.setBackground(new java.awt.Color(204, 204, 204));
         cinzaPane.setPreferredSize(new java.awt.Dimension(1920, 1080));

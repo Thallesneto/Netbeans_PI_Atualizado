@@ -37,13 +37,15 @@ public class TelaProfessor extends javax.swing.JFrame {
         cinzaEscuroPane = new javax.swing.JPanel();
         vermelhoPane2 = new javax.swing.JPanel();
         cinzaEscuroPane2 = new javax.swing.JPanel();
-        cadastrarPerguntaButton = new javax.swing.JButton();
+        SomButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         cadastrarAlunoButton = new javax.swing.JButton();
+        cadastrarPerguntaButton = new javax.swing.JButton();
         classificacaoButton = new javax.swing.JButton();
         sairButton = new javax.swing.JButton();
-        SomButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
         setResizable(false);
 
         cinzaPane.setBackground(new java.awt.Color(204, 204, 204));
@@ -57,7 +59,7 @@ public class TelaProfessor extends javax.swing.JFrame {
         cinzaEscuroPane.setLayout(cinzaEscuroPaneLayout);
         cinzaEscuroPaneLayout.setHorizontalGroup(
             cinzaEscuroPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 255, Short.MAX_VALUE)
+            .addGap(0, 225, Short.MAX_VALUE)
         );
         cinzaEscuroPaneLayout.setVerticalGroup(
             cinzaEscuroPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,7 +75,7 @@ public class TelaProfessor extends javax.swing.JFrame {
         vermelhoPane1Layout.setVerticalGroup(
             vermelhoPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vermelhoPane1Layout.createSequentialGroup()
-                .addGap(0, 147, Short.MAX_VALUE)
+                .addGap(0, 747, Short.MAX_VALUE)
                 .addComponent(cinzaEscuroPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -86,7 +88,7 @@ public class TelaProfessor extends javax.swing.JFrame {
         cinzaEscuroPane2.setLayout(cinzaEscuroPane2Layout);
         cinzaEscuroPane2Layout.setHorizontalGroup(
             cinzaEscuroPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGap(0, 225, Short.MAX_VALUE)
         );
         cinzaEscuroPane2Layout.setVerticalGroup(
             cinzaEscuroPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,63 +108,83 @@ public class TelaProfessor extends javax.swing.JFrame {
                 .addComponent(cinzaEscuroPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        cadastrarPerguntaButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        cadastrarPerguntaButton.setText("Gerenciar Perguntas");
-        cadastrarPerguntaButton.addActionListener(this::cadastrarPerguntaButtonActionPerformed);
+        SomButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        SomButton.setText("Som");
+        SomButton.addActionListener(this::SomButtonActionPerformed);
 
-        cadastrarAlunoButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jPanel2.setPreferredSize(new java.awt.Dimension(700, 540));
+
+        cadastrarAlunoButton.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         cadastrarAlunoButton.setText("Gerenciar Alunos");
         cadastrarAlunoButton.addActionListener(this::cadastrarAlunoButtonActionPerformed);
 
-        classificacaoButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cadastrarPerguntaButton.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        cadastrarPerguntaButton.setText("Gerenciar Perguntas");
+        cadastrarPerguntaButton.addActionListener(this::cadastrarPerguntaButtonActionPerformed);
+
+        classificacaoButton.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         classificacaoButton.setText("Ver Classificação");
         classificacaoButton.addActionListener(this::classificacaoButtonActionPerformed);
 
-        sairButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        sairButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         sairButton.setText("Sair");
         sairButton.addActionListener(this::sairButtonActionPerformed);
 
-        SomButton.setText("Som");
-        SomButton.addActionListener(this::SomButtonActionPerformed);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(243, 243, 243))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(classificacaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastrarPerguntaButton)
+                    .addComponent(cadastrarAlunoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(169, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(cadastrarAlunoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(cadastrarPerguntaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(classificacaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
 
         javax.swing.GroupLayout cinzaPaneLayout = new javax.swing.GroupLayout(cinzaPane);
         cinzaPane.setLayout(cinzaPaneLayout);
         cinzaPaneLayout.setHorizontalGroup(
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
-                .addComponent(vermelhoPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(vermelhoPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 431, Short.MAX_VALUE)
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
-                        .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cadastrarPerguntaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(classificacaoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cadastrarAlunoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(53, 53, 53))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(418, 418, 418))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
-                        .addComponent(sairButton)
-                        .addGap(154, 154, 154))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
-                        .addComponent(SomButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(vermelhoPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
-            .addComponent(vermelhoPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addComponent(vermelhoPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
             .addGroup(cinzaPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(SomButton)
-                .addGap(38, 38, 38)
-                .addComponent(cadastrarAlunoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(cadastrarPerguntaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(classificacaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(sairButton)
-                .addGap(51, 51, 51))
+                .addComponent(SomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(vermelhoPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -241,12 +263,17 @@ public class TelaProfessor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SomButton;
+    private javax.swing.JButton botãoDesempenho;
+    private javax.swing.JButton botãoRanking;
+    private javax.swing.JButton botãoVoltar;
     private javax.swing.JButton cadastrarAlunoButton;
     private javax.swing.JButton cadastrarPerguntaButton;
     private javax.swing.JPanel cinzaEscuroPane;
     private javax.swing.JPanel cinzaEscuroPane2;
     private javax.swing.JPanel cinzaPane;
     private javax.swing.JButton classificacaoButton;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton sairButton;
     private javax.swing.JPanel vermelhoPane1;
     private javax.swing.JPanel vermelhoPane2;

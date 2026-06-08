@@ -3,6 +3,9 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1920, 1080]"/>
+    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -24,19 +27,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="cinzaPane" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-          </Group>
+          <Component id="cinzaPane" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="cinzaPane" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="cinzaPane" alignment="0" pref="1098" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -46,6 +42,9 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1920, 1080]"/>
+        </Property>
       </Properties>
 
       <Layout>
@@ -54,145 +53,160 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="vermelhoPane2" min="-2" pref="100" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="cadastrarDica" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="nomePágina" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="cadastrarImagemPergunta" min="-2" pref="177" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="cadastrarResposta1" alignment="0" pref="380" max="32767" attributes="0"/>
-                                      <Component id="reposta1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dica" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="resposta3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cadastrarResposta3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cadastrarImagem3" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                                      <Component id="cadastrarImagem1" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="resposta4" min="-2" pref="68" max="-2" attributes="0"/>
-                                      <Component id="cadastrarImagem2" min="-2" pref="186" max="-2" attributes="0"/>
-                                      <Component id="cadastrarResposta2" alignment="0" pref="392" max="32767" attributes="0"/>
-                                      <Component id="cadastrarResposta4" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="resposta2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cadastrarImagem4" min="-2" pref="186" max="-2" attributes="0"/>
-                                      <Component id="cadastrarPergunta" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="identificadorPergunta" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="botãoSom" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                          <Component id="botãoCadastrar" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="DificuldadeLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                  <Component id="DificuldadeLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="cadastrarPergunta" alignment="0" pref="700" max="32767" attributes="0"/>
+                                          <Component id="cadastrarResposta1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="cadastrarResposta3" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="nomePágina" min="-2" max="-2" attributes="0"/>
+                                          <Component id="reposta1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cadastrarImagem1" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Component id="identificadorPergunta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cadastrarImagem3" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="resposta3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="266" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="cadastrarImagemPergunta" min="-2" pref="357" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="cadastrarImagem2" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                              <Component id="resposta2" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace pref="61" max="32767" attributes="0"/>
+                                          <Component id="botãoSom" min="-2" pref="138" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="botãoSair" min="-2" pref="250" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="cadastrarResposta2" pref="700" max="32767" attributes="0"/>
+                                                  <Component id="cadastrarImagem4" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                                                  <Component id="resposta4" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
+                                                  <Component id="cadastrarResposta4" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="botãoDificuldade" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="CorretaBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="botãoSair" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="botãoCadastrar" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="84" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="707" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="cadastrarDica" min="-2" pref="300" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="botãoDificuldade" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                              <Component id="DificuldadeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="DificuldadeLabel1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="CorretaBox" min="-2" pref="140" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="834" max="-2" attributes="0"/>
+                                  <Component id="dica" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="vermelhoPane1" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="vermelhoPane1" min="-2" pref="106" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="vermelhoPane1" pref="648" max="32767" attributes="0"/>
-              <Component id="vermelhoPane2" pref="648" max="32767" attributes="0"/>
+              <Component id="vermelhoPane1" pref="1098" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="nomePágina" min="-2" max="-2" attributes="0"/>
-                              <Component id="botãoSom" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="nomePágina" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="identificadorPergunta" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cadastrarPergunta" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="cadastrarImagemPergunta" min="-2" pref="220" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="identificadorPergunta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cadastrarPergunta" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="cadastrarImagemPergunta" max="32767" attributes="0"/>
+                      <Component id="botãoSom" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="48" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="resposta2" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="reposta1" alignment="1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cadastrarImagem1" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
-                      <Component id="cadastrarImagem2" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cadastrarResposta2" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="cadastrarResposta1" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="resposta4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cadastrarImagem4" min="-2" pref="90" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="resposta3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cadastrarImagem3" min="-2" pref="90" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="cadastrarImagem1" min="-2" pref="225" max="-2" attributes="0"/>
+                      <Component id="cadastrarImagem2" min="-2" pref="225" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="reposta1" min="-2" max="-2" attributes="0"/>
+                      <Component id="resposta2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="cadastrarResposta3" pref="38" max="32767" attributes="0"/>
-                      <Component id="cadastrarResposta4" max="32767" attributes="0"/>
+                      <Component id="cadastrarResposta1" pref="50" max="32767" attributes="0"/>
+                      <Component id="cadastrarResposta2" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cadastrarImagem4" pref="225" max="32767" attributes="0"/>
+                      <Component id="cadastrarImagem3" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="resposta3" min="-2" max="-2" attributes="0"/>
+                      <Component id="resposta4" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cadastrarResposta4" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="cadastrarResposta3" min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Component id="dica" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="cadastrarDica" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="DificuldadeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="DificuldadeLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="botãoSair" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="botãoDificuldade" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="CorretaBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Component id="botãoCadastrar" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="cadastrarDica" min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="DificuldadeLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="DificuldadeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="botãoCadastrar" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="botãoDificuldade" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="CorretaBox" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="botãoSair" alignment="3" pref="60" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               </Group>
+              <Component id="vermelhoPane2" alignment="1" pref="1098" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -233,7 +247,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="106" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -295,6 +309,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="bot&#xe3;oCadastrar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
           <Events>
@@ -303,6 +320,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="bot&#xe3;oSair">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>
@@ -313,6 +333,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="dica">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Dica:"/>
           </Properties>
         </Component>
@@ -351,11 +374,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="resposta4">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Resposta 4"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="resposta3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Resposta 3"/>
           </Properties>
         </Component>
@@ -397,11 +426,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="resposta2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Resposta 2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="reposta1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Resposta 1"/>
           </Properties>
         </Component>
@@ -422,19 +457,25 @@
         </Component>
         <Component class="javax.swing.JLabel" name="identificadorPergunta">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Pergunta"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="nomeP&#xe1;gina">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="1"/>
+              <Font name="Segoe UI" size="36" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cadastro de Perguntas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="bot&#xe3;oSom">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Som"/>
           </Properties>
           <Events>
@@ -443,6 +484,9 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="bot&#xe3;oDificuldade">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
                 <StringItem index="0" value="Item 1"/>
@@ -458,11 +502,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="DificuldadeLabel">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Dificuldade:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="CorretaBox">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
                 <StringItem index="0" value="Item 1"/>
@@ -478,6 +528,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="DificuldadeLabel1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Resposta Correta:"/>
           </Properties>
         </Component>
