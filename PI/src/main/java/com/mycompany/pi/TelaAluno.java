@@ -145,7 +145,7 @@ public class TelaAluno extends javax.swing.JFrame {
                 .addGap(29, 29, 29))
         );
 
-        botãoSom.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        botãoSom.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botãoSom.setText("Som");
         botãoSom.addActionListener(this::botãoSomActionPerformed);
 

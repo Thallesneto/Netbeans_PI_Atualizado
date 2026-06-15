@@ -178,7 +178,7 @@ public class TelaLogin extends javax.swing.JFrame {
         TermosBox.setText("Li os termos de uso");
         TermosBox.addActionListener(this::TermosBoxActionPerformed);
 
-        SomButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        SomButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         SomButton.setText("Som");
         SomButton.addActionListener(this::SomButtonActionPerformed);
 
