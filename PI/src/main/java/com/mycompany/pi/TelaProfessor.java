@@ -35,6 +35,7 @@ public class TelaProfessor extends javax.swing.JFrame {
         cinzaPane = new javax.swing.JPanel();
         vermelhoPane1 = new javax.swing.JPanel();
         cinzaEscuroPane = new javax.swing.JPanel();
+        botãoFecharTotal = new javax.swing.JButton();
         vermelhoPane2 = new javax.swing.JPanel();
         cinzaEscuroPane2 = new javax.swing.JPanel();
         SomButton = new javax.swing.JButton();
@@ -45,7 +46,6 @@ public class TelaProfessor extends javax.swing.JFrame {
         sairButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
         setResizable(false);
 
         cinzaPane.setBackground(new java.awt.Color(204, 204, 204));
@@ -66,16 +66,24 @@ public class TelaProfessor extends javax.swing.JFrame {
             .addGap(0, 333, Short.MAX_VALUE)
         );
 
+        botãoFecharTotal.setText("X");
+
         javax.swing.GroupLayout vermelhoPane1Layout = new javax.swing.GroupLayout(vermelhoPane1);
         vermelhoPane1.setLayout(vermelhoPane1Layout);
         vermelhoPane1Layout.setHorizontalGroup(
             vermelhoPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(cinzaEscuroPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vermelhoPane1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botãoFecharTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         vermelhoPane1Layout.setVerticalGroup(
             vermelhoPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vermelhoPane1Layout.createSequentialGroup()
-                .addGap(0, 747, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(botãoFecharTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cinzaEscuroPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -172,18 +180,19 @@ public class TelaProfessor extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(418, 418, 418))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
-                        .addComponent(SomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(SomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
             cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(vermelhoPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
             .addGroup(cinzaPaneLayout.createSequentialGroup()
-                .addComponent(SomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152)
+                .addContainerGap()
+                .addComponent(SomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(146, 146, 146)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(285, Short.MAX_VALUE))
             .addComponent(vermelhoPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
         );
 
@@ -263,16 +272,13 @@ public class TelaProfessor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SomButton;
-    private javax.swing.JButton botãoDesempenho;
-    private javax.swing.JButton botãoRanking;
-    private javax.swing.JButton botãoVoltar;
+    private javax.swing.JButton botãoFecharTotal;
     private javax.swing.JButton cadastrarAlunoButton;
     private javax.swing.JButton cadastrarPerguntaButton;
     private javax.swing.JPanel cinzaEscuroPane;
     private javax.swing.JPanel cinzaEscuroPane2;
     private javax.swing.JPanel cinzaPane;
     private javax.swing.JButton classificacaoButton;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton sairButton;
     private javax.swing.JPanel vermelhoPane1;

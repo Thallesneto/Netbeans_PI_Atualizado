@@ -47,6 +47,7 @@ public class TelaLogin extends javax.swing.JFrame {
         mauaVermelhoPane = new javax.swing.JPanel();
         mauaCinzaPane = new javax.swing.JPanel();
         mauaLabel = new javax.swing.JLabel();
+        botãoFecharTotal = new javax.swing.JButton();
         etecVermelhoPane = new javax.swing.JPanel();
         etecCinzaPane = new javax.swing.JPanel();
         etecLabel = new javax.swing.JLabel();
@@ -91,16 +92,24 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addContainerGap(145, Short.MAX_VALUE))
         );
 
+        botãoFecharTotal.setText("X");
+
         javax.swing.GroupLayout mauaVermelhoPaneLayout = new javax.swing.GroupLayout(mauaVermelhoPane);
         mauaVermelhoPane.setLayout(mauaVermelhoPaneLayout);
         mauaVermelhoPaneLayout.setHorizontalGroup(
             mauaVermelhoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(mauaCinzaPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mauaVermelhoPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botãoFecharTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         mauaVermelhoPaneLayout.setVerticalGroup(
             mauaVermelhoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mauaVermelhoPaneLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(botãoFecharTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(mauaCinzaPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -451,6 +460,7 @@ Equipe responsável pelo desenvolvimento do projeto.
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SomButton;
     private javax.swing.JCheckBox TermosBox;
+    private javax.swing.JButton botãoFecharTotal;
     private javax.swing.JPanel cinzaPane;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;
