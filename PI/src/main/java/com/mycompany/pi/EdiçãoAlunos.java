@@ -132,7 +132,7 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
         );
 
         nomePágina.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        nomePágina.setText("Cadastro de Alunos");
+        nomePágina.setText("Edição de Alunos");
 
         nomeEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         nomeEmail.setText("Email Institucional");
@@ -165,36 +165,36 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(nomePágina)
-                .addGap(233, 233, 233))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(botãoAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botãoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botãoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(136, 136, 136)
+                            .addComponent(botãoAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(botãoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(botãoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(54, 54, 54)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(nomeEmail)
+                                .addComponent(nomeUsuário)
+                                .addComponent(colocarEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                                .addComponent(colocarUsuário)
+                                .addComponent(nomeSenha)
+                                .addComponent(colocarSenha))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nomeEmail)
-                            .addComponent(nomeUsuário)
-                            .addComponent(colocarEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-                            .addComponent(colocarUsuário)
-                            .addComponent(nomeSenha)
-                            .addComponent(colocarSenha))))
+                        .addGap(251, 251, 251)
+                        .addComponent(nomePágina)))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(33, 33, 33)
                 .addComponent(nomePágina)
-                .addGap(40, 40, 40)
+                .addGap(38, 38, 38)
                 .addComponent(nomeEmail)
                 .addGap(18, 18, 18)
                 .addComponent(colocarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
