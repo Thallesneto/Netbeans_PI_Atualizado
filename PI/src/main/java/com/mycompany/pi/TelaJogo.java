@@ -197,7 +197,7 @@ public class TelaJogo extends javax.swing.JFrame {
         botãoVoltar.addActionListener(this::botãoVoltarActionPerformed);
 
         botãoDica.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        botãoDica.setText("Ajuda");
+        botãoDica.setText("Dica");
         botãoDica.addActionListener(this::botãoDicaActionPerformed);
 
         botãoPular.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

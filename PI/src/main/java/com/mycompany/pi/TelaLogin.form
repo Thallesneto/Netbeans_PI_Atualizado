@@ -59,37 +59,38 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="etecVermelhoPane" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="473" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="239" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="473" max="32767" attributes="0"/>
+                          <EmptySpace pref="321" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="emailLabel" min="-2" pref="449" max="-2" attributes="0"/>
-                                      <Component id="senhaLabel" alignment="0" min="-2" pref="475" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="senhaPasswordField" alignment="0" pref="535" max="32767" attributes="0"/>
-                                          <Component id="emailField" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="mostrarSenhaBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-                                          <Component id="TermosBox" min="-2" pref="388" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="462" max="-2" attributes="0"/>
+                                  <Component id="SomButton" min="-2" pref="145" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="entrarButton" min="-2" pref="326" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="563" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="SomButton" min="-2" pref="145" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="senhaLabel" alignment="0" min="-2" pref="475" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="senhaPasswordField" alignment="0" pref="535" max="32767" attributes="0"/>
+                                          <Component id="emailField" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="mostrarSenhaBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TermosBox" alignment="0" min="-2" pref="388" max="-2" attributes="0"/>
+                                      <Component id="emailLabel" alignment="0" min="-2" pref="449" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="462" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel2" min="-2" pref="829" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="320" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -106,20 +107,22 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="SomButton" min="-2" pref="63" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" pref="116" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                   <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="emailField" min="-2" pref="74" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="senhaLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="senhaPasswordField" min="-2" pref="74" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="mostrarSenhaBox" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="TermosBox" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButton1" min="-2" pref="68" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="entrarButton" min="-2" pref="104" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -358,6 +361,17 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SomButtonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Goudy Old Style" size="120" style="3"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="11" green="16" red="94" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value=" Jornada Quimica"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

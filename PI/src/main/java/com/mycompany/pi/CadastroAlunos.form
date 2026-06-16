@@ -96,7 +96,7 @@
                   <Component id="cinzaEscuroPane" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="botãoSairTotal" min="-2" pref="65" max="-2" attributes="0"/>
+                      <Component id="botãoFecharTotal" min="-2" pref="65" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -105,7 +105,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="botãoSairTotal" min="-2" max="-2" attributes="0"/>
+                      <Component id="botãoFecharTotal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="cinzaEscuroPane" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -133,12 +133,12 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Component class="javax.swing.JButton" name="bot&#xe3;oSairTotal">
+            <Component class="javax.swing.JButton" name="bot&#xe3;oFecharTotal">
               <Properties>
                 <Property name="text" type="java.lang.String" value="X"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oSairTotalActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oFecharTotalActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

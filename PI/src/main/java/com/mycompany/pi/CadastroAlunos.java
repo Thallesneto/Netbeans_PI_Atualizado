@@ -38,7 +38,7 @@ public class CadastroAlunos extends javax.swing.JFrame {
         cinzaPane = new javax.swing.JPanel();
         vermelhoPane1 = new javax.swing.JPanel();
         cinzaEscuroPane = new javax.swing.JPanel();
-        botãoSairTotal = new javax.swing.JButton();
+        botãoFecharTotal = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         nomePágina = new javax.swing.JLabel();
         nomeEmail = new javax.swing.JLabel();
@@ -75,8 +75,8 @@ public class CadastroAlunos extends javax.swing.JFrame {
             .addGap(0, 333, Short.MAX_VALUE)
         );
 
-        botãoSairTotal.setText("X");
-        botãoSairTotal.addActionListener(this::botãoSairTotalActionPerformed);
+        botãoFecharTotal.setText("X");
+        botãoFecharTotal.addActionListener(this::botãoFecharTotalActionPerformed);
 
         javax.swing.GroupLayout vermelhoPane1Layout = new javax.swing.GroupLayout(vermelhoPane1);
         vermelhoPane1.setLayout(vermelhoPane1Layout);
@@ -85,14 +85,14 @@ public class CadastroAlunos extends javax.swing.JFrame {
             .addComponent(cinzaEscuroPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vermelhoPane1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botãoSairTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botãoFecharTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         vermelhoPane1Layout.setVerticalGroup(
             vermelhoPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vermelhoPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(botãoSairTotal)
+                .addComponent(botãoFecharTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cinzaEscuroPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -324,10 +324,10 @@ public class CadastroAlunos extends javax.swing.JFrame {
         telaSom.setVisible(true);
     }//GEN-LAST:event_botãoSomActionPerformed
 
-    private void botãoSairTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSairTotalActionPerformed
+    private void botãoFecharTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoFecharTotalActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_botãoSairTotalActionPerformed
+    }//GEN-LAST:event_botãoFecharTotalActionPerformed
     
     /**
      * @param args the command line arguments
@@ -356,7 +356,7 @@ public class CadastroAlunos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botãoCadastro;
-    private javax.swing.JButton botãoSairTotal;
+    private javax.swing.JButton botãoFecharTotal;
     private javax.swing.JButton botãoSom;
     private javax.swing.JButton botãoVoltar;
     private javax.swing.JPanel cinzaEscuroPane;
