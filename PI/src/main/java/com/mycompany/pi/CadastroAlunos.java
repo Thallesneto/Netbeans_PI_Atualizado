@@ -275,11 +275,12 @@ public class CadastroAlunos extends javax.swing.JFrame {
             String email = colocarEmail.getText().trim();
             String senha = colocarSenha.getText().trim();
             
+            
             if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos");
                 return;
             }
-            if (!email.contains("@")){
+            if (!email.contains("@aluno.cps.sp.gov.br")){
                 JOptionPane.showMessageDialog(null, "Coloque um email válido");
                 return;
             }

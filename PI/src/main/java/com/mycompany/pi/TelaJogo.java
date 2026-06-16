@@ -174,19 +174,14 @@ public class TelaJogo extends javax.swing.JFrame {
         resposta1.addActionListener(this::resposta1ActionPerformed);
 
         imagemPergunta.setText("IMAGEM PERGUNTA");
-        imagemPergunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         imagemResposta2.setText("IMAGEM 2");
-        imagemResposta2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         imagemResposta1.setText("IMAGEM 1");
-        imagemResposta1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         imagemResposta3.setText("IMAGEM 3");
-        imagemResposta3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         imagemResposta4.setText("IMAGEM 4");
-        imagemResposta4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         numeroPergunta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         numeroPergunta.setText(" X");
@@ -512,7 +507,7 @@ public class TelaJogo extends javax.swing.JFrame {
             mostrarImagemNoLabel(perguntaAtual.imagemPath, imagemPergunta);
         } else {
             imagemPergunta.setIcon(null);
-            imagemPergunta.setText("IMAGEM PERGUNTA");
+            imagemPergunta.setText("");
         }
 
         if (perguntaAtual.alternativas.size() < 4) {

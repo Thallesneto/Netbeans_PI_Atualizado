@@ -285,6 +285,11 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
         String nome = colocarUsuário.getText().trim();
         String senha = colocarSenha.getText().trim();
         
+        if (!email.contains("@aluno.cps.sp.gov.br")){
+            JOptionPane.showMessageDialog(null, "Coloque um email válido");
+            return;
+        }
+        
         if(nome.isEmpty() || email.isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha usuário e senha");
             return;
