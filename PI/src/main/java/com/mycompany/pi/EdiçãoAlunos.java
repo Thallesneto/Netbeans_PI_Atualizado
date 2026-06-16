@@ -327,41 +327,17 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
 
     private void botãoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoExcluirActionPerformed
         // TODO add your handling code here:
-        int resposta = JOptionPane.showConfirmDialog(
-             null,
-             "Tem certeza que deseja excluit o aluno?",
-             "Confirmar exclusão",
-             JOptionPane.YES_NO_OPTION
-        );
-        if (resposta != JOptionPane.YES_OPTION){
-            return;
-        }
-        try{
-            ConnectionFactory c = new ConnectionFactory();
-            Connection conexao = c.obtemConexao();
-            
-            if(conexao == null){
-                JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
-                return;
-            }
-            
-            String sql = "DELETE FROM usuarios WHERE id_usuario = ? AND tipo_usuario = 'Aluno'";
-            
-            PreparedStatement ps = conexao.prepareStatement(sql);
-            ps.setInt(1, idAluno);
-            
-            ps.executeUpdate();
-            
-            JOptionPane.showMessageDialog(null, "Aluno excluído com sucesso!");
-            
-            conexao.close();
-            
-            TelaEscolhaAlunos tela = new TelaEscolhaAlunos();
-            tela.setVisible(true);
-            this.dispose();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Erro ao excluir aluno: " + e.getMessage());
-        }
+
+    int opcao = JOptionPane.showConfirmDialog(
+            this,
+            "Deseja excluir o aluno e todo o histórico de partidas?",
+            "Confirmar exclusão",
+            JOptionPane.YES_NO_OPTION
+    );
+
+    if (opcao == JOptionPane.YES_OPTION) {
+        excluirAluno();
+    }
     }//GEN-LAST:event_botãoExcluirActionPerformed
 
     private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
@@ -372,6 +348,7 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
 
     private void botãoFecharTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoFecharTotalActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_botãoFecharTotalActionPerformed
     private void carregarDadosAlunos(){
         try {
@@ -403,6 +380,85 @@ public class EdiçãoAlunos extends javax.swing.JFrame {
 
         }
     }
+    
+    private void excluirAluno() {
+
+    Connection conexao = null;
+
+    try {
+        ConnectionFactory c = new ConnectionFactory();
+        conexao = c.obtemConexao();
+
+        conexao.setAutoCommit(false);
+
+        String sqlRespostas = """
+            DELETE rp
+            FROM respostas_partida rp
+            INNER JOIN partidas p
+                ON rp.id_partida = p.id_partida
+            WHERE p.id_aluno = ?
+        """;
+
+        PreparedStatement psRespostas =
+                conexao.prepareStatement(sqlRespostas);
+
+        psRespostas.setInt(1, idAluno);
+        psRespostas.executeUpdate();
+
+
+        String sqlPartidas =
+                "DELETE FROM partidas WHERE id_aluno = ?";
+
+        PreparedStatement psPartidas =
+                conexao.prepareStatement(sqlPartidas);
+
+        psPartidas.setInt(1, idAluno);
+        psPartidas.executeUpdate();
+
+
+        String sqlUsuario =
+                "DELETE FROM usuarios WHERE id_usuario = ?";
+
+        PreparedStatement psUsuario =
+                conexao.prepareStatement(sqlUsuario);
+
+        psUsuario.setInt(1, idAluno);
+        psUsuario.executeUpdate();
+
+
+        conexao.commit();
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Aluno excluído com sucesso."
+        );
+
+    } catch (Exception e) {
+
+        try {
+            if (conexao != null) {
+                conexao.rollback();
+            }
+        } catch (Exception erroRollback) {
+            erroRollback.printStackTrace();
+        }
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Erro ao excluir aluno: " + e.getMessage()
+        );
+
+    } finally {
+
+        try {
+            if (conexao != null) {
+                conexao.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
     /**
      * @param args the command line arguments
      */

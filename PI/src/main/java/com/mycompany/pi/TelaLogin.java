@@ -73,7 +73,7 @@ public class TelaLogin extends javax.swing.JFrame {
         mauaCinzaPane.setBackground(new java.awt.Color(74, 85, 92));
         mauaCinzaPane.setVerifyInputWhenFocusTarget(false);
 
-        mauaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MAUA.png"))); // NOI18N
+        mauaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo-IMT.png"))); // NOI18N
 
         javax.swing.GroupLayout mauaCinzaPaneLayout = new javax.swing.GroupLayout(mauaCinzaPane);
         mauaCinzaPane.setLayout(mauaCinzaPaneLayout);
@@ -93,6 +93,7 @@ public class TelaLogin extends javax.swing.JFrame {
         );
 
         botãoFecharTotal.setText("X");
+        botãoFecharTotal.addActionListener(this::botãoFecharTotalActionPerformed);
 
         javax.swing.GroupLayout mauaVermelhoPaneLayout = new javax.swing.GroupLayout(mauaVermelhoPane);
         mauaVermelhoPane.setLayout(mauaVermelhoPaneLayout);
@@ -204,7 +205,9 @@ public class TelaLogin extends javax.swing.JFrame {
                                         .addComponent(senhaPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
                                         .addComponent(emailField, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addComponent(mostrarSenhaBox)
-                                    .addComponent(TermosBox, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(cinzaPaneLayout.createSequentialGroup()
+                                        .addGap(139, 139, 139)
+                                        .addComponent(TermosBox, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(462, 462, 462))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                                 .addComponent(entrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -431,6 +434,11 @@ Equipe responsável pelo desenvolvimento do projeto.
             TelaSom telaSom = new TelaSom(this);
             telaSom.setVisible(true);
     }//GEN-LAST:event_SomButtonActionPerformed
+
+    private void botãoFecharTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoFecharTotalActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botãoFecharTotalActionPerformed
 
     /**
      * @param args the command line arguments

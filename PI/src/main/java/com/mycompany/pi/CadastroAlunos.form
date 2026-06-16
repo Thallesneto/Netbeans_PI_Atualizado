@@ -137,6 +137,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="X"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bot&#xe3;oSairTotalActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

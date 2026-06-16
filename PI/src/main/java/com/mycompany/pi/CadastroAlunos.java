@@ -76,6 +76,7 @@ public class CadastroAlunos extends javax.swing.JFrame {
         );
 
         botãoSairTotal.setText("X");
+        botãoSairTotal.addActionListener(this::botãoSairTotalActionPerformed);
 
         javax.swing.GroupLayout vermelhoPane1Layout = new javax.swing.GroupLayout(vermelhoPane1);
         vermelhoPane1.setLayout(vermelhoPane1Layout);
@@ -321,6 +322,11 @@ public class CadastroAlunos extends javax.swing.JFrame {
         TelaSom telaSom = new TelaSom(this);
         telaSom.setVisible(true);
     }//GEN-LAST:event_botãoSomActionPerformed
+
+    private void botãoSairTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSairTotalActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botãoSairTotalActionPerformed
     
     /**
      * @param args the command line arguments

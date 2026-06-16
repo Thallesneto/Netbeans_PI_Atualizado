@@ -124,6 +124,7 @@ public class TelaRanking extends javax.swing.JFrame {
         );
 
         botãoFecharTotal.setText("X");
+        botãoFecharTotal.addActionListener(this::botãoFecharTotalActionPerformed);
 
         javax.swing.GroupLayout vermelhoPane1Layout = new javax.swing.GroupLayout(vermelhoPane1);
         vermelhoPane1.setLayout(vermelhoPane1Layout);
@@ -217,8 +218,7 @@ public class TelaRanking extends javax.swing.JFrame {
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botãoSom, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
+                        .addComponent(botãoSom, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(cinzaPaneLayout.createSequentialGroup()
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(cinzaPaneLayout.createSequentialGroup()
@@ -227,7 +227,8 @@ public class TelaRanking extends javax.swing.JFrame {
                             .addGroup(cinzaPaneLayout.createSequentialGroup()
                                 .addGap(602, 602, 602)
                                 .addComponent(botãoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)))
+                        .addGap(0, 148, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
                 .addComponent(vermelhoPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         cinzaPaneLayout.setVerticalGroup(
@@ -270,6 +271,11 @@ public class TelaRanking extends javax.swing.JFrame {
         tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botãoVoltarActionPerformed
+
+    private void botãoFecharTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoFecharTotalActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botãoFecharTotalActionPerformed
 
     /**
      * @param args the command line arguments

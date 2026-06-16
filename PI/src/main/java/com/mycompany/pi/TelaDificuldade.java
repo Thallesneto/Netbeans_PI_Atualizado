@@ -73,6 +73,7 @@ public class TelaDificuldade extends javax.swing.JFrame {
         );
 
         botãoFecharTotal.setText("X");
+        botãoFecharTotal.addActionListener(this::botãoFecharTotalActionPerformed);
 
         javax.swing.GroupLayout vermelhoPane1Layout = new javax.swing.GroupLayout(vermelhoPane1);
         vermelhoPane1.setLayout(vermelhoPane1Layout);
@@ -263,6 +264,11 @@ public class TelaDificuldade extends javax.swing.JFrame {
         TelaSom telaSom = new TelaSom(this);
         telaSom.setVisible(true);
     }//GEN-LAST:event_SomButtonActionPerformed
+
+    private void botãoFecharTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoFecharTotalActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botãoFecharTotalActionPerformed
 
     /**
      * @param args the command line arguments
