@@ -33,7 +33,7 @@ public class TelaJogo extends javax.swing.JFrame {
     private int idPartida;
     
     private boolean usouDicaNaPergunta = false;
-
+    private boolean jaUsouPulo = false;
     /**
      * Creates new form TelaDificuldade
      */
@@ -263,7 +263,7 @@ public class TelaJogo extends javax.swing.JFrame {
                         .addComponent(botãoSom, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(292, 292, 292)
                         .addComponent(avancarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botãoDica, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(botãoPular, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,15 +282,17 @@ public class TelaJogo extends javax.swing.JFrame {
                         .addComponent(variavelPontos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cinzaPaneLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(cinzaPaneLayout.createSequentialGroup()
-                                .addContainerGap()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(imagemPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cinzaPaneLayout.createSequentialGroup()
                                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(nomePERGUNTA)
                                     .addComponent(numeroPergunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(99, 99, 99)
-                                .addComponent(títuloPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(imagemPergunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(títuloPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(32, 32, 32)))
                 .addGroup(cinzaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(imagemResposta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -388,13 +390,70 @@ public class TelaJogo extends javax.swing.JFrame {
     }//GEN-LAST:event_botãoDicaActionPerformed
 
     private void botãoPularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoPularActionPerformed
-        // TODO add your handling code here:
-            indicePerguntaAtual++;
-            usouDicaNaPergunta = false;
-            mostrarPerguntaAtual();
-            
-    }//GEN-LAST:event_botãoPularActionPerformed
+        // TODO add your handling code here: 
+        if (jaUsouPulo) {
+           JOptionPane.showMessageDialog(null, "Você já usou o pulo nesta partida.");
+           return;
+    }
 
+        jaUsouPulo = true;
+
+        // Salva a pergunta pulada como erro
+        salvarPuloComoErro();
+
+        indicePerguntaAtual++;
+        usouDicaNaPergunta = false;
+
+        botãoPular.setEnabled(false);
+    
+    mostrarPerguntaAtual();       
+    }//GEN-LAST:event_botãoPularActionPerformed
+    private void salvarPuloComoErro() {
+    try {
+        ConnectionFactory c = new ConnectionFactory();
+        Connection conexao = c.obtemConexao();
+
+        if (conexao == null) {
+            JOptionPane.showMessageDialog(null, "Falha na conexão com o banco.");
+            return;
+        }
+
+        AlternativaJogo alternativaErrada = null;
+
+        for (AlternativaJogo alt : perguntaAtual.alternativas) {
+            if (!alt.correta) {
+                alternativaErrada = alt;
+                break;
+            }
+        }
+
+        if (alternativaErrada == null) {
+            JOptionPane.showMessageDialog(null, "Erro: não foi encontrada alternativa errada para registrar o pulo.");
+            conexao.close();
+            return;
+        }
+
+        String sql = "INSERT INTO respostas_partida "
+                + "(id_partida, id_pergunta, id_alternativa, acertou, usou_dica, pontos_obtidos) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
+
+        PreparedStatement ps = conexao.prepareStatement(sql);
+
+        ps.setInt(1, idPartida);
+        ps.setInt(2, perguntaAtual.idPergunta);
+        ps.setInt(3, alternativaErrada.idAlternativa);
+        ps.setBoolean(4, false);
+        ps.setBoolean(5, usouDicaNaPergunta);
+        ps.setInt(6, 0);
+
+        ps.executeUpdate();
+
+        conexao.close();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Erro ao salvar pulo: " + e.getMessage());
+    }
+}
     private void botãoSomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoSomActionPerformed
         // TODO add your handling code here:
         TelaSom telaSom = new TelaSom(this);

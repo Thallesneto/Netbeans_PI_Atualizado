@@ -98,7 +98,7 @@
                           <Component id="botãoSom" min="-2" pref="206" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
                           <Component id="avancarButton" min="-2" pref="206" max="-2" attributes="0"/>
-                          <EmptySpace pref="315" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="botãoDica" min="-2" pref="206" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="botãoPular" min="-2" pref="206" max="-2" attributes="0"/>
@@ -122,9 +122,13 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="imagemPergunta" min="-2" pref="275" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="nomePERGUNTA" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="numeroPergunta" alignment="3" max="32767" attributes="0"/>
@@ -132,7 +136,6 @@
                                   <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                                   <Component id="títuloPergunta" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="imagemPergunta" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>

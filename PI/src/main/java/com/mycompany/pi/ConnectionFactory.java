@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
     String usuario = "root";
-    String senha = "Ufc@1062001";
+    String senha = "Tataneto2705";
     String host = "localhost";
     String porta = "3306";
     String bd = "jogo_quimica_etec";
